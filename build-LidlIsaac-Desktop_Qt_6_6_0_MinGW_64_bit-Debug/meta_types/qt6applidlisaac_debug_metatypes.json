@@ -1,0 +1,100 @@
+[
+    {
+        "classes": [
+            {
+                "className": "Player",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "direction",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "value",
+                                "type": "uint"
+                            }
+                        ],
+                        "name": "movePlayer",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "positionX",
+                        "notify": "positionXChanged",
+                        "read": "getXPosition",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "uint",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "positionY",
+                        "notify": "positionYChanged",
+                        "read": "getYPosition",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "uint",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "Player",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "positionChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "positionXChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "positionYChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "player.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "Position",
+                "object": true,
+                "qualifiedClassName": "Position",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "position.h",
+        "outputRevision": 68
+    }
+]

@@ -1,0 +1,17 @@
+{
+    "classes": [
+        {
+            "className": "Position",
+            "object": true,
+            "qualifiedClassName": "Position",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "position.h",
+    "outputRevision": 68
+}
