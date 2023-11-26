@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Player.qml</file>
+        <file>Map.qml</file>
+        <file>images/flor.jpg</file>
+        <file>images/player.png</file>
+        <file>images/playerRight.png</file>
+    </qresource>
+</RCC>
