@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
     Player* player=new Player();
     context->setContextProperty("player", player);
 
-
     Enemy* enemy = Enemy::getEnemy(1, 80, 50);
     Zombie* zm = dynamic_cast<Zombie*>(enemy);
     std::cout << "x:"<<zm->getEnemyPosX() << std::endl;

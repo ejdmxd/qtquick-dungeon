@@ -5,11 +5,8 @@
 
 class Zombie : public Enemy
 {
-    Q_OBJECT
     Q_PROPERTY(int str READ getAttack NOTIFY strChanged)
     Q_PROPERTY(int health READ getHealth NOTIFY healthChanged)
-    Q_PROPERTY(unsigned int enemyX READ getEnemyPosX)
-    Q_PROPERTY(unsigned int enemyY READ getEnemyPosY)
 
 protected:
     int m_str;
@@ -24,6 +21,7 @@ public:
 signals:
     void strChanged();
     void healthChanged();
+    void NIC();
 
 };
 

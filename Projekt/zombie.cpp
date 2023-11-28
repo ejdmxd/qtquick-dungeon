@@ -1,5 +1,4 @@
 #include "zombie.h"
-#include "moc_zombie.cpp"
 
 Zombie::Zombie(QObject *parent) : Enemy(parent), m_str(0), m_health(100) {
     // Případné inicializace

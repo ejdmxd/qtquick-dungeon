@@ -4,9 +4,13 @@
 #include <QObject>
 #include "position.h"
 
+class Zombie;
+
 class Enemy : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(unsigned int enemyX READ getEnemyPosX CONSTANT)
+    Q_PROPERTY(unsigned int enemyY READ getEnemyPosY CONSTANT)
 protected:
     Position* m_enemyPos = new Position;
     Enemy(int x, int y);
