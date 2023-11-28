@@ -15,11 +15,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     armor.cpp \
+    enemy.cpp \
     gun.cpp \
     items.cpp \
             main.cpp \
         player.cpp \
-        position.cpp
+        position.cpp \
+    zombie.cpp
 
 
 RESOURCES += Qml.qrc
@@ -38,10 +40,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     armor.h \
+    enemy.h \
     gun.h \
     items.h \
     player.h \
-    position.h
+    position.h \
+    zombie.h
 
 RESOURCES += \
     Qml.qrc

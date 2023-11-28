@@ -1,0 +1,13 @@
+debug/armor.o
+debug/enemy.o
+debug/gun.o
+debug/items.o
+debug/main.o
+debug/player.o
+debug/position.o
+debug/zombie.o
+debug/qrc_Qml.o
+debug/moc_enemy.o
+debug/moc_items.o
+debug/moc_player.o
+debug/moc_position.o

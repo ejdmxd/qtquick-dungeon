@@ -1,0 +1,13 @@
+release/armor.o
+release/enemy.o
+release/gun.o
+release/items.o
+release/main.o
+release/player.o
+release/position.o
+release/zombie.o
+release/qrc_Qml.o
+release/moc_enemy.o
+release/moc_items.o
+release/moc_player.o
+release/moc_position.o

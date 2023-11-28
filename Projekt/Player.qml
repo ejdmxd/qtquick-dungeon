@@ -46,7 +46,6 @@ Image {
     Keys.onPressed: {
         if (event.key === Qt.Key_W) {
             player.movePlayer("up", 10);
-            console.log("W!");
         } else if (event.key === Qt.Key_S) {
             player.movePlayer("down", 10);
         } else if (event.key === Qt.Key_A) {
