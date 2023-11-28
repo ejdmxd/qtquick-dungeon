@@ -16,7 +16,6 @@ public:
     virtual int getAttack() = 0;
     virtual void attackPlayer() = 0;
     static Enemy* getEnemy(int type, int x, int y);
-    virtual ~Enemy(){};
     int getEnemyPosX() const;
     int getEnemyPosY() const;
     void chasePlayer(int playerPosX, int playerPosY);

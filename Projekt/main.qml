@@ -14,4 +14,15 @@ Window {
         x: player.positionX
         y: player.positionY
     }
+
+    Zombie{
+        x: zombie.enemyX
+        y: zombie.enemyY
+        Component.onCompleted: {
+                console.log("Zombie position:", x, y);
+            }
+
+    }
+
+
 }
