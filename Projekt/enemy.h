@@ -4,7 +4,6 @@
 #include <QObject>
 #include "position.h"
 
-class Zombie;
 
 class Enemy : public QObject
 {
@@ -16,10 +15,8 @@ protected:
     Enemy(int x, int y);
 public:
     explicit Enemy(QObject *parent = nullptr);
-
     virtual int getAttack() = 0;
     virtual void attackPlayer() = 0;
-    static Enemy* getEnemy(int type, int x, int y);
     int getEnemyPosX() const;
     int getEnemyPosY() const;
     void chasePlayer(int playerPosX, int playerPosY);

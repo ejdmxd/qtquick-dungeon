@@ -22,12 +22,4 @@ void Enemy::chasePlayer(int playerPosX, int playerPosY) {
     // todo
 }
 
-Enemy* Enemy::getEnemy(int type, int x, int y) {
-    switch (type) {
-    case 1:
-        return new Zombie(50,150, x ,y);
-        break;
 
-    }
-    return nullptr; // Dočasně vrací nullptr, opravte podle potřeby
-}

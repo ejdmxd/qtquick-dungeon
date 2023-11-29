@@ -22,5 +22,10 @@ Rectangle {
             itemIndex: index
         }
     }
-
+    Repeater {
+        model: map.room.enemies
+        Enemy {
+            enemyIndex: index
+        }
+    }
 }

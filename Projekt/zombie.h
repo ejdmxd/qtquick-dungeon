@@ -18,10 +18,10 @@ public:
     int getAttack();
     int getHealth() const;
     void attackPlayer();
+
 signals:
     void strChanged();
     void healthChanged();
-    void NIC();
 
 };
 
