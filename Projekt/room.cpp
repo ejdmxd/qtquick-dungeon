@@ -16,14 +16,11 @@ void Room::setMap(){
 Q_INVOKABLE void Room::setItems()
 {
     int prem=generateRandomNumber(0,3);
-    std::cout<<"skuska premennej prem "<<prem<<std::endl;
     for (int i=0;i<prem;i++){
         int number=generateRandomNumber(0,1);
-        std::cout<<"Randomne cislo "<< number<<" Som tu"<<std::endl;
         if (number)
-        {
             m_items.push_back(new Armor(10,10,generateRandomNumber(1,600),generateRandomNumber(1,600)));
-        }
+
         else
             m_items.push_back(new Gun(10,10,generateRandomNumber(1,600),generateRandomNumber(1,600)));
     }
