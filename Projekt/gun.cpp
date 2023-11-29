@@ -1,6 +1,6 @@
 #include "gun.h"
 
-Gun::Gun(unsigned int strenght, unsigned int demage):Items(strenght,demage)
+Gun::Gun(int strenght,int demage, int xPosition,int yPosition):Items(strenght, demage,xPosition,yPosition)
 {
     m_bullets=50;
 }
@@ -20,3 +20,4 @@ unsigned int Gun::getBullets(){
 void Gun::shotBullet(){
     m_bullets-=1;
 }
+

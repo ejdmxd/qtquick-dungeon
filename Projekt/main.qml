@@ -23,6 +23,15 @@ Window {
             }
 
     }
+        //room.printMap()
+    Repeater{
+            model:room.items
+            Gun {
+
+                itemIndex: index
+            }
+
+        }
 
 
 }

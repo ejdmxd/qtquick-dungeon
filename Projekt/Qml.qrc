@@ -9,5 +9,7 @@
         <file>Zombie.qml</file>
         <file>images/zombie.png</file>
         <file>images/zombieLeft.png</file>
+        <file>Gun.qml</file>
+        <file>images/gun.png</file>
     </qresource>
 </RCC>

@@ -7,7 +7,7 @@ class Gun:public Items
 private:
     unsigned int m_bullets;
 public:
-    Gun(unsigned int strenght, unsigned int demage);
+    Gun(int strenght,int demage, int xPosition, int yPosition);
     void setStrenght();
     unsigned int getBullets();
     void shotBullet();

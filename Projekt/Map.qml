@@ -16,5 +16,11 @@ Rectangle {
             }
         }
     }
+    Repeater {
+        model: room.items
+        Gun {
+            itemIndex: index
+        }
+    }
 
 }

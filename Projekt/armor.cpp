@@ -1,6 +1,6 @@
 #include "armor.h"
 
-Armor::Armor(unsigned int strenght, unsigned int demage):Items(strenght, demage)
+Armor::Armor(int strenght,int demage,int xPosition, int yPosition):Items(strenght, demage,xPosition,yPosition)
 {
 
 }
@@ -9,5 +9,3 @@ void Armor::setDemage(unsigned int newDemage)
 {
     m_demage=newDemage;
 }
-
-

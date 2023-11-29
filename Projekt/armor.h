@@ -5,7 +5,7 @@
 class Armor:public Items
 {
 public:
-    Armor(unsigned int strenght, unsigned int demage);
+    Armor(int strenght,int demage,int xPosition, int yPosition);
     void setDemage(unsigned int newDemage);
 };
 
