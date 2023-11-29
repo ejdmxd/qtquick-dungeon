@@ -41,18 +41,18 @@ Image {
     width: 100
     height: 100
     source: "images/player.png"
-    rotation: player.rotationAngle
+    rotation: map.player.rotationAngle
 
     Keys.onPressed: {
         if (event.key === Qt.Key_W) {
-            player.movePlayer("up", 10);
+            map.player.movePlayer("up", 10);
         } else if (event.key === Qt.Key_S) {
-            player.movePlayer("down", 10);
+            map.player.movePlayer("down", 10);
         } else if (event.key === Qt.Key_A) {
-            player.movePlayer("left", 10);
+            map.player.movePlayer("left", 10);
             boy.source="images/player.png";
         } else if (event.key === Qt.Key_D) {
-            player.movePlayer("right", 10);
+            map.player.movePlayer("right", 10);
             boy.source="images/playerRight.png";
         }
     }

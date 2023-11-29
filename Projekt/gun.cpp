@@ -3,6 +3,7 @@
 Gun::Gun(int strenght,int demage, int xPosition,int yPosition):Items(strenght, demage,xPosition,yPosition)
 {
     m_bullets=50;
+    m_name="Gun";
 }
 
 

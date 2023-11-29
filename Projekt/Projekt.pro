@@ -19,6 +19,7 @@ SOURCES += \
     gun.cpp \
     items.cpp \
             main.cpp \
+    map.cpp \
         player.cpp \
         position.cpp \
     room.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     enemy.h \
     gun.h \
     items.h \
+    map.h \
     player.h \
     position.h \
     room.h \

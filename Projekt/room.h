@@ -2,12 +2,13 @@
 #define ROOM_H
 
 #include <QObject>
-#include "items.h"
 #include <vector>
 #include <iostream>
 #include <cstdlib>
 #include <QVariant>
 #include <random>
+#include "gun.h"
+#include "armor.h"
 class Room:public QObject
 {
     Q_OBJECT
@@ -23,7 +24,7 @@ public:
     Q_INVOKABLE void setItems();
     void setWidth(int nieco);
     QVariant getItems();
-    int generateRandomNumber();
+    int generateRandomNumber(int range1, int range2);
 signals:
     void itemsCrafted();
 };

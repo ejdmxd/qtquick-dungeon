@@ -11,5 +11,6 @@
         <file>images/zombieLeft.png</file>
         <file>Gun.qml</file>
         <file>images/gun.png</file>
+        <file>images/armor.png</file>
     </qresource>
 </RCC>

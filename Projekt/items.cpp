@@ -10,8 +10,7 @@ Items::Items(int strenght, int demage,int xPosition,int yPosition){
     position=new Position();
     position->setXValue(xPosition);
     position->setYValue(yPosition);
-    m_xPosition=position->getXValue();
-    m_yPosition=position->getYValue();
+
 }
 
 unsigned int Items::getDemage(){
@@ -27,10 +26,10 @@ QString Items::getName(){
 }
 
 int Items::getPositionX(){
-    return m_xPosition;
+    return position->getXValue();
 }
 
 int Items::getPositionY(){
-    return m_yPosition;
+    return position->getYValue();
 }
 

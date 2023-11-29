@@ -11,13 +11,13 @@ Rectangle {
             Image {
                 width:parent.width/10
                 height:parent.width/10
-                id: map
+                id: ine
                 source: "images/flor.jpg"
             }
         }
     }
     Repeater {
-        model: room.items
+        model: map.room.items
         Gun {
             itemIndex: index
         }
