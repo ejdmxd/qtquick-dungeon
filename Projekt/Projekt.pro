@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     armor.cpp \
+    distancemanager.cpp \
     enemy.cpp \
     enemydirector.cpp \
     gun.cpp \
@@ -43,6 +44,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     armor.h \
+    distancemanager.h \
     enemy.h \
     enemydirector.h \
     gun.h \

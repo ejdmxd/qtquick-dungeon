@@ -5,6 +5,7 @@
 #include "position.h"
 #include <iostream>
 #include <cmath>
+#include "distancemanager.h"
 
 
 class Enemy : public QObject
@@ -15,15 +16,21 @@ class Enemy : public QObject
 protected:
     Position* m_enemyPos = new Position;
     Enemy(int x, int y);
+    DistanceManager* m_distanceMgr = new DistanceManager;
 public:
     explicit Enemy(QObject *parent = nullptr);
     virtual int getAttack() = 0;
     virtual void attackPlayer() = 0;
     int getEnemyPosX() const;
     int getEnemyPosY() const;
-    Q_INVOKABLE void chasePlayer(float playerPosX, float playerPosY);
+    Q_INVOKABLE void findPlayer(float playerPosX, float playerPosY);
+    bool isPlayerNearby(float distance);
+    void chasePlayer(float angle);
+    void moveEnemy(float x, float y = 0);
 signals:
     void positionChanged();
+private:
+    void moveLeft();
 };
 
 #endif // ENEMY_H

@@ -14,7 +14,7 @@ Image {
         running: true
         repeat: true
         onTriggered: {
-            map.room.enemies[enemyIndex].chasePlayer(map.player.positionX, map.player.positionY);
+            map.room.enemies[enemyIndex].findPlayer(map.player.positionX, map.player.positionY);
         }
     }
 

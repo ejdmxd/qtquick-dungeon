@@ -18,32 +18,50 @@ int Enemy::getEnemyPosY() const {
     return m_enemyPos->getYValue();
 }
 
-void Enemy::chasePlayer(float playerPosX, float playerPosY) {
-    float distance = std::sqrt(std::pow(getEnemyPosX() - playerPosX, 2) + std::pow(getEnemyPosY() - playerPosY, 2));
-    float angle_rad = std::atan2(getEnemyPosY() - playerPosY, getEnemyPosX() - playerPosX);
-    float angle_deg = angle_rad * 180 / M_PI;
-    std::cout << angle_deg << std::endl;
-    if(angle_deg==0){
-        m_enemyPos->setXValue(-10);
-    }else if(angle_deg>0 && angle_deg<90){
-        m_enemyPos->setXValue(-10);
-        m_enemyPos->setYValue(-10);
-    }else if(angle_deg==90){
-        m_enemyPos->setYValue(-10);
-    }else if(angle_deg>90 && angle_deg<180){
-        m_enemyPos->setXValue(+10);
-        m_enemyPos->setYValue(-10);
-    }else if(angle_deg==180){
-        m_enemyPos->setXValue(+10);
-    }else if(angle_deg>=-180 && angle_deg <-90){
-        m_enemyPos->setXValue(+10);
-        m_enemyPos->setYValue(+10);
-    }else if(angle_deg==-90){
-        m_enemyPos->setYValue(+10);
-    }else if(angle_deg>-90 && angle_deg<0){
-        m_enemyPos->setXValue(-10);
-        m_enemyPos->setYValue(+10);
+void Enemy::findPlayer(float playerPosX, float playerPosY) {
+    float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
+    float angle_rad  = m_distanceMgr->calculateRadials(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
+    float angle_deg = m_distanceMgr->calculateDegrees(angle_rad);
+    //std::cout << angle_deg << std::endl; Overeni uhlu
+    if(isPlayerNearby(distance)){ //Overeni jak je hrac daleko
+        chasePlayer(angle_deg);
+        emit positionChanged();
     }
-    emit positionChanged();
+}
+
+
+bool Enemy::isPlayerNearby(float distance){
+    if(distance < 250){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+void Enemy::chasePlayer(float angle){
+    if(angle==0){
+        m_enemyPos->setXValue(-10);
+        moveEnemy(-10);
+    }else if(angle>0 && angle<90){
+        moveEnemy(-10,-10);
+    }else if(angle==90){
+        moveEnemy(10,-10);
+    }else if(angle>90 && angle<180){
+        moveEnemy(10,-10);
+    }else if(angle==180){
+        moveEnemy(10);
+    }else if(angle>=-180 && angle <-90){
+        moveEnemy(10, 10);
+    }else if(angle==-90){
+        moveEnemy(0, 10);
+    }else if(angle>-90 && angle<0){
+        moveEnemy(-10, 10);
+    }
+}
+
+void Enemy::moveEnemy(float x, float y){
+    m_enemyPos->setXValue(x);
+    m_enemyPos->setYValue(y);
 }
 

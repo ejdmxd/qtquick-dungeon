@@ -41,7 +41,7 @@ static constexpr auto qt_meta_stringdata_CLASSEnemyENDCLASS = QtMocHelpers::stri
     "Enemy",
     "positionChanged",
     "",
-    "chasePlayer",
+    "findPlayer",
     "playerPosX",
     "playerPosY",
     "enemyX",
@@ -53,7 +53,7 @@ struct qt_meta_stringdata_CLASSEnemyENDCLASS_t {
     char stringdata0[6];
     char stringdata1[16];
     char stringdata2[1];
-    char stringdata3[12];
+    char stringdata3[11];
     char stringdata4[11];
     char stringdata5[11];
     char stringdata6[7];
@@ -66,16 +66,16 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSEnemyENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(0, 5),  // "Enemy"
         QT_MOC_LITERAL(6, 15),  // "positionChanged"
         QT_MOC_LITERAL(22, 0),  // ""
-        QT_MOC_LITERAL(23, 11),  // "chasePlayer"
-        QT_MOC_LITERAL(35, 10),  // "playerPosX"
-        QT_MOC_LITERAL(46, 10),  // "playerPosY"
-        QT_MOC_LITERAL(57, 6),  // "enemyX"
-        QT_MOC_LITERAL(64, 6)   // "enemyY"
+        QT_MOC_LITERAL(23, 10),  // "findPlayer"
+        QT_MOC_LITERAL(34, 10),  // "playerPosX"
+        QT_MOC_LITERAL(45, 10),  // "playerPosY"
+        QT_MOC_LITERAL(56, 6),  // "enemyX"
+        QT_MOC_LITERAL(63, 6)   // "enemyY"
     },
     "Enemy",
     "positionChanged",
     "",
-    "chasePlayer",
+    "findPlayer",
     "playerPosX",
     "playerPosY",
     "enemyX",
@@ -132,7 +132,7 @@ Q_CONSTINIT const QMetaObject Enemy::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<Enemy, std::true_type>,
         // method 'positionChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'chasePlayer'
+        // method 'findPlayer'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<float, std::false_type>,
         QtPrivate::TypeAndForceComplete<float, std::false_type>
@@ -147,7 +147,7 @@ void Enemy::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         (void)_t;
         switch (_id) {
         case 0: _t->positionChanged(); break;
-        case 1: _t->chasePlayer((*reinterpret_cast< std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[2]))); break;
+        case 1: _t->findPlayer((*reinterpret_cast< std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
