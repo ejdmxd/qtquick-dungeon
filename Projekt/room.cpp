@@ -18,7 +18,7 @@ Q_INVOKABLE void Room::setItems()
 {
     int prem=generateRandomNumber(0,3);
     for (int i=0;i<prem;i++){
-        int number=generateRandomNumber(0,4);
+        int number=generateRandomNumber(0,1);
         if (number)
             m_items.push_back(new Armor(10,10,generateRandomNumber(1,600),generateRandomNumber(1,600)));
         else
@@ -29,7 +29,7 @@ Q_INVOKABLE void Room::setItems()
 }
 
 Q_INVOKABLE void Room::setEnemies(){
-    int prem = generateRandomNumber(0,1);
+    int prem = generateRandomNumber(1,4);
     EnemyDirector* generujem = new EnemyDirector;
     for (int i=0;i<prem;i++){
         int number= 1;//generateRandomNumber(0,1);
