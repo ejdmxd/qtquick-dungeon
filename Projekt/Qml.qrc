@@ -15,5 +15,8 @@
         <file>Enemy.qml</file>
         <file>StartMenu.qml</file>
         <file>Game.qml</file>
+        <file>Skeleton.qml</file>
+        <file>images/skeleton.png</file>
+        <file>images/skeletonright.png</file>
     </qresource>
 </RCC>

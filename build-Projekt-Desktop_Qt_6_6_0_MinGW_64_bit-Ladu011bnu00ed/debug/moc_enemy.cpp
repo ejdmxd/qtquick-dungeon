@@ -47,11 +47,12 @@ static constexpr auto qt_meta_stringdata_CLASSEnemyENDCLASS = QtMocHelpers::stri
     "playerPosY",
     "enemyX",
     "enemyY",
+    "enemyType",
     "enemyRotation"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSEnemyENDCLASS_t {
-    uint offsetsAndSizes[20];
+    uint offsetsAndSizes[22];
     char stringdata0[6];
     char stringdata1[16];
     char stringdata2[1];
@@ -61,7 +62,8 @@ struct qt_meta_stringdata_CLASSEnemyENDCLASS_t {
     char stringdata6[11];
     char stringdata7[7];
     char stringdata8[7];
-    char stringdata9[14];
+    char stringdata9[10];
+    char stringdata10[14];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSEnemyENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -76,7 +78,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSEnemyENDCLASS_t qt_meta_stringd
         QT_MOC_LITERAL(61, 10),  // "playerPosY"
         QT_MOC_LITERAL(72, 6),  // "enemyX"
         QT_MOC_LITERAL(79, 6),  // "enemyY"
-        QT_MOC_LITERAL(86, 13)   // "enemyRotation"
+        QT_MOC_LITERAL(86, 9),  // "enemyType"
+        QT_MOC_LITERAL(96, 13)   // "enemyRotation"
     },
     "Enemy",
     "positionChanged",
@@ -87,6 +90,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSEnemyENDCLASS_t qt_meta_stringd
     "playerPosY",
     "enemyX",
     "enemyY",
+    "enemyType",
     "enemyRotation"
 };
 #undef QT_MOC_LITERAL
@@ -100,18 +104,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSEnemyENDCLASS[] = {
        0,       // classname
        0,    0, // classinfo
        3,   14, // methods
-       3,   39, // properties
+       4,   39, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   32,    2, 0x06,    4 /* Public */,
-       3,    0,   33,    2, 0x06,    5 /* Public */,
+       1,    0,   32,    2, 0x06,    5 /* Public */,
+       3,    0,   33,    2, 0x06,    6 /* Public */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    2,   34,    2, 0x02,    6 /* Public */,
+       4,    2,   34,    2, 0x02,    7 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -123,7 +127,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSEnemyENDCLASS[] = {
  // properties: name, type, flags
        7, QMetaType::UInt, 0x00015001, uint(0), 0,
        8, QMetaType::UInt, 0x00015001, uint(0), 0,
-       9, QMetaType::Double, 0x00015001, uint(1), 0,
+       9, QMetaType::QString, 0x00015001, uint(-1), 0,
+      10, QMetaType::Double, 0x00015001, uint(1), 0,
 
        0        // eod
 };
@@ -139,6 +144,8 @@ Q_CONSTINIT const QMetaObject Enemy::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<uint, std::true_type>,
         // property 'enemyY'
         QtPrivate::TypeAndForceComplete<uint, std::true_type>,
+        // property 'enemyType'
+        QtPrivate::TypeAndForceComplete<QString, std::true_type>,
         // property 'enemyRotation'
         QtPrivate::TypeAndForceComplete<double, std::true_type>,
         // Q_OBJECT / Q_GADGET
@@ -189,7 +196,8 @@ void Enemy::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         switch (_id) {
         case 0: *reinterpret_cast< uint*>(_v) = _t->getEnemyPosX(); break;
         case 1: *reinterpret_cast< uint*>(_v) = _t->getEnemyPosY(); break;
-        case 2: *reinterpret_cast< double*>(_v) = _t->getEnemyRotation(); break;
+        case 2: *reinterpret_cast< QString*>(_v) = _t->getEnemyType(); break;
+        case 3: *reinterpret_cast< double*>(_v) = _t->getEnemyRotation(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -228,7 +236,7 @@ int Enemy::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

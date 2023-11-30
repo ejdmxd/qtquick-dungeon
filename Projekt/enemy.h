@@ -13,10 +13,11 @@ class Enemy : public QObject
     Q_OBJECT
     Q_PROPERTY(unsigned int enemyX READ getEnemyPosX NOTIFY positionChanged)
     Q_PROPERTY(unsigned int enemyY READ getEnemyPosY NOTIFY positionChanged)
+    Q_PROPERTY(QString enemyType READ getEnemyType)
     Q_PROPERTY(double enemyRotation READ getEnemyRotation NOTIFY rotationChanged)
 protected:
     Position* m_enemyPos = new Position;
-    Enemy(int x, int y);
+    Enemy(std::string type,int x, int y);
     DistanceManager* m_distanceMgr = new DistanceManager;
 public:
     explicit Enemy(QObject *parent = nullptr);
@@ -24,9 +25,11 @@ public:
     virtual void attackPlayer() = 0;
     int getEnemyPosX() const;
     int getEnemyPosY() const;
+    QString getEnemyType() const;
     double getEnemyRotation() const;
     Q_INVOKABLE void findPlayer(float playerPosX, float playerPosY);
 private:
+    std::string m_enemyType;
     bool isPlayerNearby(float distance);
     void chasePlayer(float angle);
     void moveEnemy(float x, float y = 0);

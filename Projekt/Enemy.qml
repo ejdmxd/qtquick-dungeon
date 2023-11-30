@@ -11,10 +11,6 @@ Item{
            origin.x: width / 2
            origin.y: height / 2
        }
-        Text{
-            text:"ok jedeto"
-            color:"white"
-        }
 
         Timer {
             interval: 200
@@ -27,7 +23,7 @@ Item{
 
 
         Image {
-            source: "images/zombie.png"
+            source: map.room.enemies[enemyIndex].enemyType === "skeleton" ? "images/skeletonright.png" : "images/zombie.png"
             visible: true
             width:parent.width
             height:parent.height

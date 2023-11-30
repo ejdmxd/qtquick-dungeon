@@ -13,8 +13,8 @@ protected:
     int m_health;
 
 public:
-    explicit Zombie(QObject *parent = nullptr);
-    Zombie(int str, int health, int x, int y);
+    //zbytecne explicit Zombie(QObject *parent = nullptr);
+    Zombie(int str, int health, std::string type, int x, int y);
     int getAttack();
     int getHealth() const;
     void attackPlayer();

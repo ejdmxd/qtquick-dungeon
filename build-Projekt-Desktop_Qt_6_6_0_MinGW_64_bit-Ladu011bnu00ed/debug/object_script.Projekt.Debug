@@ -9,6 +9,7 @@ debug/map.o
 debug/player.o
 debug/position.o
 debug/room.o
+debug/skeleton.o
 debug/zombie.o
 debug/qrc_Qml.o
 debug/moc_distancemanager.o

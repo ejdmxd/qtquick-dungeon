@@ -9,6 +9,7 @@ release/map.o
 release/player.o
 release/position.o
 release/room.o
+release/skeleton.o
 release/zombie.o
 release/qrc_Qml.o
 release/moc_distancemanager.o

@@ -25,6 +25,7 @@ SOURCES += \
         player.cpp \
         position.cpp \
     room.cpp \
+    skeleton.cpp \
     zombie.cpp
 
 
@@ -53,6 +54,7 @@ HEADERS += \
     player.h \
     position.h \
     room.h \
+    skeleton.h \
     zombie.h
 
 RESOURCES += \

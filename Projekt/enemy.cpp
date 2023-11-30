@@ -1,11 +1,11 @@
 #include "enemy.h"
-#include "zombie.h"
 
 Enemy::Enemy(QObject *parent) : QObject{parent}
 {
 }
 
-Enemy::Enemy(int x, int y) {
+Enemy::Enemy(std::string type,int x, int y) {
+    m_enemyType = type;
     m_enemyPos->setXValue(x);
     m_enemyPos->setYValue(y);
 }
@@ -17,6 +17,11 @@ int Enemy::getEnemyPosX() const {
 int Enemy::getEnemyPosY() const {
     return m_enemyPos->getYValue();
 }
+
+QString Enemy::getEnemyType() const {
+    return QString::fromStdString(m_enemyType);
+}
+
 
 double Enemy::getEnemyRotation() const {
     return m_enemyPos->getRotation();
