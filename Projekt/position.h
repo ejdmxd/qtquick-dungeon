@@ -9,14 +9,17 @@ class Position : public QObject
 private:
     unsigned int m_xValue = 0;
     unsigned int m_yValue = 0;
+    double m_rotation = 1;
 public:
     explicit Position(QObject *parent = nullptr);
 
     unsigned int getXValue() const;
     unsigned int getYValue() const;
+    double getRotation() const;
 
     void setXValue(int newPosition);
     void setYValue(int newPosition);
+    void setRotation(double newRotation);
 
 signals:
 

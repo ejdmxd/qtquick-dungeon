@@ -13,6 +13,7 @@ class Enemy : public QObject
     Q_OBJECT
     Q_PROPERTY(unsigned int enemyX READ getEnemyPosX NOTIFY positionChanged)
     Q_PROPERTY(unsigned int enemyY READ getEnemyPosY NOTIFY positionChanged)
+    Q_PROPERTY(double enemyRotation READ getEnemyRotation NOTIFY rotationChanged)
 protected:
     Position* m_enemyPos = new Position;
     Enemy(int x, int y);
@@ -23,14 +24,16 @@ public:
     virtual void attackPlayer() = 0;
     int getEnemyPosX() const;
     int getEnemyPosY() const;
+    double getEnemyRotation() const;
     Q_INVOKABLE void findPlayer(float playerPosX, float playerPosY);
+private:
     bool isPlayerNearby(float distance);
     void chasePlayer(float angle);
     void moveEnemy(float x, float y = 0);
+    void setEnemyRotation(double newRotation);
 signals:
     void positionChanged();
-private:
-    void moveLeft();
+    void rotationChanged();
 };
 
 #endif // ENEMY_H

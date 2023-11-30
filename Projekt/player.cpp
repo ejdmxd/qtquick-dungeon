@@ -34,7 +34,7 @@ void Player::movePlayer(QString  direction, unsigned int value){
     emit positionYChanged();
 }
 
-void Player::setRotationAngle(double angle){
+/*void Player::setRotationAngle(double angle){
     if(angle != m_rotationAngle){
         m_rotationAngle = angle;
         emit rotationAngleChanged();
@@ -43,3 +43,4 @@ void Player::setRotationAngle(double angle){
 double Player::getRotationAngle() const {
     return m_rotationAngle;
 }
+*/

@@ -18,6 +18,10 @@ int Enemy::getEnemyPosY() const {
     return m_enemyPos->getYValue();
 }
 
+double Enemy::getEnemyRotation() const {
+    return m_enemyPos->getRotation();
+}
+
 void Enemy::findPlayer(float playerPosX, float playerPosY) {
     float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
     float angle_rad  = m_distanceMgr->calculateRadials(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
@@ -41,7 +45,6 @@ bool Enemy::isPlayerNearby(float distance){
 
 void Enemy::chasePlayer(float angle){
     if(angle==0){
-        m_enemyPos->setXValue(-10);
         moveEnemy(-10);
     }else if(angle>0 && angle<90){
         moveEnemy(-10,-10);
@@ -58,6 +61,13 @@ void Enemy::chasePlayer(float angle){
     }else if(angle>-90 && angle<0){
         moveEnemy(-10, 10);
     }
+    if(angle > 90 && angle < 180 || angle > -180 && angle < -90){
+        setEnemyRotation(1);
+        emit rotationChanged();
+    } else{
+        setEnemyRotation(-1);
+        emit rotationChanged();
+    }
 }
 
 void Enemy::moveEnemy(float x, float y){
@@ -65,3 +75,7 @@ void Enemy::moveEnemy(float x, float y){
     m_enemyPos->setYValue(y);
 }
 
+void Enemy::setEnemyRotation(double newRotation){
+    m_enemyPos->setRotation(newRotation);
+    emit
+}

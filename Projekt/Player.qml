@@ -41,7 +41,7 @@ Image {
     width: 100
     height: 100
     source: "images/player.png"
-    rotation: map.player.rotationAngle
+    //rotation: map.player.rotationAngle
 
     Keys.onPressed: {
         if (event.key === Qt.Key_W) {
