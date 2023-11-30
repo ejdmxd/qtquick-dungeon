@@ -12,4 +12,14 @@ Item {
     }
 
     //další komponenty
+    Keys.onPressed: {
+        if (event.key === Qt.Key_Escape) {
+            if (inMenu) {
+                Qt.quit();
+            } else {
+                inMenu = true;
+                gameLoader.source = "StartMenu.qml";
+            }
+        }
+    }
 }

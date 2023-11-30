@@ -42,21 +42,20 @@ bool Enemy::isPlayerNearby(float distance){
     }
 }
 
-
 void Enemy::chasePlayer(float angle){
-    if(angle==0){
+    if(angle > -10 && angle < 10 ){
         moveEnemy(-10);
     }else if(angle>0 && angle<90){
         moveEnemy(-10,-10);
-    }else if(angle==90){
+    }else if(angle > 80 && angle < 100){
         moveEnemy(10,-10);
-    }else if(angle>90 && angle<180){
+    }else if(angle>90 && angle<170){
         moveEnemy(10,-10);
-    }else if(angle==180){
+    }else if(angle > 165 && angle < 180){
         moveEnemy(10);
     }else if(angle>=-180 && angle <-90){
         moveEnemy(10, 10);
-    }else if(angle==-90){
+    }else if(angle < -80 && angle > -100){
         moveEnemy(0, 10);
     }else if(angle>-90 && angle<0){
         moveEnemy(-10, 10);
@@ -69,6 +68,10 @@ void Enemy::chasePlayer(float angle){
         emit rotationChanged();
     }
 }
+
+
+
+
 
 void Enemy::moveEnemy(float x, float y){
     m_enemyPos->setXValue(x);

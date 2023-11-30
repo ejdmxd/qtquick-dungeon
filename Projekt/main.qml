@@ -14,10 +14,5 @@ Window {
         source: inMenu ? "StartMenu.qml" : "Game.qml"
     }
 
-    Keys.onPressed: {
-        if (event.key === Qt.Key_Escape && !inMenu) {
-            inMenu = true;
-            gameLoader.source = "StartMenu.qml";
-        }
-    }
+
 }
