@@ -13,6 +13,7 @@ Rectangle {
                 height:parent.width/10
                 id: ine
                 source: "images/flor.jpg"
+
             }
         }
     }
@@ -20,6 +21,7 @@ Rectangle {
         model: map.room.items
         Gun {
             itemIndex: index
+
         }
     }
     Repeater {

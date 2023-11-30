@@ -6,24 +6,18 @@ Window {
     height: 500
     visible: true
     title: qsTr("Hello World")
-    Map{
 
+    property bool inMenu: true
+
+    Loader {
+        id: gameLoader
+        source: inMenu ? "StartMenu.qml" : "Game.qml"
     }
 
-    Player{
-        x: map.player.positionX
-        y: map.player.positionY
+    Keys.onPressed: {
+        if (event.key === Qt.Key_Escape && !inMenu) {
+            inMenu = true;
+            gameLoader.source = "StartMenu.qml";
+        }
     }
-
-    /*Zombie{
-        x: zombie.enemyX
-        y: zombie.enemyY
-        Component.onCompleted: {
-                console.log("Zombie position:", x, y);
-            }
-
-    }*/
-        //room.printMap()
-
-
 }

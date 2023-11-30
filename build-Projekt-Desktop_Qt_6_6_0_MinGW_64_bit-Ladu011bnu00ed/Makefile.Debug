@@ -158,7 +158,9 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_Qml.cpp debug\qrc_Qml.cpp
 debug/qrc_Qml.cpp: ../Projekt/Qml.qrc \
 		C:/Qt/6.6.0/mingw_64/bin/rcc.exe \
+		../Projekt/Game.qml \
 		../Projekt/Enemy.qml \
+		../Projekt/StartMenu.qml \
 		../Projekt/Gun.qml \
 		../Projekt/Player.qml \
 		../Projekt/main.qml \
@@ -175,7 +177,9 @@ debug/qrc_Qml.cpp: ../Projekt/Qml.qrc \
 
 debug/qrc_Qml.cpp: ../Projekt/Qml.qrc \
 		C:/Qt/6.6.0/mingw_64/bin/rcc.exe \
+		../Projekt/Game.qml \
 		../Projekt/Enemy.qml \
+		../Projekt/StartMenu.qml \
 		../Projekt/Gun.qml \
 		../Projekt/Player.qml \
 		../Projekt/main.qml \
@@ -298,7 +302,7 @@ debug/moc_distancemanager.cpp: ../Projekt/distancemanager.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qbindingstorage.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\distancemanager.h -o debug\moc_distancemanager.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\distancemanager.h -o debug\moc_distancemanager.cpp
 
 debug/moc_enemy.cpp: ../Projekt/enemy.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QObject \
@@ -398,9 +402,10 @@ debug/moc_enemy.cpp: ../Projekt/enemy.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qbindingstorage.h \
 		../Projekt/position.h \
+		../Projekt/distancemanager.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\enemy.h -o debug\moc_enemy.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\enemy.h -o debug\moc_enemy.cpp
 
 debug/moc_enemydirector.cpp: ../Projekt/enemydirector.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QObject \
@@ -502,9 +507,10 @@ debug/moc_enemydirector.cpp: ../Projekt/enemydirector.h \
 		../Projekt/zombie.h \
 		../Projekt/enemy.h \
 		../Projekt/position.h \
+		../Projekt/distancemanager.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\enemydirector.h -o debug\moc_enemydirector.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\enemydirector.h -o debug\moc_enemydirector.cpp
 
 debug/moc_items.cpp: ../Projekt/items.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QObject \
@@ -606,7 +612,7 @@ debug/moc_items.cpp: ../Projekt/items.h \
 		../Projekt/position.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\items.h -o debug\moc_items.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\items.h -o debug\moc_items.cpp
 
 debug/moc_map.cpp: ../Projekt/map.h \
 		../Projekt/room.h \
@@ -728,10 +734,11 @@ debug/moc_map.cpp: ../Projekt/map.h \
 		../Projekt/enemydirector.h \
 		../Projekt/zombie.h \
 		../Projekt/enemy.h \
+		../Projekt/distancemanager.h \
 		../Projekt/player.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\map.h -o debug\moc_map.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\map.h -o debug\moc_map.cpp
 
 debug/moc_player.cpp: ../Projekt/player.h \
 		../Projekt/position.h \
@@ -849,7 +856,7 @@ debug/moc_player.cpp: ../Projekt/player.h \
 		../Projekt/items.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\player.h -o debug\moc_player.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\player.h -o debug\moc_player.cpp
 
 debug/moc_position.cpp: ../Projekt/position.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QObject \
@@ -950,7 +957,7 @@ debug/moc_position.cpp: ../Projekt/position.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qbindingstorage.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\position.h -o debug\moc_position.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\position.h -o debug\moc_position.cpp
 
 debug/moc_room.cpp: ../Projekt/room.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/QObject \
@@ -1071,9 +1078,10 @@ debug/moc_room.cpp: ../Projekt/room.h \
 		../Projekt/enemydirector.h \
 		../Projekt/zombie.h \
 		../Projekt/enemy.h \
+		../Projekt/distancemanager.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.0/mingw_64/bin/moc.exe
-	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/adik1/C++/PROJEKT/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\room.h -o debug\moc_room.cpp
+	C:\Qt\6.6.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/build-Projekt-Desktop_Qt_6_6_0_MinGW_64_bit-Ladu011bnu00ed/debug/moc_predefs.h -IC:/Qt/6.6.0/mingw_64/mkspecs/win32-g++ -IC:/Users/Josef/OneDrive/Plocha/CPP_Projekt/pcp_zs2023_xmichen1/Projekt -IC:/Qt/6.6.0/mingw_64/include -IC:/Qt/6.6.0/mingw_64/include/QtQuick -IC:/Qt/6.6.0/mingw_64/include/QtOpenGL -IC:/Qt/6.6.0/mingw_64/include/QtGui -IC:/Qt/6.6.0/mingw_64/include/QtQmlModels -IC:/Qt/6.6.0/mingw_64/include/QtQml -IC:/Qt/6.6.0/mingw_64/include/QtQmlIntegration -IC:/Qt/6.6.0/mingw_64/include/QtNetwork -IC:/Qt/6.6.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Projekt\room.h -o debug\moc_room.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1389,6 +1397,7 @@ debug/enemy.o: ../Projekt/enemy.cpp ../Projekt/enemy.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qbindingstorage.h \
 		../Projekt/position.h \
+		../Projekt/distancemanager.h \
 		../Projekt/zombie.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\enemy.o ..\Projekt\enemy.cpp
 
@@ -1491,7 +1500,8 @@ debug/enemydirector.o: ../Projekt/enemydirector.cpp ../Projekt/enemydirector.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qbindingstorage.h \
 		../Projekt/zombie.h \
 		../Projekt/enemy.h \
-		../Projekt/position.h
+		../Projekt/position.h \
+		../Projekt/distancemanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\enemydirector.o ..\Projekt\enemydirector.cpp
 
 debug/gun.o: ../Projekt/gun.cpp ../Projekt/gun.h \
@@ -1878,6 +1888,7 @@ debug/main.o: ../Projekt/main.cpp C:/Qt/6.6.0/mingw_64/include/QtGui/QGuiApplica
 		../Projekt/enemydirector.h \
 		../Projekt/zombie.h \
 		../Projekt/enemy.h \
+		../Projekt/distancemanager.h \
 		../Projekt/map.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Projekt\main.cpp
 
@@ -2001,6 +2012,7 @@ debug/map.o: ../Projekt/map.cpp ../Projekt/map.h \
 		../Projekt/enemydirector.h \
 		../Projekt/zombie.h \
 		../Projekt/enemy.h \
+		../Projekt/distancemanager.h \
 		../Projekt/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\map.o ..\Projekt\map.cpp
 
@@ -2337,7 +2349,8 @@ debug/room.o: ../Projekt/room.cpp ../Projekt/room.h \
 		../Projekt/armor.h \
 		../Projekt/enemydirector.h \
 		../Projekt/zombie.h \
-		../Projekt/enemy.h
+		../Projekt/enemy.h \
+		../Projekt/distancemanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\room.o ..\Projekt\room.cpp
 
 debug/zombie.o: ../Projekt/zombie.cpp ../Projekt/zombie.h \
@@ -2438,7 +2451,8 @@ debug/zombie.o: ../Projekt/zombie.cpp ../Projekt/zombie.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qscopeguard.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qobject_impl.h \
 		C:/Qt/6.6.0/mingw_64/include/QtCore/qbindingstorage.h \
-		../Projekt/position.h
+		../Projekt/position.h \
+		../Projekt/distancemanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\zombie.o ..\Projekt\zombie.cpp
 
 debug/qrc_Qml.o: debug/qrc_Qml.cpp 

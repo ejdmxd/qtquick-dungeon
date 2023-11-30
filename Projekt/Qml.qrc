@@ -13,5 +13,7 @@
         <file>images/gun.png</file>
         <file>images/armor.png</file>
         <file>Enemy.qml</file>
+        <file>StartMenu.qml</file>
+        <file>Game.qml</file>
     </qresource>
 </RCC>
