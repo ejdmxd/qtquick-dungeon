@@ -9,6 +9,16 @@ Image {
         color:"white"
     }
 
+    Timer {
+        interval: 200
+        running: true
+        repeat: true
+        onTriggered: {
+            map.room.enemies[enemyIndex].chasePlayer(map.player.positionX, map.player.positionY);
+        }
+    }
+
+
     Image {
         source: "images/zombie.png"
         visible: true

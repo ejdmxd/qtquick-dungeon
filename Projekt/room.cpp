@@ -29,7 +29,7 @@ Q_INVOKABLE void Room::setItems()
 }
 
 Q_INVOKABLE void Room::setEnemies(){
-    int prem = generateRandomNumber(1,5);
+    int prem = generateRandomNumber(0,1);
     EnemyDirector* generujem = new EnemyDirector;
     for (int i=0;i<prem;i++){
         int number= 1;//generateRandomNumber(0,1);
