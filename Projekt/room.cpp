@@ -18,7 +18,7 @@ Q_INVOKABLE void Room::setItems()
 {
     int prem=generateRandomNumber(0,3);
     for (int i=0;i<prem;i++){
-        int number=generateRandomNumber(0,1);
+        int number=generateRandomNumber(0,4);
         if (number)
             m_items.push_back(new Armor(10,10,generateRandomNumber(1,600),generateRandomNumber(1,600)));
         else
