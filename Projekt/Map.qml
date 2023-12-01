@@ -11,7 +11,6 @@ Rectangle {
             Image {
                 width:parent.width/10
                 height:parent.width/10
-                id: ine
                 source: "images/flor.jpg"
 
             }

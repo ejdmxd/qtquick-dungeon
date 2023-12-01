@@ -9,8 +9,8 @@ Room::Room(QObject *parent) : QObject{parent}
 }
 
 void Room::setMap(){
-    std::vector<unsigned int>prem(m_windowWidth/20);
-    std::vector<std::vector<unsigned int>>pom(m_windowWidth/20,prem);
+    std::vector<int>prem(m_windowWidth);
+    std::vector<std::vector<int>>pom(m_windowWidth,prem);
     m_map=pom;
 }
 
@@ -76,4 +76,21 @@ int Room::generateRandomNumber(int range1, int range2) {
     int randomNumber = dis(gen);
 
     return randomNumber;
+}
+
+QVariant Room::getMap()
+{
+    return QVariant::fromValue(m_map);
+}
+
+void Room::setBorders()
+{
+    for(int x=0;x<=m_windowWidth;x++){
+        for (int y=0;y<=m_windowWidth;y++){
+            if (x==0 or y==0 or x==m_windowWidth or y==m_windowWidth){
+                m_map[y][x]=-1;
+            }
+        }
+
+    }
 }

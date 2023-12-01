@@ -15,10 +15,11 @@ class Room:public QObject
     Q_OBJECT
     Q_PROPERTY(QVariant items READ getItems CONSTANT)
     Q_PROPERTY(QVariant enemies READ getEnemies CONSTANT)
+    Q_PROPERTY(QVariant net READ getMap)
 public:
     unsigned int m_windowWidth;
     unsigned int m_windowHeight;
-    std::vector<std::vector<unsigned int>> m_map;
+    std::vector<std::vector<int>> m_map;
     std::vector<Items *> m_items;
     std::vector<Enemy *> m_enemies;
 public:
@@ -30,6 +31,8 @@ public:
     QVariant getItems();
     QVariant getEnemies();
     int generateRandomNumber(int range1, int range2);
+    QVariant getMap();
+    void setBorders();
 signals:
     void itemsCrafted();
 };

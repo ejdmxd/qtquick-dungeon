@@ -46,11 +46,6 @@ void Map::startGame(){
         m_roomY--;
         player->movePlayer("top",-450);
         setRoom(std::array<int,2>{m_roomY,m_roomX});
-
-
-    }else{
-        std::cout<<"x="<<player->getXPosition()<<"y="<<player->getYPosition()<<std::endl;
-        std::cout<<"roomX= "<<m_roomX<<"roomY= "<<m_roomY<<std::endl;
     }
     emit roomChanged();
 }
