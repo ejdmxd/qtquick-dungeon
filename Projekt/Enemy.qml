@@ -19,6 +19,7 @@ Item{
             onTriggered: {
                 map.room.enemies[enemyIndex].findPlayer(map.player.positionX, map.player.positionY);
             }
+
         }
 
 
