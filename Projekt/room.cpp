@@ -3,16 +3,11 @@
 Room::Room(QObject *parent) : QObject{parent}
 {
     setWidth(640);
-    setMap();
+    setBorders();
     setItems();
     setEnemies();
 }
 
-void Room::setMap(){
-    std::vector<int>prem(m_windowWidth);
-    std::vector<std::vector<int>>pom(m_windowWidth,prem);
-    m_map=pom;
-}
 
 Q_INVOKABLE void Room::setItems()
 {
@@ -24,7 +19,7 @@ Q_INVOKABLE void Room::setItems()
         else
             m_items.push_back(new Gun(10,10,generateRandomNumber(1,600),generateRandomNumber(1,600)));
     }
-    //std::cout<<m_items.at(0)->getPositionX()<<m_items.at(0)->getPositionY()<<std::endl;
+
     emit itemsCrafted();
 }
 
@@ -78,19 +73,29 @@ int Room::generateRandomNumber(int range1, int range2) {
     return randomNumber;
 }
 
-QVariant Room::getMap()
+/*QVariant Room::getMap()
 {
     return QVariant::fromValue(m_map);
-}
+}*/
 
 void Room::setBorders()
 {
-    for(int x=0;x<=m_windowWidth;x++){
-        for (int y=0;y<=m_windowWidth;y++){
-            if (x==0 or y==0 or x==m_windowWidth or y==m_windowWidth){
-                m_map[y][x]=-1;
+    for(int y=0;y<=500;y=y+50){
+        for (int x=0;x<=600;x=x+50){
+            if (x==0 or y==0 or x==600 or y==500){
+                addWall(x,y);
+
             }
         }
 
     }
 }
+
+void Room::addWall(int x, int y){
+    m_walls.push_back(new Wall(x,y));
+}
+
+QVariant Room::getWalls(){
+    return QVariant::fromValue(m_walls);
+}
+

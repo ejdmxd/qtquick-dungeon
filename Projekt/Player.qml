@@ -46,21 +46,21 @@ Image {
     Keys.onPressed: {
         if (event.key === Qt.Key_W) {
             map.player.movePlayer("up", 10);
-            map.startGame();
+            map.movingInMap();
             console.log("y",map.player.positionY," x",map.player.positionX)
         } else if (event.key === Qt.Key_S) {
             map.player.movePlayer("down", 10);
-            map.startGame();
+            map.movingInMap();
             console.log("y",map.player.positionY," x",map.player.positionX)
         } else if (event.key === Qt.Key_A) {
             map.player.movePlayer("left", 10);
             boy.source="images/player.png";
-            map.startGame();
+            map.movingInMap();
             console.log("y",map.player.positionY," x",map.player.positionX)
         } else if (event.key === Qt.Key_D) {
             map.player.movePlayer("right", 10);
             boy.source="images/playerRight.png";
-            map.startGame();
+            map.movingInMap();
             console.log("y",map.player.positionY," x",map.player.positionX)
         }
     }

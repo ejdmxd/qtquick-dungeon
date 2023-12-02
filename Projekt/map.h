@@ -20,7 +20,7 @@ public:
     void setRoom(std::array<int,2>whichRoom);
     Room * getRoom();
     Player * getPlayer();
-    Q_INVOKABLE void startGame();
+    Q_INVOKABLE void movingInMap();
 signals:
     void roomChanged();
 };

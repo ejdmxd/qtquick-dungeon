@@ -24,7 +24,7 @@ Player *Map::getPlayer()
     return player;
 }
 
-void Map::startGame(){
+void Map::movingInMap(){
 
     if (player->getXPosition()==600 && m_roomX<3){
         m_roomX++;
@@ -44,7 +44,7 @@ void Map::startGame(){
 
     }else if(player->getYPosition()==0 && m_roomY>0){
         m_roomY--;
-        player->movePlayer("up",-450);
+        player->movePlayer("up",-460);
         setRoom(std::array<int,2>{m_roomY,m_roomX});
     }
     std::cout<<"Miestonost x"<<m_roomX<<" Miestnost y"<<m_roomY<<std::endl;

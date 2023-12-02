@@ -17,6 +17,13 @@ Rectangle {
         }
     }
     Repeater {
+        model: map.room.walls
+        Wall {
+            wallIndex: index
+
+        }
+    }
+    Repeater {
         model: map.room.items
         Gun {
             itemIndex: index
