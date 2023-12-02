@@ -29,24 +29,25 @@ void Map::startGame(){
     if (player->getXPosition()==600 && m_roomX<3){
         m_roomX++;
         std::cout<<"som Tuuuuuuu"<<std::endl;
-        player->movePlayer("right",-player->getXPosition());
+        player->movePlayer("right",-580);
         setRoom(std::array<int,2>{m_roomY,m_roomX});
 
-    }else if(player->getYPosition()==450 && m_roomY<3){
+    }else if(player->getYPosition()==480 && m_roomY<3){
         m_roomY++;
-        player->movePlayer("down",-player->getYPosition());
+        player->movePlayer("down",-460);
         setRoom(std::array<int,2>{m_roomY,m_roomX});
 
     }else if(player->getXPosition()==0 && m_roomX>0){
         m_roomX--;
-        player->movePlayer("left",-600);
+        player->movePlayer("left",-580);
         setRoom(std::array<int,2>{m_roomY,m_roomX});
 
     }else if(player->getYPosition()==0 && m_roomY>0){
         m_roomY--;
-        player->movePlayer("top",-450);
+        player->movePlayer("up",-450);
         setRoom(std::array<int,2>{m_roomY,m_roomX});
     }
+    std::cout<<"Miestonost x"<<m_roomX<<" Miestnost y"<<m_roomY<<std::endl;
     emit roomChanged();
 }
 
