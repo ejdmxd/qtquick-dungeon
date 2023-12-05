@@ -4,7 +4,6 @@
         <file>Player.qml</file>
         <file>Map.qml</file>
         <file>images/flor.jpg</file>
-        <file>images/player.png</file>
         <file>images/playerRight.png</file>
         <file>Zombie.qml</file>
         <file>images/zombie.png</file>
@@ -20,5 +19,10 @@
         <file>images/skeletonright.png</file>
         <file>Wall.qml</file>
         <file>images/wall.jpg</file>
+        <file>Bullet.qml</file>
+        <file>images/playerLeft.png</file>
+        <file>Weapon.qml</file>
+        <file>images/revolverLeft.png</file>
+        <file>images/revolverRight.png</file>
     </qresource>
 </RCC>

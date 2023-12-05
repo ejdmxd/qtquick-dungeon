@@ -13,7 +13,7 @@ class Enemy : public QObject
     Q_OBJECT
     Q_PROPERTY(unsigned int enemyX READ getEnemyPosX NOTIFY positionChanged)
     Q_PROPERTY(unsigned int enemyY READ getEnemyPosY NOTIFY positionChanged)
-    Q_PROPERTY(QString enemyType READ getEnemyType)
+    Q_PROPERTY(QString enemyType READ getEnemyType CONSTANT)
     Q_PROPERTY(double enemyRotation READ getEnemyRotation NOTIFY rotationChanged)
 protected:
     Position* m_enemyPos = new Position;

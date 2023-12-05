@@ -40,7 +40,7 @@ Image {
     id: boy
     width: 100
     height: 100
-    source: "images/player.png"
+    source: "images/playerLeft.png"
     //rotation: map.player.rotationAngle
 
     Keys.onPressed: {
@@ -54,7 +54,7 @@ Image {
             console.log("y",map.player.positionY," x",map.player.positionX)
         } else if (event.key === Qt.Key_A) {
             map.player.movePlayer("left", 10);
-            boy.source="images/player.png";
+            boy.source="images/playerLeft.png";
             map.movingInMap();
             console.log("y",map.player.positionY," x",map.player.positionX)
         } else if (event.key === Qt.Key_D) {

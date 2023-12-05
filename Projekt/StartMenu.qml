@@ -3,8 +3,8 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
 Rectangle {
-    width: 640
-    height: 500
+    width: 650
+    height: 550
     color: "lightblue"
 
     signal startGameClicked()
