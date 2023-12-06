@@ -31,6 +31,7 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
     emit positionYChanged();
 }
 
+
 /*void Player::setRotationAngle(double angle){
     if(angle != m_rotationAngle){
         m_rotationAngle = angle;
