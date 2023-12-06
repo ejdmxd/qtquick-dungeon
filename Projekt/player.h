@@ -23,7 +23,7 @@ private:
     std::vector<Items*> inventory;
 public:
     explicit Player(QObject *parent = nullptr);
-    Q_INVOKABLE void movePlayer(QString direction, unsigned int value);
+    Q_INVOKABLE void movePlayer(int changeX, int changeY,unsigned int value);
     void setRotationAngle(double angle);
     //QVariant getPosition() const;
     unsigned int getXPosition() const;

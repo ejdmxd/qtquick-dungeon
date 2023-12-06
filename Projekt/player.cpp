@@ -16,19 +16,16 @@ unsigned int Player::getYPosition() const {
     return m_position->getYValue();
 }
 
-void Player::movePlayer(QString  direction, unsigned int value){
-    if (direction == "up") {
-        m_position->setYValue(-value);
-        //setRotationAngle(0);
-    } else if (direction == "down") {
-        m_position->setYValue(value);
-        //setRotationAngle(180);
-    } else if (direction == "right") {
+void Player::movePlayer(int changeX, int changeY, unsigned int value) {
+    if (changeX > 0) {
         m_position->setXValue(value);
-        //setRotationAngle(180);
-    } else if (direction == "left") {
+    } else if (changeX < 0) {
         m_position->setXValue(-value);
-        //setRotationAngle(-180);
+    }
+    if (changeY > 0) {
+        m_position->setYValue(value);
+    } else if (changeY < 0) {
+        m_position->setYValue(-value);
     }
     emit positionXChanged();
     emit positionYChanged();

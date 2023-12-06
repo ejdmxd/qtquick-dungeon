@@ -1,68 +1,59 @@
 import QtQuick
 
-/*Rectangle{
-    id: playerBody
-    width: 100
-    height: 100
-    border.width: 5
-    rotation: player.rotationAngle
-    Image {
-        id: boy
-        source: "images/player.png"
-        anchors.fill: parent
-    }
-    /*Text{
-        text: "X X\n  _"
-        font{
-            pointSize: 25
-        }
-        anchors{
-            horizontalCenter: parent.horizontalCenter
-            top: parent.top
+Image {
+    property bool moving: false;
+    property real moveX: 0;
+    property real moveY: 0;
+    property var keysPressed: [];
+
+
+    function updateMovement() {
+            moveX = keysPressed.includes(Qt.Key_D) ? 1 : (keysPressed.includes(Qt.Key_A) ? -1 : 0);
+            moveY = keysPressed.includes(Qt.Key_S) ? 1 : (keysPressed.includes(Qt.Key_W) ? -1 : 0);
+            movementTimer.running = moveX !== 0 || moveY !== 0;
         }
 
-    }
-    Keys.onPressed: {
-        if (event.key === Qt.Key_W) {
-            player.movePlayer("up", 10);
-            console.log("W!");
-        } else if (event.key === Qt.Key_S) {
-            player.movePlayer("down", 10);
-        } else if (event.key === Qt.Key_A) {
-            player.movePlayer("left", 10);
-        } else if (event.key === Qt.Key_D) {
-            player.movePlayer("right", 10);
-        }
-    }
-    focus: true
-}*/
-Image {
     id: boy
     width: 100
     height: 100
     source: "images/playerLeft.png"
-    //rotation: map.player.rotationAngle
+    Timer {
+            property int moveDistance: 0
+            id: movementTimer
+            interval:25
+            repeat:true
+            running:false
+            onTriggered: {
+                if(moveX !== 0 && moveY !== 0){
+                    moveDistance = 10/1.41
+                }else{
+                    moveDistance = 10
+                }
+
+                map.player.movePlayer(moveX, moveY, moveDistance);
+                map.movingInMap();
+                console.log("y", map.player.positionY, " x", map.player.positionX);
+           }
+        }
 
     Keys.onPressed: {
-        if (event.key === Qt.Key_W) {
-            map.player.movePlayer("up", 10);
-            map.movingInMap();
-            console.log("y",map.player.positionY," x",map.player.positionX)
-        } else if (event.key === Qt.Key_S) {
-            map.player.movePlayer("down", 10);
-            map.movingInMap();
-            console.log("y",map.player.positionY," x",map.player.positionX)
-        } else if (event.key === Qt.Key_A) {
-            map.player.movePlayer("left", 10);
-            boy.source="images/playerLeft.png";
-            map.movingInMap();
-            console.log("y",map.player.positionY," x",map.player.positionX)
-        } else if (event.key === Qt.Key_D) {
-            map.player.movePlayer("right", 10);
-            boy.source="images/playerRight.png";
-            map.movingInMap();
-            console.log("y",map.player.positionY," x",map.player.positionX)
+        if (!moving) {
+            keysPressed.push(event.key);
+            updateMovement();
+            if(event.key === Qt.Key_A){
+                boy.source="images/playerLeft.png";
+            }else if(event.key === Qt.Key_D){
+                boy.source="images/playerRight.png";
+            }
         }
     }
+
+    Keys.onReleased: {
+        if (keysPressed.includes(event.key)) {
+            keysPressed.splice(keysPressed.indexOf(event.key), 1);
+            updateMovement();
+        }
+    }
+
     focus: true
 }

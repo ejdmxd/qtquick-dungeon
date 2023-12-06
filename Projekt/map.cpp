@@ -24,7 +24,7 @@ Player *Map::getPlayer()
     return player;
 }
 
-void Map::movingInMap(){
+/*void Map::movingInMap(){
 
     if (player->getXPosition()==600 && m_roomX<3){
         m_roomX++;
@@ -49,7 +49,33 @@ void Map::movingInMap(){
     }
     std::cout<<"Miestonost x"<<m_roomX<<" Miestnost y"<<m_roomY<<std::endl;
     emit roomChanged();
+}*/
+void Map::movingInMap() {
+    int playerX = player->getXPosition();
+    int playerY = player->getYPosition();
+
+    if (playerX >= 600 && m_roomX < 3) {
+        m_roomX++;
+        player->movePlayer(580, 0, 10);
+        setRoom(std::array<int, 2>{m_roomY, m_roomX});
+    } else if (playerY >= 480 && m_roomY < 3) {
+        m_roomY++;
+        player->movePlayer(0, 460, 10);
+        setRoom(std::array<int, 2>{m_roomY, m_roomX});
+    } else if (playerX <= 0 && m_roomX > 0) {
+        m_roomX--;
+        player->movePlayer(-580, 0, 10);
+        setRoom(std::array<int, 2>{m_roomY, m_roomX});
+    } else if (playerY <= 0 && m_roomY > 0) {
+        m_roomY--;
+        player->movePlayer(0, -460, 10);
+        setRoom(std::array<int, 2>{m_roomY, m_roomX});
+    }
+
+    std::cout << "Miestonost x" << m_roomX << " Miestnost y" << m_roomY << std::endl;
+    emit roomChanged();
 }
+
 
 Room * Map::getRoom(){
     return m_room;
