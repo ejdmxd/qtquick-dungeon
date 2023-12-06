@@ -127,7 +127,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSEnemyENDCLASS[] = {
  // properties: name, type, flags
        7, QMetaType::UInt, 0x00015001, uint(0), 0,
        8, QMetaType::UInt, 0x00015001, uint(0), 0,
-       9, QMetaType::QString, 0x00015001, uint(-1), 0,
+       9, QMetaType::QString, 0x00015401, uint(-1), 0,
       10, QMetaType::Double, 0x00015001, uint(1), 0,
 
        0        // eod

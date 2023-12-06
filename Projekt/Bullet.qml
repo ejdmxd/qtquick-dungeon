@@ -5,6 +5,7 @@ Rectangle {
     width:10
     height:10
     color:"blue"
+    radius: width / 2;
     property int directionX: 0
     property int directionY: 0
     property int startX: x

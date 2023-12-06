@@ -10,6 +10,7 @@ debug/player.o
 debug/position.o
 debug/room.o
 debug/skeleton.o
+debug/wall.o
 debug/zombie.o
 debug/qrc_Qml.o
 debug/moc_distancemanager.o
@@ -20,3 +21,4 @@ debug/moc_map.o
 debug/moc_player.o
 debug/moc_position.o
 debug/moc_room.o
+debug/moc_wall.o

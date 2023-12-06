@@ -39,6 +39,9 @@ namespace {
 struct qt_meta_stringdata_CLASSMapENDCLASS_t {};
 static constexpr auto qt_meta_stringdata_CLASSMapENDCLASS = QtMocHelpers::stringData(
     "Map",
+    "roomChanged",
+    "",
+    "movingInMap",
     "player",
     "Player*",
     "room",
@@ -46,24 +49,33 @@ static constexpr auto qt_meta_stringdata_CLASSMapENDCLASS = QtMocHelpers::string
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMapENDCLASS_t {
-    uint offsetsAndSizes[10];
+    uint offsetsAndSizes[16];
     char stringdata0[4];
-    char stringdata1[7];
-    char stringdata2[8];
-    char stringdata3[5];
-    char stringdata4[6];
+    char stringdata1[12];
+    char stringdata2[1];
+    char stringdata3[12];
+    char stringdata4[7];
+    char stringdata5[8];
+    char stringdata6[5];
+    char stringdata7[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMapENDCLASS_t::offsetsAndSizes) + ofs), len 
 Q_CONSTINIT static const qt_meta_stringdata_CLASSMapENDCLASS_t qt_meta_stringdata_CLASSMapENDCLASS = {
     {
         QT_MOC_LITERAL(0, 3),  // "Map"
-        QT_MOC_LITERAL(4, 6),  // "player"
-        QT_MOC_LITERAL(11, 7),  // "Player*"
-        QT_MOC_LITERAL(19, 4),  // "room"
-        QT_MOC_LITERAL(24, 5)   // "Room*"
+        QT_MOC_LITERAL(4, 11),  // "roomChanged"
+        QT_MOC_LITERAL(16, 0),  // ""
+        QT_MOC_LITERAL(17, 11),  // "movingInMap"
+        QT_MOC_LITERAL(29, 6),  // "player"
+        QT_MOC_LITERAL(36, 7),  // "Player*"
+        QT_MOC_LITERAL(44, 4),  // "room"
+        QT_MOC_LITERAL(49, 5)   // "Room*"
     },
     "Map",
+    "roomChanged",
+    "",
+    "movingInMap",
     "player",
     "Player*",
     "room",
@@ -79,16 +91,28 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMapENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
-       2,   14, // properties
+       2,   14, // methods
+       2,   28, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    0,   26,    2, 0x06,    3 /* Public */,
+
+ // methods: name, argc, parameters, tag, flags, initial metatype offsets
+       3,    0,   27,    2, 0x02,    4 /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
+
+ // methods: parameters
+    QMetaType::Void,
 
  // properties: name, type, flags
-       1, 0x80000000 | 2, 0x00015409, uint(-1), 0,
-       3, 0x80000000 | 4, 0x00015409, uint(-1), 0,
+       4, 0x80000000 | 5, 0x00015409, uint(-1), 0,
+       6, 0x80000000 | 7, 0x00015009, uint(0), 0,
 
        0        // eod
 };
@@ -105,14 +129,35 @@ Q_CONSTINIT const QMetaObject Map::staticMetaObject = { {
         // property 'room'
         QtPrivate::TypeAndForceComplete<Room*, std::true_type>,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<Map, std::true_type>
+        QtPrivate::TypeAndForceComplete<Map, std::true_type>,
+        // method 'roomChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'movingInMap'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
 void Map::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::RegisterPropertyMetaType) {
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<Map *>(_o);
+        (void)_t;
+        switch (_id) {
+        case 0: _t->roomChanged(); break;
+        case 1: _t->movingInMap(); break;
+        default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (Map::*)();
+            if (_t _q_method = &Map::roomChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
+        }
+    } else if (_c == QMetaObject::RegisterPropertyMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
         case 0:
@@ -133,7 +178,6 @@ void Map::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
     } else if (_c == QMetaObject::ResetProperty) {
     } else if (_c == QMetaObject::BindableProperty) {
     }
-    (void)_o;
 }
 
 const QMetaObject *Map::metaObject() const
@@ -154,12 +198,26 @@ int Map::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
         _id -= 2;
     }
     return _id;
+}
+
+// SIGNAL 0
+void Map::roomChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP

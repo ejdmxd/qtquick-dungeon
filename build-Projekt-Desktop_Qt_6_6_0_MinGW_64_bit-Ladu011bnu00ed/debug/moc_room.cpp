@@ -44,11 +44,12 @@ static constexpr auto qt_meta_stringdata_CLASSRoomENDCLASS = QtMocHelpers::strin
     "setItems",
     "setEnemies",
     "items",
-    "enemies"
+    "enemies",
+    "walls"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSRoomENDCLASS_t {
-    uint offsetsAndSizes[14];
+    uint offsetsAndSizes[16];
     char stringdata0[5];
     char stringdata1[13];
     char stringdata2[1];
@@ -56,6 +57,7 @@ struct qt_meta_stringdata_CLASSRoomENDCLASS_t {
     char stringdata4[11];
     char stringdata5[6];
     char stringdata6[8];
+    char stringdata7[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSRoomENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -67,7 +69,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSRoomENDCLASS_t qt_meta_stringda
         QT_MOC_LITERAL(19, 8),  // "setItems"
         QT_MOC_LITERAL(28, 10),  // "setEnemies"
         QT_MOC_LITERAL(39, 5),  // "items"
-        QT_MOC_LITERAL(45, 7)   // "enemies"
+        QT_MOC_LITERAL(45, 7),  // "enemies"
+        QT_MOC_LITERAL(53, 5)   // "walls"
     },
     "Room",
     "itemsCrafted",
@@ -75,7 +78,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSRoomENDCLASS_t qt_meta_stringda
     "setItems",
     "setEnemies",
     "items",
-    "enemies"
+    "enemies",
+    "walls"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -88,18 +92,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSRoomENDCLASS[] = {
        0,       // classname
        0,    0, // classinfo
        3,   14, // methods
-       2,   35, // properties
+       3,   35, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   32,    2, 0x06,    3 /* Public */,
+       1,    0,   32,    2, 0x06,    4 /* Public */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   33,    2, 0x02,    4 /* Public */,
-       4,    0,   34,    2, 0x02,    5 /* Public */,
+       3,    0,   33,    2, 0x02,    5 /* Public */,
+       4,    0,   34,    2, 0x02,    6 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -111,6 +115,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSRoomENDCLASS[] = {
  // properties: name, type, flags
        5, QMetaType::QVariant, 0x00015401, uint(-1), 0,
        6, QMetaType::QVariant, 0x00015401, uint(-1), 0,
+       7, QMetaType::QVariant, 0x00015401, uint(-1), 0,
 
        0        // eod
 };
@@ -125,6 +130,8 @@ Q_CONSTINIT const QMetaObject Room::staticMetaObject = { {
         // property 'items'
         QtPrivate::TypeAndForceComplete<QVariant, std::true_type>,
         // property 'enemies'
+        QtPrivate::TypeAndForceComplete<QVariant, std::true_type>,
+        // property 'walls'
         QtPrivate::TypeAndForceComplete<QVariant, std::true_type>,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Room, std::true_type>,
@@ -165,6 +172,7 @@ void Room::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: *reinterpret_cast< QVariant*>(_v) = _t->getItems(); break;
         case 1: *reinterpret_cast< QVariant*>(_v) = _t->getEnemies(); break;
+        case 2: *reinterpret_cast< QVariant*>(_v) = _t->getWalls(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -204,7 +212,7 @@ int Room::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

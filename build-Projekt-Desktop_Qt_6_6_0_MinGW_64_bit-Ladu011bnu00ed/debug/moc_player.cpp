@@ -43,23 +43,25 @@ static constexpr auto qt_meta_stringdata_CLASSPlayerENDCLASS = QtMocHelpers::str
     "",
     "positionYChanged",
     "movePlayer",
-    "direction",
+    "changeX",
+    "changeY",
     "value",
     "positionX",
     "positionY"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSPlayerENDCLASS_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[20];
     char stringdata0[7];
     char stringdata1[17];
     char stringdata2[1];
     char stringdata3[17];
     char stringdata4[11];
-    char stringdata5[10];
-    char stringdata6[6];
-    char stringdata7[10];
+    char stringdata5[8];
+    char stringdata6[8];
+    char stringdata7[6];
     char stringdata8[10];
+    char stringdata9[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSPlayerENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -70,17 +72,19 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSPlayerENDCLASS_t qt_meta_string
         QT_MOC_LITERAL(24, 0),  // ""
         QT_MOC_LITERAL(25, 16),  // "positionYChanged"
         QT_MOC_LITERAL(42, 10),  // "movePlayer"
-        QT_MOC_LITERAL(53, 9),  // "direction"
-        QT_MOC_LITERAL(63, 5),  // "value"
-        QT_MOC_LITERAL(69, 9),  // "positionX"
-        QT_MOC_LITERAL(79, 9)   // "positionY"
+        QT_MOC_LITERAL(53, 7),  // "changeX"
+        QT_MOC_LITERAL(61, 7),  // "changeY"
+        QT_MOC_LITERAL(69, 5),  // "value"
+        QT_MOC_LITERAL(75, 9),  // "positionX"
+        QT_MOC_LITERAL(85, 9)   // "positionY"
     },
     "Player",
     "positionXChanged",
     "",
     "positionYChanged",
     "movePlayer",
-    "direction",
+    "changeX",
+    "changeY",
     "value",
     "positionX",
     "positionY"
@@ -96,7 +100,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlayerENDCLASS[] = {
        0,       // classname
        0,    0, // classinfo
        3,   14, // methods
-       2,   39, // properties
+       2,   41, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -107,18 +111,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPlayerENDCLASS[] = {
        3,    0,   33,    2, 0x06,    4 /* Public */,
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    2,   34,    2, 0x02,    5 /* Public */,
+       4,    3,   34,    2, 0x02,    5 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::UInt,    5,    6,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::UInt,    5,    6,    7,
 
  // properties: name, type, flags
-       7, QMetaType::UInt, 0x00015001, uint(0), 0,
-       8, QMetaType::UInt, 0x00015001, uint(1), 0,
+       8, QMetaType::UInt, 0x00015001, uint(0), 0,
+       9, QMetaType::UInt, 0x00015001, uint(1), 0,
 
        0        // eod
 };
@@ -142,7 +146,8 @@ Q_CONSTINIT const QMetaObject Player::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'movePlayer'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<unsigned int, std::false_type>
     >,
     nullptr
@@ -156,7 +161,7 @@ void Player::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->positionXChanged(); break;
         case 1: _t->positionYChanged(); break;
-        case 2: _t->movePlayer((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint>>(_a[2]))); break;
+        case 2: _t->movePlayer((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uint>>(_a[3]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

@@ -10,6 +10,7 @@ release/player.o
 release/position.o
 release/room.o
 release/skeleton.o
+release/wall.o
 release/zombie.o
 release/qrc_Qml.o
 release/moc_distancemanager.o
@@ -20,3 +21,4 @@ release/moc_map.o
 release/moc_player.o
 release/moc_position.o
 release/moc_room.o
+release/moc_wall.o
