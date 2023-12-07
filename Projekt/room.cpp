@@ -59,6 +59,19 @@ QVariant Room::getEnemies()
     return QVariant::fromValue(m_enemies);
 }
 
+unsigned int Room::getWidth(){
+    return m_windowWidth;
+}
+
+void Room::removeWall(int x, int y) {
+    for (auto it = m_walls.begin(); it != m_walls.end(); ++it) {
+        if ((*it)->getPositionX() == x && (*it)->getPositionY() == y) {
+            it = m_walls.erase(it);
+            break;
+        }
+    }
+}
+
 int Room::generateRandomNumber(int range1, int range2) {
 
     std::random_device rd;
