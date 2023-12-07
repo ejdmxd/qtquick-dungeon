@@ -7,10 +7,10 @@ Rectangle {
         columns: 10
         rows: 10
         Repeater {
-            model:80
+            model:100
             Image {
                 width:parent.width/10
-                height:parent.width/10
+                height:parent.height/10
                 source: "images/flor.jpg"
 
             }
