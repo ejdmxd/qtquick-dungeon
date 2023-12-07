@@ -2,10 +2,24 @@
 
 Map::Map(QObject *parent) : QObject{parent}
 {
+    RoomDirector* roomDirector = new RoomDirector;
     player=new Player;
     for(int row=0;row<=3;row++){
         for(int column=0;column<=3;column++){
             m_map[{row,column}]=new Room;
+            Room* currentRoom = m_map[{row,column}];
+            if (row > 0 && row < 4) {
+                roomDirector->addTopEntrance(currentRoom);
+            }
+            if (row < 3) {
+                roomDirector->addBottomEntrance(currentRoom);
+            }
+            if (column > 0  && column < 4) {
+                roomDirector->addLeftEntrance(currentRoom);
+            }
+            if (column < 3) {
+                roomDirector->addRightEntrance(currentRoom);
+            }
         }
 
     }

@@ -9,6 +9,7 @@ release/map.o
 release/player.o
 release/position.o
 release/room.o
+release/roomdirector.o
 release/skeleton.o
 release/wall.o
 release/zombie.o
@@ -21,4 +22,5 @@ release/moc_map.o
 release/moc_player.o
 release/moc_position.o
 release/moc_room.o
+release/moc_roomdirector.o
 release/moc_wall.o

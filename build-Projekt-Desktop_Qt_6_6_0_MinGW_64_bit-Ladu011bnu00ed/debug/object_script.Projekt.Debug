@@ -9,6 +9,7 @@ debug/map.o
 debug/player.o
 debug/position.o
 debug/room.o
+debug/roomdirector.o
 debug/skeleton.o
 debug/wall.o
 debug/zombie.o
@@ -21,4 +22,5 @@ debug/moc_map.o
 debug/moc_player.o
 debug/moc_position.o
 debug/moc_room.o
+debug/moc_roomdirector.o
 debug/moc_wall.o

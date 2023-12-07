@@ -3,6 +3,7 @@
 
 #include "room.h"
 #include "player.h"
+#include "roomdirector.h"
 #include <algorithm>
 class Map:public QObject
 {

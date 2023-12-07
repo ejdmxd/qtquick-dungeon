@@ -31,6 +31,8 @@ public:
     void setWidth(int nieco);
     QVariant getItems();
     QVariant getEnemies();
+    unsigned int getWidth();
+    void removeWall(int x, int y);
     int generateRandomNumber(int range1, int range2);
     QVariant getMap();
     void setBorders();
