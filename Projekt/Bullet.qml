@@ -30,13 +30,11 @@ Rectangle {
 
     onYChanged: {
         if(bullet.y < -10 || bullet.y > 540){
-            console.log("Destroyed")
             bullet.destroy()
         }
     }
     onXChanged: {
         if(bullet.x < -10 || bullet.x > 640){
-            console.log("Destroyed")
             bullet.destroy()
         }
     }

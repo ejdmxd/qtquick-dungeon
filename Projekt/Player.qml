@@ -5,7 +5,7 @@ Image {
     property real moveX: 0;
     property real moveY: 0;
     property var keysPressed: [];
-
+    property bool canFire: true
 
     function updateMovement() {
             moveX = keysPressed.includes(Qt.Key_D) ? 1 : (keysPressed.includes(Qt.Key_A) ? -1 : 0);
@@ -16,7 +16,7 @@ Image {
     id: boy
     width: 100
     height: 100
-    source: "images/playerLeft.png"
+    source: "images/playerRight.png"
     Timer {
             property int moveDistance: 0
             id: movementTimer
@@ -42,16 +42,67 @@ Image {
             updateMovement();
             if(event.key === Qt.Key_A){
                 boy.source="images/playerLeft.png";
+                weapon.source="images/revolverLeft.png"
+                weapon.x = 0
             }else if(event.key === Qt.Key_D){
                 boy.source="images/playerRight.png";
+                weapon.source="images/revolverRight.png"
+                weapon.x = player.width*0.7
             }
         }
+        if((event.key === Qt.Key_Up || event.key === Qt.Key_Down || event.key === Qt.Key_Right || event.key === Qt.Key_Left) && canFire){
+                    canFire = false
+                    var bulletDirectionX
+                    var bulletDirectionY
+
+                    switch(event.key){
+                    case Qt.Key_Up:
+                        bulletDirectionX = 0
+                        bulletDirectionY = -1
+                        break
+                    case Qt.Key_Down:
+                        bulletDirectionX = 0
+                        bulletDirectionY = 1
+                        break
+                    case Qt.Key_Left:
+                        bulletDirectionX = -1
+                        bulletDirectionY = 0
+                        player.source="images/playerLeft.png";
+                        weapon.source = "images/revolverLeft.png"
+                        weapon.x = 0
+                        break
+                    case Qt.Key_Right:
+                        bulletDirectionX = 1
+                        bulletDirectionY = 0
+                        player.source="images/playerRight.png";
+                        weapon.source = "images/revolverRight.png"
+                        weapon.x = player.width*0.7
+                        break
+
+                    }
+
+                        var component = Qt.createComponent("Bullet.qml")
+
+                        if(component.status === Component.Ready){
+                            var bulletObj = component.createObject(game,{"x":map.player.positionX+50,"y":map.player.positionY+60,"directionX":bulletDirectionX,"directionY":bulletDirectionY})
+                        }
+                        fireCooldown.start()
+
+                }
     }
 
     Keys.onReleased: {
         if (keysPressed.includes(event.key)) {
             keysPressed.splice(keysPressed.indexOf(event.key), 1);
             updateMovement();
+        }
+    }
+
+    Timer {
+        id: fireCooldown
+        interval: 500
+        onTriggered: {
+            canFire = true
         }
     }
 
