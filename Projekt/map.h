@@ -10,20 +10,25 @@ class Map:public QObject
     Q_OBJECT
     Q_PROPERTY(Player * player READ getPlayer CONSTANT)
     Q_PROPERTY(Room * room READ getRoom CONSTANT NOTIFY roomChanged)
+    Q_PROPERTY(bool move READ  getMove CONSTANT NOTIFY moveChanged)
 private:
     std::map<std::array<int,2>,Room*>m_map;
     Player * player;
     int m_roomX=0;
     int m_roomY=0;
     Room* m_room=nullptr;
+    bool canMove=true;
 public:
     explicit Map(QObject* parent=nullptr);
     void setRoom(std::array<int,2>whichRoom);
     Room * getRoom();
     Player * getPlayer();
+    bool getMove();
     Q_INVOKABLE void movingInMap();
+
 signals:
     void roomChanged();
+    void moveChanged();
 };
 
 #endif // MAP_H

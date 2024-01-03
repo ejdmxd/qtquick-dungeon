@@ -5,18 +5,21 @@ Image {
     property real moveX: 0;
     property real moveY: 0;
     property var keysPressed: [];
-    property bool canFire: true
+    property bool canFire: true;
+
 
     function updateMovement() {
-            moveX = keysPressed.includes(Qt.Key_D) ? 1 : (keysPressed.includes(Qt.Key_A) ? -1 : 0);
-            moveY = keysPressed.includes(Qt.Key_S) ? 1 : (keysPressed.includes(Qt.Key_W) ? -1 : 0);
-            movementTimer.running = moveX !== 0 || moveY !== 0;
+
+             moveX = keysPressed.includes(Qt.Key_D) ? 1 : (keysPressed.includes(Qt.Key_A) ? -1 : 0);
+             moveY = keysPressed.includes(Qt.Key_S) ? 1 : (keysPressed.includes(Qt.Key_W) ? -1 : 0);
+             movementTimer.running = moveX !== 0 || moveY !== 0;
+
         }
 
     id: boy
     width: 100
     height: 100
-    source: "images/playerRight.png"
+    source: "images/playerRight.pngw"
     Timer {
             property int moveDistance: 0
             id: movementTimer
@@ -40,6 +43,7 @@ Image {
         if (!moving) {
             keysPressed.push(event.key);
             updateMovement();
+
             if(event.key === Qt.Key_A){
                 boy.source="images/playerLeft.png";
                 weapon.source="images/revolverLeft.png"

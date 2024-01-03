@@ -108,7 +108,31 @@ void Room::addWall(int x, int y){
     m_walls.push_back(new Wall(x,y));
 }
 
+
 QVariant Room::getWalls(){
     return QVariant::fromValue(m_walls);
 }
 
+
+bool Room::isEntrance(int playerX, int playerY){
+    for (auto it = m_entrance.begin(); it!=m_entrance.end(); it++){
+
+        if (playerX!=0){
+            if ((*it).at(0)-70<=playerX && (*it).at(0)+20>=playerX)
+                return true;
+        }
+        else if (playerY!=0){
+            if ((*it).at(1)-80<=playerY && (*it).at(1)>=playerY)
+                return true;
+            }
+
+    }
+    return false;
+}
+
+
+void Room::addEntrance(int posX,int posY)
+{
+    std::array<int,2> prem={posX,posY};
+    m_entrance.push_back(prem);
+}
