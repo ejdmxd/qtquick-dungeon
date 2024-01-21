@@ -3,6 +3,8 @@
 
 #include "enemy.h"
 
+class Player;
+
 class Zombie : public Enemy
 {
     Q_PROPERTY(int str READ getAttack NOTIFY strChanged)
@@ -17,12 +19,12 @@ public:
     Zombie(int str, int health, std::string type, int x, int y);
     int getAttack();
     int getHealth() const;
-    void attackPlayer();
+    void attackPlayer(Player* player);
+    bool isPlayerAttackable(Player* player);
 
 signals:
     void strChanged();
     void healthChanged();
-
 };
 
 #endif // ZOMBIE_H

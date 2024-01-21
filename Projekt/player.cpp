@@ -31,6 +31,16 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
     emit positionYChanged();
 }
 
+void Player::takeDamage(int amount){
+    m_isAttacked = true;
+    emit isAttacked();
+    m_health-= amount;
+    std::cout << "Zivoty" << m_health << std::endl;
+    QTimer::singleShot(1000, [this]() {
+        m_isAttacked = false;
+        emit isAttacked();
+    });
+}
 
 /*void Player::setRotationAngle(double angle){
     if(angle != m_rotationAngle){
@@ -42,3 +52,8 @@ double Player::getRotationAngle() const {
     return m_rotationAngle;
 }
 */
+
+
+bool Player::getIsAttacked() const {
+    return m_isAttacked;
+}

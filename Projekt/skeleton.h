@@ -13,7 +13,9 @@ public:
     Skeleton(int str, int health, std::string type, int x, int y);
     int getAttack();
     int getHealth() const;
-    void attackPlayer();
+    void attackPlayer(Player* player);
+    bool isPlayerAttackable(Player* player);
+
 
     signals:
     void strChanged();

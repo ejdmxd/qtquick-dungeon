@@ -18,6 +18,7 @@ Item{
             repeat: true
             onTriggered: {
                 map.room.enemies[enemyIndex].findPlayer(map.player.positionX, map.player.positionY);
+                map.room.enemies[enemyIndex].isPlayerAttackable(map.player);
             }
 
         }
@@ -29,4 +30,6 @@ Item{
             width:parent.width
             height:parent.height
         }
+
+        //reakce na emit playerAttacked()
 }

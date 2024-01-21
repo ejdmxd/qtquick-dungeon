@@ -19,7 +19,7 @@ Image {
     id: boy
     width: 100
     height: 100
-    source: "images/playerRight.pngw"
+    source: "images/playerRight.png"
     Timer {
             property int moveDistance: 0
             id: movementTimer
@@ -109,6 +109,14 @@ Image {
             canFire = true
         }
     }
+
+
+    Image {
+            source: "images/damage.png"
+            visible: map.player.beingAttacked
+            width: parent.width
+            height: parent.height
+        }
 
     focus: true
 }

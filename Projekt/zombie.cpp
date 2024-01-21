@@ -1,4 +1,5 @@
 #include "zombie.h"
+#include "player.h"
 
 // Zombie::Zombie(QObject *parent) : Enemy(parent), m_str(0), m_health(100) {
 //     // Případné inicializace
@@ -20,6 +21,17 @@ int Zombie::getHealth() const {
     return m_health;
 }
 
-void Zombie::attackPlayer() {
+void Zombie::attackPlayer(Player* player) {
     //todo pridat hrace do metody jako parametr a setnout mu hp na -= getAttack()
+    player->takeDamage(150);
+}
+
+
+bool Zombie::isPlayerAttackable(Player* player)  {
+    float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), player->getXPosition(),  player->getYPosition());
+    if(distance < 100){
+        attackPlayer(player);
+        return true;
+    }
+    return false;
 }
