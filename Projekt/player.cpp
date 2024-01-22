@@ -1,7 +1,13 @@
 #include "player.h"
 
-Player::Player(QObject *parent) : QObject{parent}{
 
+Player::Player(QObject *parent) : QObject{parent}{
+}
+
+Player::Player(int health, int def){
+    m_health = health;
+    m_def = def;
+    m_inventory = new Inventory();
 }
 
 
@@ -42,6 +48,34 @@ void Player::takeDamage(int amount){
         emit isAttacked();
     });
 }
+Inventory* Player::getInventory(){
+    return m_inventory;
+    emit inventoryChanged();
+}
+
+int Player::getHealth(){
+    return m_health;
+}
+
+
+int Player::getAttack(){
+    if(getInventory()->getGun() == nullptr){
+        return m_attack;
+    }else{
+        return m_attack + getInventory()->getGun()->getDamage();
+    }
+}
+
+int Player::getDef(){
+    if(getInventory()->getArmor() == nullptr){
+        return m_def;
+    }else{
+        return m_def + getInventory()->getArmor()->getDef();
+    }
+}
+
+
+
 
 /*void Player::setRotationAngle(double angle){
     if(angle != m_rotationAngle){

@@ -31,5 +31,6 @@
         <file>images/healthbar.png</file>
         <file>images/fullhealthbar.png</file>
         <file>images/fullhealthbar1.png</file>
+        <file>Inventory.qml</file>
     </qresource>
 </RCC>

@@ -1,11 +1,16 @@
 #include "armor.h"
 
-Armor::Armor(int strenght,int demage,int xPosition, int yPosition):Items(strenght, demage,xPosition,yPosition)
+Armor::Armor(int def,int xPosition, int yPosition):Items(xPosition,yPosition)
 {
+    m_def = def;
     m_name="Armor";
 }
 
-void Armor::setDemage(unsigned int newDemage)
+void Armor::setDef(unsigned int newDef)
 {
-    m_demage=newDemage;
+    m_def = newDef;
+}
+
+int Armor::getDef(){
+    return m_def;
 }

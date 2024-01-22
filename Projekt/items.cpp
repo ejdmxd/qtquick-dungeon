@@ -4,21 +4,11 @@ Items::Items(QObject *parent) : QObject{parent}{
 
 }
 
-Items::Items(int strenght, int demage,int xPosition,int yPosition){
-    m_strenght=strenght;
-    m_demage=demage;
+Items::Items(int xPosition,int yPosition){
     position=new Position();
     position->setXValue(xPosition);
     position->setYValue(yPosition);
 
-}
-
-unsigned int Items::getDemage(){
-    return m_demage;
-}
-
-unsigned int Items::getStrenght(){
-    return m_strenght;
 }
 
 QString Items::getName(){

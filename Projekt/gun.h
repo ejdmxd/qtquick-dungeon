@@ -5,11 +5,13 @@
 class Gun:public Items
 {
 private:
+    int m_damage;
     unsigned int m_bullets;
 public:
-    Gun(int strenght,int demage, int xPosition, int yPosition);
+    Gun(int damage, int xPosition, int yPosition);
     void setStrenght();
     unsigned int getBullets();
+    Q_INVOKABLE int getDamage();
     void shotBullet();
 };
 

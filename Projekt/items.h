@@ -11,14 +11,10 @@ class Items:public QObject
     Q_PROPERTY(QString  name READ getName CONSTANT)
 public:
     QString m_name;
-    unsigned int m_strenght;
-    unsigned int m_demage;
     Position * position;
 public:
     explicit Items(QObject * parent=nullptr);
-    Items(int strenght, int demage, int xPosition, int yPosition);
-    unsigned int getStrenght();
-    unsigned int getDemage();
+    Items(int xPosition, int yPosition);
     QString getName();
     int getPositionX();
     int getPositionY();

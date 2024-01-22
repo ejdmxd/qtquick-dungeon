@@ -19,6 +19,7 @@ SOURCES += \
     enemy.cpp \
     enemydirector.cpp \
     gun.cpp \
+    inventory.cpp \
     items.cpp \
             main.cpp \
     map.cpp \
@@ -52,6 +53,7 @@ HEADERS += \
     enemy.h \
     enemydirector.h \
     gun.h \
+    inventory.h \
     items.h \
     map.h \
     nonplayablecharacter.h \

@@ -8,6 +8,10 @@ Item {
 
     }
 
+    Inventory{
+    id:inventory
+    }
+
     Player {
         id:player
         x: map.player.positionX
@@ -30,6 +34,13 @@ Item {
             }
         }
 
+        if (event.key === Qt.Key_I) {
+            if(inventory.visible === true){
+                inventory.visible = false;
+            }else{
+                inventory.visible = true;
+            }
+        }
 
     }
 
