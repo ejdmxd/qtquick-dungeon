@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.15
 
 Rectangle {
     width: 650
-    height: 550
+    height: 650
     color: "lightblue"
 
     signal startGameClicked()

@@ -29,7 +29,7 @@ void Zombie::attackPlayer(Player* player) {
 
 bool Zombie::isPlayerAttackable(Player* player)  {
     float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), player->getXPosition(),  player->getYPosition());
-    if(distance < 100){
+    if(distance < 70){
         attackPlayer(player);
         return true;
     }

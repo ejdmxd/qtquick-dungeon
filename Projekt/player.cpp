@@ -4,6 +4,7 @@ Player::Player(QObject *parent) : QObject{parent}{
 
 }
 
+
 /*QVariant Player::getPosition() const {
     return QVariant::fromValue(m_position);
 }*/
@@ -34,9 +35,9 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
 void Player::takeDamage(int amount){
     m_isAttacked = true;
     emit isAttacked();
-    m_health-= amount;
-    std::cout << "Zivoty" << m_health << std::endl;
-    QTimer::singleShot(1000, [this]() {
+    QTimer::singleShot(300, [this, amount]() {
+        m_health-= amount;
+        std::cout << "Zivoty" << m_health << std::endl;
         m_isAttacked = false;
         emit isAttacked();
     });
@@ -56,4 +57,9 @@ double Player::getRotationAngle() const {
 
 bool Player::getIsAttacked() const {
     return m_isAttacked;
+}
+
+
+int Player::getHealth() const {
+    return m_health;
 }

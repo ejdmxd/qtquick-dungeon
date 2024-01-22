@@ -22,6 +22,7 @@ SOURCES += \
     items.cpp \
             main.cpp \
     map.cpp \
+    nonplayablecharacter.cpp \
         player.cpp \
         position.cpp \
     room.cpp \
@@ -53,6 +54,7 @@ HEADERS += \
     gun.h \
     items.h \
     map.h \
+    nonplayablecharacter.h \
     player.h \
     position.h \
     room.h \

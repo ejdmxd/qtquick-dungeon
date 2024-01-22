@@ -7,8 +7,8 @@ class Position : public QObject
 {
     Q_OBJECT
 private:
-    unsigned int m_xValue = 20;
-    unsigned int m_yValue = 20;
+    unsigned int m_xValue = 0;
+    unsigned int m_yValue = 0;
     double m_rotation = 1;
 public:
     explicit Position(QObject *parent = nullptr);

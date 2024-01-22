@@ -17,12 +17,13 @@ class Player : public QObject
     Q_PROPERTY(unsigned int  positionX READ getXPosition NOTIFY positionXChanged)
     Q_PROPERTY(unsigned int  positionY READ getYPosition NOTIFY positionYChanged)
     Q_PROPERTY(bool beingAttacked READ getIsAttacked NOTIFY isAttacked)
+    Q_PROPERTY(int playersHealth READ getHealth NOTIFY isAttacked)
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
 
 private:
     Position* m_position = new Position;
-    int m_health = 3;
+    int m_health = 1000;
     //double m_rotationAngle;
     std::vector<Items*> inventory;
     bool m_isAttacked = false;
@@ -36,6 +37,7 @@ public:
     //double getRotationAngle() const;
     void takeDamage(int amount);
     bool getIsAttacked() const;
+    int getHealth() const;
 signals:
     //void positionChanged();
     void positionXChanged();

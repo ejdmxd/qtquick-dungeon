@@ -1,4 +1,5 @@
 #include "skeleton.h"
+#include "player.h"
 
 Skeleton::Skeleton(int str, int health,std::string type, int x, int y) : Enemy(type, x, y) {
     m_str = str;
@@ -14,13 +15,13 @@ int Skeleton::getHealth() const {
 }
 
 void Skeleton::attackPlayer(Player* player) {
-
+    player->takeDamage(150);
 }
 
 bool Skeleton::isPlayerAttackable(Player* player)  {
-    float distance;
-    if(distance < 100){
-        //attackPlayer();
+    float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), player->getXPosition(),  player->getYPosition());
+    if(distance < 70){
+        attackPlayer(player);
         return true;
     }
     return false;

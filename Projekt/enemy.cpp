@@ -33,7 +33,7 @@ void Enemy::findPlayer(float playerPosX, float playerPosY) {
     float angle_rad  = m_distanceMgr->calculateRadials(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
     float angle_deg = m_distanceMgr->calculateDegrees(angle_rad);
     //std::cout << angle_deg << std::endl; Overeni uhlu
-    if(isPlayerNearby(distance)){ //Overeni jak je hrac daleko
+    if(isPlayerNearby(distance) && distance > 70){ //Overeni jak je hrac daleko
         chasePlayer(angle_deg);
         emit positionChanged();
     }

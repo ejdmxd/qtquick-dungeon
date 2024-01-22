@@ -25,5 +25,11 @@
         <file>images/revolverLeft.png</file>
         <file>images/revolverRight.png</file>
         <file>images/damage.png</file>
+        <file>Projectile.qml</file>
+        <file>Statistics.qml</file>
+        <file>images/border.jpg</file>
+        <file>images/healthbar.png</file>
+        <file>images/fullhealthbar.png</file>
+        <file>images/fullhealthbar1.png</file>
     </qresource>
 </RCC>
