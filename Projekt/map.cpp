@@ -3,7 +3,7 @@
 Map::Map(QObject *parent) : QObject{parent}
 {
     RoomDirector* roomDirector = new RoomDirector;
-    player=new Player;
+    player=new Player(100, 5);
     for(int row=0;row<=3;row++){
         for(int column=0;column<=3;column++){
             m_map[{row,column}]=new Room;
@@ -68,7 +68,7 @@ void Map::movingInMap() {
     }
 
 
-    std::cout << "Miestonost x" << m_roomX << " Miestnost y" << m_roomY << std::endl;
+    // std::cout << "Miestonost x" << m_roomX << " Miestnost y" << m_roomY << std::endl;
     emit roomChanged();
 }
 

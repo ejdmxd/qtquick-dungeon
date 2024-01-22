@@ -4,9 +4,11 @@
 
 class Armor:public Items
 {
+    int m_def;
 public:
-    Armor(int strenght,int demage,int xPosition, int yPosition);
-    void setDemage(unsigned int newDemage);
+    Armor(int def,int xPosition, int yPosition);
+    void setDef(unsigned int newDef);
+    int getDef();
 };
 
 #endif // ARMOR_H

@@ -1,18 +1,16 @@
 #include "gun.h"
 
-Gun::Gun(int strenght,int demage, int xPosition,int yPosition):Items(strenght, demage,xPosition,yPosition)
+Gun::Gun(int damage, int xPosition,int yPosition):Items(xPosition,yPosition)
 {
+    m_damage = damage;
     m_bullets=50;
     m_name="Gun";
 }
 
-
-void Gun::setStrenght()
-{
-    if(m_demage>=50){
-        m_strenght-=1;
-    }
+int Gun::getDamage(){
+    return m_damage;
 }
+
 
 unsigned int Gun::getBullets(){
     return m_bullets;

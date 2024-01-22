@@ -35,7 +35,7 @@ Image {
 
                 map.player.movePlayer(moveX, moveY, moveDistance);
                 map.movingInMap();
-                console.log("y", map.player.positionY, " x", map.player.positionX);
+                // console.log("y", map.player.positionY, " x", map.player.positionX);
            }
         }
 
