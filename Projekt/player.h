@@ -7,6 +7,8 @@
 #include <QVariant>
 #include <vector>
 #include "inventory.h"
+#include <QTimer>
+
 
 class Player : public QObject
 {
@@ -15,6 +17,7 @@ class Player : public QObject
     Q_PROPERTY(unsigned int  positionX READ getXPosition NOTIFY positionXChanged)
     Q_PROPERTY(unsigned int  positionY READ getYPosition NOTIFY positionYChanged)
     Q_PROPERTY(Inventory* inventory READ getInventory NOTIFY inventoryChanged)
+    Q_PROPERTY(bool beingAttacked READ getIsAttacked NOTIFY isAttacked)
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
 
@@ -24,6 +27,7 @@ private:
     int m_attack;
     int m_health;
     int m_def;
+    bool m_isAttacked = false;
 public:
     explicit Player(QObject *parent = nullptr);
     Player(int health, int def);
@@ -40,11 +44,14 @@ public:
     Q_INVOKABLE int getAttack();
 
 
+    void takeDamage(int amount);
+    bool getIsAttacked() const;
 signals:
     //void positionChanged();
     void positionXChanged();
     void positionYChanged();
     void inventoryChanged();
+    void isAttacked();
     //void rotationAngleChanged();
 };
 

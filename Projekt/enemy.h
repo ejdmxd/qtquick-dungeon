@@ -7,6 +7,7 @@
 #include <cmath>
 #include "distancemanager.h"
 
+class Player;
 
 class Enemy : public QObject
 {
@@ -15,6 +16,7 @@ class Enemy : public QObject
     Q_PROPERTY(unsigned int enemyY READ getEnemyPosY NOTIFY positionChanged)
     Q_PROPERTY(QString enemyType READ getEnemyType CONSTANT)
     Q_PROPERTY(double enemyRotation READ getEnemyRotation NOTIFY rotationChanged)
+
 protected:
     Position* m_enemyPos = new Position;
     Enemy(std::string type,int x, int y);
@@ -22,7 +24,8 @@ protected:
 public:
     explicit Enemy(QObject *parent = nullptr);
     virtual int getAttack() = 0;
-    virtual void attackPlayer() = 0;
+    virtual void attackPlayer(Player* player) = 0;
+    Q_INVOKABLE virtual bool isPlayerAttackable(Player* player) = 0;
     int getEnemyPosX() const;
     int getEnemyPosY() const;
     QString getEnemyType() const;

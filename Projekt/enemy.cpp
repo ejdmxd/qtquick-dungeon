@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "player.h"
 
 Enemy::Enemy(QObject *parent) : QObject{parent}
 {

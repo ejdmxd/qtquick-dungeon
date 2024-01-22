@@ -13,6 +13,15 @@ int Skeleton::getHealth() const {
     return m_health;
 }
 
-void Skeleton::attackPlayer() {
-    //todo pridat hrace do metody jako parametr a setnout mu hp na -= getAttack()
+void Skeleton::attackPlayer(Player* player) {
+
+}
+
+bool Skeleton::isPlayerAttackable(Player* player)  {
+    float distance;
+    if(distance < 100){
+        //attackPlayer();
+        return true;
+    }
+    return false;
 }

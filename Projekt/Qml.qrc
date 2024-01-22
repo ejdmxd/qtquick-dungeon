@@ -24,6 +24,7 @@
         <file>Weapon.qml</file>
         <file>images/revolverLeft.png</file>
         <file>images/revolverRight.png</file>
+        <file>images/damage.png</file>
         <file>Inventory.qml</file>
     </qresource>
 </RCC>
