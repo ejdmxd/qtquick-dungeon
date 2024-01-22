@@ -53,9 +53,7 @@ Inventory* Player::getInventory(){
     emit inventoryChanged();
 }
 
-int Player::getHealth(){
-    return m_health;
-}
+
 
 
 int Player::getAttack(){

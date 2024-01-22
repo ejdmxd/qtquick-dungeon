@@ -3,7 +3,7 @@
 Map::Map(QObject *parent) : QObject{parent}
 {
     RoomDirector* roomDirector = new RoomDirector;
-    player=new Player(100, 5);
+    player=new Player(1000, 5);
     for(int row=0;row<=3;row++){
         for(int column=0;column<=3;column++){
             m_map[{row,column}]=new Room;

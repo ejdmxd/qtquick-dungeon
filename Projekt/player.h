@@ -40,14 +40,13 @@ public:
     Q_INVOKABLE Inventory* getInventory();
     //double getRotationAngle() const;
 
-    Q_INVOKABLE int getHealth();
     Q_INVOKABLE int getDef();
     Q_INVOKABLE int getAttack();
 
 
     void takeDamage(int amount);
     bool getIsAttacked() const;
-    int getHealth() const;
+    Q_INVOKABLE int getHealth() const;
 signals:
     //void positionChanged();
     void positionXChanged();
