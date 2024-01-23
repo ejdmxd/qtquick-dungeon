@@ -14,7 +14,3 @@ void Armor::setDef(unsigned int newDef)
 int Armor::getDef(){
     return m_def;
 }
-
-QString Armor::getName(){
-    return m_name;
-}

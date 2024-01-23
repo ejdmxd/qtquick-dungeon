@@ -15,7 +15,7 @@ public:
 public:
     explicit Items(QObject * parent=nullptr);
     Items(int xPosition, int yPosition);
-    QString getName();
+    QString getName() const;
     int getPositionX();
     int getPositionY();
 };

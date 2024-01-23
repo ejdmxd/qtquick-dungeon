@@ -1,13 +1,16 @@
 #ifndef POTION_H
 #define POTION_H
 
+#include "items.h"
 #include <QObject>
-#include <items.h>
 
 class Potion : public Items
 {
+    int m_bonusHealth;
 public:
-    Potion(Q);
+    Potion(int bonusHealth, int xPosition, int yPosition);
+    int getBonusHealth() const;
+    void setBonusHealth(int newBonusHealth);
 };
 
 #endif // POTION_H

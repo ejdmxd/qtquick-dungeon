@@ -88,6 +88,8 @@ Rectangle {
                     onClicked: {
                         // Zde přidej kód pro funkčnost DROP weapon
                         console.log("DROP");
+                         map.player.dropWeapon()
+                            map.player.forceLayout();
                     }
                 }
 
@@ -156,6 +158,8 @@ Rectangle {
                     onClicked: {
                         // Zde přidej kód pro funkčnost DROP armor
                         console.log("DROP");
+                        map.player.dropArmor()
+                        map.player.forceLayout();
                     }
                 }
 
@@ -168,29 +172,104 @@ Rectangle {
             }
         }
         //ARMOR SLOT END#####################################################################
-        Rectangle {
-            width: parent.width-20
-            height: 60
-            color: "#61dafb"
+        //POTION SLOT #####################################################################
+        Row {
+            spacing: 10
 
             Text {
-                text: "Potion Slot"
-                anchors.centerIn: parent
+                width: 80
+                text: "Potions:"
                 color: "white"
+                font.bold: true
+                verticalAlignment: Text.AlignVCenter
+                padding: 10
+            }
+
+            Rectangle {
+                width: 140
+                height: 60
+                color: "black"
+                radius: 5
+
+                Text {
+                    anchors.centerIn: parent
+                    text: map.player.numberOfPotions ? "Count: " + map.player.numberOfPotions : "No potions availible"
+                    color: "white"
+                    visible: true
+                }
+            }
+
+            Rectangle {
+                width: 80
+                height: 60
+                color: "green"
+                radius: 5
+                visible: map.player.potions
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("DRINK");
+                        map.player.drinkPotion()
+                        map.player.heal()
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "DRINK potion"
+                    color: "white"
+                    visible: true
+                }
             }
         }
+        //POTION SLOT END #####################################################################
+        //STATISTICS SLOT #####################################################################
 
-        Rectangle {
-            width: parent.width -20
-            height: 40
-            color: "#61dafb"
+
+        Row {
+            spacing: 10
 
             Text {
-                text: "Damage: " + player.getAttack()
-                anchors.centerIn: parent
+                width: 80
+                text: "Statistics"
                 color: "white"
+                font.bold: true
+                verticalAlignment: Text.AlignVCenter
+                padding: 10
             }
+
+            Rectangle {
+                width: 185
+                height: 60
+                color: "black"
+                radius: 5
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "Attack Damage: " + map.player.attack
+                    color: "white"
+                    visible: true
+                }
+            }
+
+            Rectangle {
+                width: 185
+                height: 60
+                color: "lightgrey"
+                radius: 5
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "Armor: " + map.player.deff
+                    color: "black"
+                    visible: true
+                }
+            }
+
+
         }
+        //STATISCICS END#####################################################################
 
     }
 }

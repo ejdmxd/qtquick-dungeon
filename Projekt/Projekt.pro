@@ -26,6 +26,7 @@ SOURCES += \
     nonplayablecharacter.cpp \
         player.cpp \
         position.cpp \
+    potion.cpp \
     room.cpp \
     roomdirector.cpp \
     skeleton.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     nonplayablecharacter.h \
     player.h \
     position.h \
+    potion.h \
     room.h \
     roomdirector.h \
     skeleton.h \

@@ -5,21 +5,20 @@
 #include <QVariantList>
 #include "gun.h"
 #include "armor.h"
+#include "potion.h"
 
 
 class Inventory : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(Gun* gun READ getGun NOTIFY gunChanged)
-    Q_PROPERTY(Armor* armor READ getArmor NOTIFY armorChanged)
     Q_PROPERTY(bool visible READ isVisible NOTIFY visibilityChanged)
-    // Q_PROPERTY(QList<QObject*> potions READ getPotions NOTIFY potionsChanged)
+
 
 private:
     Gun* m_gun;
     Armor* m_armor;
     bool m_visible;
-    // std::vector<Potion*> m_potion;
+    std::vector<Potion*> m_potions;
 
 public:
     Inventory();
@@ -35,7 +34,10 @@ public:
     Gun* getGun() const;
     Armor* getArmor() const;
 
-    // Q_INVOKALBE void voidUsePotion(int id);
+    void pickPotion(Potion* p);
+    int getNumberOfPotions() const;
+    void drinkPotion();
+
 
 
 

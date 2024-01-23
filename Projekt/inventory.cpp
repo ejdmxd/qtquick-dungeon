@@ -54,6 +54,31 @@ bool Inventory::isVisible()
     return m_visible;
 }
 
+int Inventory::getNumberOfPotions()const
+{
+    int pocet = 0;
+    if(m_potions.empty()){
+        return 0;
+    }else{
+        for(auto p : m_potions){
+            pocet++;
+        }
+    }
+    return pocet;
+}
+
+void Inventory::pickPotion(Potion *p){
+    if(getNumberOfPotions() < 3 ){
+        m_potions.push_back(p);
+    }
+}
+
+void Inventory::drinkPotion(){
+    if(getNumberOfPotions() > 0){
+        m_potions.pop_back();
+    }
+}
+
 
 
 

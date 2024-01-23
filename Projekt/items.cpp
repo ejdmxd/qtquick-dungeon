@@ -11,7 +11,7 @@ Items::Items(int xPosition,int yPosition){
 
 }
 
-QString Items::getName(){
+QString Items::getName() const{
     return m_name;
 }
 

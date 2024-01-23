@@ -21,10 +21,15 @@ class Player : public QObject
     Q_PROPERTY(int playersHealth READ getHealth NOTIFY isAttacked)
     Q_PROPERTY(int weaponDmg READ getWeaponDmg CONSTANT)
     Q_PROPERTY(QString weaponName READ getWeaponName CONSTANT)
-    Q_PROPERTY(Gun* gun READ getWeapon CONSTANT)
+    Q_PROPERTY(Gun* gun READ getWeapon NOTIFY weaponChange)
     Q_PROPERTY(int armorDef READ getArmorDef CONSTANT)
     Q_PROPERTY(QString armorName READ getArmorName CONSTANT)
-    Q_PROPERTY(Armor* armor READ getArmor CONSTANT)
+    Q_PROPERTY(Armor* armor READ getArmor NOTIFY armorChange)
+    Q_PROPERTY(int numberOfPotions READ getNumberOfPotions NOTIFY potionDrinked)
+    Q_PROPERTY(bool potions READ potionsEmpty NOTIFY potionDrinked)
+    Q_PROPERTY(int attack READ getAttack CONSTANT);
+    Q_PROPERTY(int deff READ getDef CONSTANT);
+
 
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
@@ -50,6 +55,8 @@ public:
     Q_INVOKABLE int getDef();
     Q_INVOKABLE int getAttack();
 
+    Q_INVOKABLE void heal();
+
 
     void takeDamage(int amount);
     bool getIsAttacked() const;
@@ -60,17 +67,27 @@ public:
     Q_INVOKABLE int getWeaponDmg();
     Q_INVOKABLE Gun* getWeapon();
     Q_INVOKABLE QString getWeaponName();
+    Q_INVOKABLE void dropWeapon();
     // ARMOR
     Q_INVOKABLE int getArmorDef();
     Q_INVOKABLE Armor* getArmor();
     Q_INVOKABLE QString getArmorName();
+    Q_INVOKABLE void dropArmor();
+    // POTIONS
+    Q_INVOKABLE int getNumberOfPotions();
+    Q_INVOKABLE void drinkPotion();
+    Q_INVOKABLE bool potionsEmpty();
+
 
 signals:
     //void positionChanged();
     void positionXChanged();
     void positionYChanged();
     void isAttacked();
-    //void rotationAngleChanged();
+    void potionDrinked();
+    void rotationAngleChanged();
+    void weaponChange();
+    void armorChange();
 };
 
 #endif // PLAYER_H

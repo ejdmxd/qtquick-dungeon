@@ -5,6 +5,7 @@ Player::Player(QObject *parent) : QObject{parent}{
 }
 
 Player::Player(int health, int def){
+    m_attack = 5;
     m_health = health;
     m_def = def;
     m_inventory = new Inventory();
@@ -102,3 +103,56 @@ QString Player::getArmorName(){
 Armor* Player::getArmor(){
     return getInventory()->getArmor();
 }
+
+int Player::getNumberOfPotions(){
+    return getInventory()->getNumberOfPotions();
+}
+
+void Player::drinkPotion(){
+    getInventory()->drinkPotion();
+    emit potionDrinked();
+}
+
+bool Player::potionsEmpty(){
+    if(getInventory()->getNumberOfPotions() == 0){
+        return 0;
+    }else{
+        return 1;
+    }
+}
+
+void Player::heal(){
+    int maxHealth = 1000;
+    int healingAmount = 200;
+
+    // Získání aktuálního zdraví hráče
+    int currentHealth = getHealth();
+
+    // Výpočet, kolik mu zbývá do maximální hodnoty
+    int remainingHealth = maxHealth - currentHealth;
+
+    // Přičtení životů s ohledem na maximální hodnotu
+    if (remainingHealth > 0) {
+        if (remainingHealth >= healingAmount) {
+            // Můžeme přičíst celý počet healingAmount
+            m_health += healingAmount;
+        } else {
+            // Přičteme pouze zbývající množství do maximální hodnoty
+            m_health = maxHealth;
+        }
+
+        // Emitování signálu o změně životů
+        emit isAttacked();
+    }
+}
+
+void Player::dropArmor(){
+    getInventory()->dropArmor();
+    emit armorChange();
+}
+
+void Player::dropWeapon(){
+    getInventory()->dropGun();
+    emit weaponChange();
+}
+
