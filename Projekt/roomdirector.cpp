@@ -30,6 +30,7 @@ void RoomDirector::clearRoom(Room *room){
     room->clearRoom();
 }
 
-void RoomDirector::addNPC(Room *room, int positionX, int positionY){
+void RoomDirector::addNPC(Room *room, int positionX, int positionY, int enemiesNumber){
     room->setNPC(new NonPlayableCharacter(positionX, positionY));
+    room->getNPC()->setEnemiesNumber(enemiesNumber);
 }

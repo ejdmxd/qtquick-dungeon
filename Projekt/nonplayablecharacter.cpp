@@ -12,7 +12,8 @@ NonPlayableCharacter::NonPlayableCharacter(int positionX, int positionY){
     m_position->setYValue(positionY);
 }
 
-void NonPlayableCharacter::checkProgress(Quest* quest){
+void NonPlayableCharacter::checkProgress(Quest* quest, int killCount){
+    //TODO quest->checkState();
     if(quest->getState()==Quest::QuestState::NotStarted){
         m_dialog = "Tak na co jeste cekas??";
     }else if(quest->getState()==Quest::QuestState::InProgress){
@@ -53,4 +54,8 @@ QString NonPlayableCharacter::getDialog() const{
 
 bool NonPlayableCharacter::getDialogVisibility() const {
     return m_isDialogVisible;
+}
+
+void NonPlayableCharacter::setEnemiesNumber(int enemiesNumber){
+    m_enemiesNumber = enemiesNumber;
 }

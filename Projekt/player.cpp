@@ -10,6 +10,8 @@ Player::Player(int health, int def){
     m_health = health;
     m_def = def;
     m_inventory = new Inventory();
+    m_position->setXValue(100);
+    m_position->setYValue(100);
 }
 
 
@@ -201,7 +203,7 @@ void Player::interact(){
            if(m_quest==NULL){
                 m_quest=m_currentRoom->getNPC()->giveQuest(this);
             }else{
-                m_currentRoom->getNPC()->checkProgress(m_quest);
+                m_currentRoom->getNPC()->checkProgress(m_quest, m_killCount);
             }
         }
     }

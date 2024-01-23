@@ -16,7 +16,6 @@ Map::Map(QObject *parent) : QObject{parent}
             Room* currentRoom = m_map[{row,column}];
             if(row == 0 && column == 0){
                 roomDirector->clearRoom(currentRoom);
-                roomDirector->addNPC(currentRoom, 250, 250);
             }
             m_pocetNepratel += currentRoom->getPocetNepratel();
             if (row > 0 && row < 4) {
@@ -31,10 +30,12 @@ Map::Map(QObject *parent) : QObject{parent}
             if (column < 3) {
                 roomDirector->addRightEntrance(currentRoom);
             }
+            m_pocetNepratel += currentRoom->getPocetNepratel();
         }
 
     }
     setRoom(std::array<int,2>{m_roomX,m_roomY});
+    roomDirector->addNPC(m_map[{0, 0}], 250, 250, 5);
     player->setRoom(getRoom());
 }
 

@@ -5,7 +5,7 @@ Item {
         width: textItem.width + 10
         height: textItem.height + 10
         color: "red"
-        visible: map.room.npc.isDialogVisible
+        visible: map.room.npc ? map.room.npc.isDialogVisible : false
 
         Text {
             id: textItem

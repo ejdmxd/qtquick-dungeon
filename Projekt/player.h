@@ -46,6 +46,7 @@ private:
     Room* m_currentRoom;
     bool m_canInteract = false;
     Quest* m_quest = NULL;
+    int m_killCount = 0;
 
 public:
     explicit Player(QObject *parent = nullptr);
