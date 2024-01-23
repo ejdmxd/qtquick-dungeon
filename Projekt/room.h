@@ -21,7 +21,7 @@ class Player;
 class Room:public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QVariant items READ getItems CONSTANT)
+    Q_PROPERTY(QVariant items READ getItems NOTIFY itemPicked)
     Q_PROPERTY(QVariant enemies READ getEnemies CONSTANT)
     Q_PROPERTY(QVariant walls READ getWalls CONSTANT)
 
@@ -53,9 +53,10 @@ public:
     void addEntrance(int posX,int posY);
     void checkClosestItem(Player* player);
     Items* getClosestItem() const;
-
+    void playerPickedItem(Items* itemToRemove);
 signals:
     void itemsCrafted();
+    void itemPicked();
 };
 
 #endif // ROOM_H

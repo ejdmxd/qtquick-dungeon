@@ -25,11 +25,11 @@ public:
 
     Q_INVOKABLE bool isVisible();
 
-    Q_INVOKABLE void pickGun(Gun* g);
+    Q_INVOKABLE bool pickGun(Gun* g);
     Q_INVOKABLE void dropGun();
 
 
-    Q_INVOKABLE void pickArmor(Armor* a);
+    Q_INVOKABLE bool pickArmor(Armor* a);
     Q_INVOKABLE void dropArmor();
     Gun* getGun() const;
     Armor* getArmor() const;

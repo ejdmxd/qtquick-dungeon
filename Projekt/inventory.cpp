@@ -7,12 +7,14 @@ Inventory::Inventory(){
     m_gun = nullptr;
     m_armor = nullptr;
 }
-void Inventory::pickGun(Gun* g){
+bool Inventory::pickGun(Gun* g){
     if(m_gun == nullptr){
         m_gun = g;
         emit gunChanged();
+        return true;
     }else{
         std::cout << "You already have a weapon" << std::endl;
+        return false;
     }
 }
 
@@ -25,11 +27,14 @@ void Inventory::dropGun(){
     }
 }
 
-void Inventory::pickArmor(Armor *a){
+bool Inventory::pickArmor(Armor *a){
     if(m_armor == nullptr){
         m_armor = a;
+        emit armorChanged();
+        return true;
     }else{
         std::cout << "You already have an armor" << std::endl;
+        return false;
     }
 }
 

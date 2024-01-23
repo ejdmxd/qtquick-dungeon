@@ -187,3 +187,11 @@ void Room::checkClosestItem(Player *player){
 Items* Room::getClosestItem() const {
     return m_closestItem;
 }
+
+void Room::playerPickedItem(Items* itemToRemove) {
+    auto it = std::find(m_items.begin(), m_items.end(), itemToRemove);
+    if (it != m_items.end()) {
+            m_items.erase(it);
+            emit itemPicked();
+    }
+}
