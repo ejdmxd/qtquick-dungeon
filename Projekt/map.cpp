@@ -15,9 +15,12 @@ Map::Map(QObject *parent) : QObject{parent}
         for(int column=0;column<=3;column++){
             m_map[{row,column}]=new Room;
             Room* currentRoom = m_map[{row,column}];
+            if(row == 0 && column == 0){
+                roomDirector->clearRoom(currentRoom);
+            }
+            m_pocetNepratel += currentRoom->getPocetNepratel();
             if (row > 0 && row < 4) {
                 roomDirector->addTopEntrance(currentRoom);
-
             }
             if (row < 3) {
                 roomDirector->addBottomEntrance(currentRoom);

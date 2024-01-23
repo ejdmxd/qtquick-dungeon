@@ -25,7 +25,6 @@
         <file>images/revolverLeft.png</file>
         <file>images/revolverRight.png</file>
         <file>images/damage.png</file>
-        <file>Projectile.qml</file>
         <file>Statistics.qml</file>
         <file>images/border.jpg</file>
         <file>images/healthbar.png</file>

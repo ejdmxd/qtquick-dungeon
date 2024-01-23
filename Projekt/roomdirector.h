@@ -13,7 +13,7 @@ public:
     void addLeftEntrance(Room* room);
     void addTopEntrance(Room* room);
     void addBottomEntrance(Room* room);
-
+    void clearRoom(Room* room);
 signals:
 
 };

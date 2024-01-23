@@ -28,6 +28,7 @@ class Room:public QObject
 public:
     unsigned int m_windowWidth;
     unsigned int m_windowHeight;
+    unsigned int m_pocetNepratel;
 
     std::vector<Wall *>m_walls;
     std::vector<Items *> m_items;
@@ -54,6 +55,9 @@ public:
     void checkClosestItem(Player* player);
     Items* getClosestItem() const;
     void playerPickedItem(Items* itemToRemove);
+    unsigned int getPocetNepratel() const;
+    void clearRoom();
+
 signals:
     void itemsCrafted();
     void itemPicked();

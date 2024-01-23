@@ -31,6 +31,7 @@ Q_INVOKABLE void Room::setEnemies(){
     EnemyDirector* generujem = new EnemyDirector;
     for (int i=0;i<prem;i++){
         int typeOfEnemy = generateRandomNumber(1,2);
+        m_pocetNepratel++;
         switch(typeOfEnemy){
         case 1:
             m_enemies.push_back(generujem->createZombie(generateRandomNumber(1,600),generateRandomNumber(1,450)));
@@ -40,7 +41,6 @@ Q_INVOKABLE void Room::setEnemies(){
             m_enemies.push_back(generujem->createSkeleton(generateRandomNumber(1,600),generateRandomNumber(1,450)));
             break;
         }
-
 
     }
 
@@ -194,4 +194,14 @@ void Room::playerPickedItem(Items* itemToRemove) {
             m_items.erase(it);
             emit itemPicked();
     }
+}
+
+unsigned int Room::getPocetNepratel() const {
+    return m_pocetNepratel;
+}
+
+void Room::clearRoom(){
+    m_items.clear();
+    m_enemies.clear();
+    m_pocetNepratel = 0;
 }

@@ -18,6 +18,7 @@ private:
     int m_roomY=0;
     Room* m_room=nullptr;
     bool canMove=true;
+    int m_pocetNepratel = 0;
 public:
     explicit Map(QObject* parent=nullptr);
     void setRoom(std::array<int,2>whichRoom);

@@ -25,3 +25,7 @@ void RoomDirector::addTopEntrance(Room* room){
     room->removeWall(250, 0);
     room->addEntrance(250,0);
 }
+
+void RoomDirector::clearRoom(Room *room){
+    room->clearRoom();
+}
