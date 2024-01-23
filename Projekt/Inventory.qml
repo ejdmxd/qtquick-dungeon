@@ -6,7 +6,7 @@ Rectangle {
     id: inventory
     width: 500
     height: 400
-    color: "#282c34" // Barva pozadí inventáře
+    color: "#282c34"
     visible: map.player.inventory.visible
     anchors.centerIn: parent
     z: 100
@@ -16,118 +16,181 @@ Rectangle {
         spacing: 10
         padding: 10
 
-
-        // Obrázek hráče
         Rectangle {
-            width: parent.width -20
+            width: parent.width - 20
             height: 100
 
-            Image{
-                anchors.topMargin: 10
+            Image {
                 anchors.centerIn: parent
-                width: 80
-                height: 80
+                width: 70
+                height: 70
                 source: "images/playerRight.png"
             }
 
-            // Zde můžete přidat Image s obrázkem hráče
-
             Text {
-                text: "Player"
-                anchors.left: parent.left
-                color: "Black" // Barva textu
+                text: "Inventory"
+                anchors.horizontalCenter: parent.horizontalCenter
+                color: "Black"
+                font.bold: true
             }
         }
-
-        // Slot pro zbraň
-        Rectangle {
-            width: parent.width
-            height: 60 // Upravena výška
-            color: "#61dafb" // Barva pozadí pro zbraň
-
-            // Zde můžete přidat prostor pro zbraň
+        // WEAPON SLOT ##################################################################
+        Row {
+            spacing: 10
 
             Text {
+                width: 80
                 text: "Weapon Info"
-                anchors.left: parent.left
-                color: "white" // Barva textu
+                color: "white"
                 font.bold: true
+                verticalAlignment: Text.AlignVCenter
+                padding: 10
             }
 
             Rectangle {
-                width: 150
+                width: 140
                 height: 60
-                color:"lightgrey"
-                anchors.horizontalCenter: parent.horizontalCenter // Opraveno pro zarovnání na střed
-                        anchors.verticalCenter: parent.verticalCenter // Zarovnání i na svislý střed
+                color: "black"
+                radius: 5
+
                 Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter // Zarovnání na svislý střed
-                    text: map.player.inventory.gun ? "Weapon damage bonus " + map.player.inventory.gun.weaponDamage : "You don't have any weapon"
+                    anchors.centerIn: parent
+                    text: map.player.gun ? "Bonus: " + map.player.weaponDmg : "No weapon equipped"
+                    color: "white"
+                    visible: true
+                }
+            }
+
+            Rectangle {
+                width: 140
+                height: 60
+                color: "lightgrey"
+                radius: 5
+
+                Text {
+                    anchors.centerIn: parent
+                    text: map.player.gun ? "Name: " + map.player.weaponName : "No weapon equipped"
+                    color: "black"
+                    visible: true
+                }
+            }
+
+            // Tlačítko DROP weapon
+            Rectangle {
+                width: 80
+                height: 60
+                color: "red"
+                radius: 5
+                visible: map.player.gun
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        // Zde přidej kód pro funkčnost DROP weapon
+                        console.log("DROP");
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "DROP weapon"
+                    color: "white"
+                    visible: true
                 }
             }
         }
+        // WEAPON SLOT END##################################################################
+        //ARMOR SLOT #####################################################################
 
 
-
-        // Slot pro armor
-        Rectangle {
-            width: parent.width
-            height: 60 // Upravena výška
-            color: "#61dafb" // Barva pozadí pro armor
-
-            // Zde můžete přidat prostor pro armor
+        Row {
+            spacing: 10
 
             Text {
-                text: "Armor Slot"
-                anchors.centerIn: parent
-                color: "white" // Barva textu
+                width: 80
+                text: "Armor Info"
+                color: "white"
+                font.bold: true
+                verticalAlignment: Text.AlignVCenter
+                padding: 10
+            }
+
+            Rectangle {
+                width: 140
+                height: 60
+                color: "black"
+                radius: 5
+
+                Text {
+                    anchors.centerIn: parent
+                    text: map.player.armor ? "Bonus: " + map.player.armorDef : "No armor equipped"
+                    color: "white"
+                    visible: true
+                }
+            }
+
+            Rectangle {
+                width: 140
+                height: 60
+                color: "lightgrey"
+                radius: 5
+
+                Text {
+                    anchors.centerIn: parent
+                    text: map.player.armor ? "Name: " + map.player.armorName : "No armor equipped"
+                    color: "black"
+                    visible: true
+                }
+            }
+
+            // Tlačítko DROP armor
+            Rectangle {
+                width: 80
+                height: 60
+                color: "red"
+                radius: 5
+                visible: map.player.armor
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        // Zde přidej kód pro funkčnost DROP armor
+                        console.log("DROP");
+                    }
+                }
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "DROP armor"
+                    color: "white"
+                    visible: true
+                }
             }
         }
-
-        // Slot pro potiony
+        //ARMOR SLOT END#####################################################################
         Rectangle {
-            width: parent.width
-            height: 60 // Upravena výška
-            color: "#61dafb" // Barva pozadí pro potiony
-
-            // Zde můžete přidat prostor pro potiony
+            width: parent.width-20
+            height: 60
+            color: "#61dafb"
 
             Text {
                 text: "Potion Slot"
                 anchors.centerIn: parent
-                color: "white" // Barva textu
+                color: "white"
             }
         }
 
-        // Řádek pro DAMAGE
         Rectangle {
-            width: parent.width
-            height: 40 // Upravena výška
-            color: "#61dafb" // Barva pozadí pro DAMAGE
-
-            // Zde můžete přidat prostor pro DAMAGE
+            width: parent.width -20
+            height: 40
+            color: "#61dafb"
 
             Text {
                 text: "Damage: " + player.getAttack()
                 anchors.centerIn: parent
-                color: "white" // Barva textu
+                color: "white"
             }
         }
 
-        // Řádek pro DEFF
-        Rectangle {
-            width: parent.width
-            height: 40 // Upravena výška
-            color: "#61dafb" // Barva pozadí pro DEFF
-
-            // Zde můžete přidat prostor pro DEFF
-
-            Text {
-                text: "DEFF: " + player.getDef()
-                anchors.centerIn: parent
-                color: "white" // Barva textu
-            }
-        }
     }
 }

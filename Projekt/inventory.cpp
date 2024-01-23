@@ -4,10 +4,13 @@
 
 Inventory::Inventory(){
     m_visible = false;
+    m_gun = nullptr;
+    m_armor = nullptr;
 }
 void Inventory::pickGun(Gun* g){
     if(m_gun == nullptr){
         m_gun = g;
+        emit gunChanged();
     }else{
         std::cout << "You already have a weapon" << std::endl;
     }
@@ -18,6 +21,7 @@ void Inventory::dropGun(){
         std::cout << "You dont have any weapon" << std::endl;
     }else{
         m_gun = nullptr;
+        emit gunChanged();
     }
 }
 
@@ -49,6 +53,8 @@ bool Inventory::isVisible()
 {
     return m_visible;
 }
+
+
 
 
 

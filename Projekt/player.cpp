@@ -43,16 +43,13 @@ void Player::takeDamage(int amount){
     emit isAttacked();
     QTimer::singleShot(300, [this, amount]() {
         m_health-= amount;
-        std::cout << "Zivoty" << m_health << std::endl;
         m_isAttacked = false;
         emit isAttacked();
     });
 }
 Inventory* Player::getInventory(){
     return m_inventory;
-    emit inventoryChanged();
 }
-
 
 
 
@@ -73,20 +70,6 @@ int Player::getDef(){
 }
 
 
-
-
-/*void Player::setRotationAngle(double angle){
-    if(angle != m_rotationAngle){
-        m_rotationAngle = angle;
-        emit rotationAngleChanged();
-    }
-}
-double Player::getRotationAngle() const {
-    return m_rotationAngle;
-}
-*/
-
-
 bool Player::getIsAttacked() const {
     return m_isAttacked;
 }
@@ -94,4 +77,28 @@ bool Player::getIsAttacked() const {
 
 int Player::getHealth() const {
     return m_health;
+}
+
+int Player::getWeaponDmg(){
+    return getInventory()->getGun()->getDamage();
+}
+
+QString Player::getWeaponName(){
+    return getInventory()->getGun()->getName();
+}
+
+Gun* Player::getWeapon(){
+    return getInventory()->getGun();
+}
+
+int Player::getArmorDef(){
+    return getInventory()->getArmor()->getDef();
+}
+
+QString Player::getArmorName(){
+    return getInventory()->getArmor()->getName();
+}
+
+Armor* Player::getArmor(){
+    return getInventory()->getArmor();
 }

@@ -1,13 +1,14 @@
 #include "gun.h"
 
-Gun::Gun(int damage, int xPosition,int yPosition):Items(xPosition,yPosition)
+Gun::Gun(QString weaponName,int damage, int xPosition,int yPosition):Items(xPosition,yPosition)
 {
+    m_weaponName = weaponName;
     m_damage = damage;
     m_bullets=50;
-    m_name="Gun";
+    m_name= weaponName;
 }
 
-int Gun::getDamage(){
+int Gun::getDamage() const{
     return m_damage;
 }
 
@@ -18,5 +19,9 @@ unsigned int Gun::getBullets(){
 
 void Gun::shotBullet(){
     m_bullets-=1;
+}
+
+QString Gun::getName() const{
+    return m_name;
 }
 

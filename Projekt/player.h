@@ -16,9 +16,16 @@ class Player : public QObject
     //Q_PROPERTY(QVariant position READ getPosition NOTIFY positionChanged)
     Q_PROPERTY(unsigned int  positionX READ getXPosition NOTIFY positionXChanged)
     Q_PROPERTY(unsigned int  positionY READ getYPosition NOTIFY positionYChanged)
-    Q_PROPERTY(Inventory* inventory READ getInventory NOTIFY inventoryChanged)
+    Q_PROPERTY(Inventory* inventory READ getInventory)
     Q_PROPERTY(bool beingAttacked READ getIsAttacked NOTIFY isAttacked)
     Q_PROPERTY(int playersHealth READ getHealth NOTIFY isAttacked)
+    Q_PROPERTY(int weaponDmg READ getWeaponDmg CONSTANT)
+    Q_PROPERTY(QString weaponName READ getWeaponName CONSTANT)
+    Q_PROPERTY(Gun* gun READ getWeapon CONSTANT)
+    Q_PROPERTY(int armorDef READ getArmorDef CONSTANT)
+    Q_PROPERTY(QString armorName READ getArmorName CONSTANT)
+    Q_PROPERTY(Armor* armor READ getArmor CONSTANT)
+
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
 
@@ -47,11 +54,21 @@ public:
     void takeDamage(int amount);
     bool getIsAttacked() const;
     Q_INVOKABLE int getHealth() const;
+
+    // METODY PRO INVENTAR
+    // GUN
+    Q_INVOKABLE int getWeaponDmg();
+    Q_INVOKABLE Gun* getWeapon();
+    Q_INVOKABLE QString getWeaponName();
+    // ARMOR
+    Q_INVOKABLE int getArmorDef();
+    Q_INVOKABLE Armor* getArmor();
+    Q_INVOKABLE QString getArmorName();
+
 signals:
     //void positionChanged();
     void positionXChanged();
     void positionYChanged();
-    void inventoryChanged();
     void isAttacked();
     //void rotationAngleChanged();
 };
