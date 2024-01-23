@@ -9,6 +9,7 @@
 #include "inventory.h"
 #include <QTimer>
 
+class Quest;
 class Room;
 
 class Player : public QObject
@@ -44,6 +45,7 @@ private:
     bool m_isAttacked = false;
     Room* m_currentRoom;
     bool m_canInteract = false;
+    Quest* m_quest = NULL;
 
 public:
     explicit Player(QObject *parent = nullptr);

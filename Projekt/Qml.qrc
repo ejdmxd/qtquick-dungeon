@@ -33,5 +33,6 @@
         <file>Inventory.qml</file>
         <file>NPC.qml</file>
         <file>images/NPC.png</file>
+        <file>Dialog.qml</file>
     </qresource>
 </RCC>

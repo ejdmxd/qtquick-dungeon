@@ -184,6 +184,8 @@ void Room::checkClosestItem(Player *player){
     }
 }
 
+
+
 Items* Room::getClosestItem() const {
     return m_closestItem;
 }
@@ -212,4 +214,15 @@ void Room::setNPC(NonPlayableCharacter *npc){
 
 NonPlayableCharacter* Room::getNPC() const{
     return m_npc;
+}
+
+
+void Room::npcInteraction(Player *player){
+    float distance = m_distanceManager->calculateVector(m_npc->getNPCX(), m_npc->getNPCY(), player->getXPosition(), player->getYPosition());
+    if(distance<100){
+            player->setInteractionStatus(true);
+    }else{
+            player->setInteractionStatus(false);
+    }
+
 }

@@ -62,7 +62,7 @@ public:
     void clearRoom();
     void setNPC(NonPlayableCharacter* npc);
     NonPlayableCharacter* getNPC() const;
-
+    void npcInteraction(Player* player);
 signals:
     void itemsCrafted();
     void itemPicked();

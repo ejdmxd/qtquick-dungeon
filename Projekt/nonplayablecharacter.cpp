@@ -20,9 +20,22 @@ void NonPlayableCharacter::checkProgress(Quest* quest){
     }else if(quest->getState()==Quest::QuestState::Completed){
         m_dialog = "Dekuji za pomoc";
     }
+    emit dialogChanged();
+    m_isDialogVisible = true;
+    emit visibilityChanged();
+    QTimer::singleShot(5000, [=]() {
+        m_isDialogVisible = false;
+        emit visibilityChanged();
+    });
 }
 
 Quest* NonPlayableCharacter::giveQuest(Player *player){
+    m_isDialogVisible = true;
+    emit visibilityChanged();
+    QTimer::singleShot(5000, [=]() {
+        m_isDialogVisible = false;
+        emit visibilityChanged();
+    });
     return m_quest;
 }
 
@@ -32,4 +45,12 @@ int NonPlayableCharacter::getNPCX() const {
 
 int NonPlayableCharacter::getNPCY() const {
     return m_position->getYValue();
+}
+
+QString NonPlayableCharacter::getDialog() const{
+    return m_dialog;
+}
+
+bool NonPlayableCharacter::getDialogVisibility() const {
+    return m_isDialogVisible;
 }

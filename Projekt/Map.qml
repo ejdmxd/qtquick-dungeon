@@ -36,9 +36,16 @@ Rectangle {
             enemyIndex: index
         }
     }
-    NPC{
+    NPC {
         visible: map.room.npc !== null
-        x:map.room.npc.npcx
+        x: map.room.npc.npcx
         y: map.room.npc.npcy
+
+        Dialog {
+            anchors {
+                bottom: parent.top
+                verticalCenter: parent.verticalCenter
+            }
+        }
     }
 }

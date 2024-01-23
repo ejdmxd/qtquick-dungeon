@@ -1,5 +1,6 @@
 #include "player.h"
 #include "room.h"
+#include "quest.h"
 
 Player::Player(QObject *parent) : QObject{parent}{
 }
@@ -36,6 +37,9 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
         m_position->setYValue(-value);
     }
     m_currentRoom->checkClosestItem(this);
+    if(m_currentRoom->getNPC()){
+        m_currentRoom->npcInteraction(this);
+    }
     emit positionXChanged();
     emit positionYChanged();
 }
@@ -174,6 +178,9 @@ bool Player::getInteractionStatus() const {
 
 void Player::interact(){
     if(m_canInteract){
+        if(m_currentRoom->getNPC()==NULL){
+
+
         if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
             Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
             if(m_inventory->pickGun(closestGun)){
@@ -188,6 +195,14 @@ void Player::interact(){
                 m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
             }
         }
+        }
 
+        if(m_currentRoom->getNPC()!=NULL){
+           if(m_quest==NULL){
+                m_quest=m_currentRoom->getNPC()->giveQuest(this);
+            }else{
+                m_currentRoom->getNPC()->checkProgress(m_quest);
+            }
+        }
     }
 }
