@@ -6,6 +6,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <QVariant>
+#include <thread>
+#include <mutex>
+#include <map>
 #include <random>
 #include "gun.h"
 #include "armor.h"
@@ -30,7 +33,7 @@ public:
     std::vector<Items *> m_items;
     std::vector<Enemy *> m_enemies;
     std::vector<std::array<int,2>> m_entrance;
-
+    Items* m_closestItem;
     DistanceManager* m_distanceManager;
 public:
     explicit Room(QObject * parent=nullptr);
@@ -49,7 +52,7 @@ public:
     bool isEntrance(int playerX,int playerY);
     void addEntrance(int posX,int posY);
     void checkClosestItem(Player* player);
-
+    Items* getClosestItem() const;
 
 signals:
     void itemsCrafted();

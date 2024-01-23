@@ -93,6 +93,9 @@ Image {
                         fireCooldown.start()
 
                 }
+        if(event.key === Qt.Key_E){
+            map.player.interact();
+        }
     }
 
     Keys.onReleased: {

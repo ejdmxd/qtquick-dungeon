@@ -43,6 +43,7 @@ private:
     int m_def;
     bool m_isAttacked = false;
     Room* m_currentRoom;
+    bool m_canInteract = false;
 public:
     explicit Player(QObject *parent = nullptr);
     Player(int health, int def);
@@ -55,6 +56,10 @@ public:
     //double getRotationAngle() const;
 
     void setRoom(Room* newRoom);
+
+    void setInteractionStatus(bool status);
+    bool getInteractionStatus() const;
+    Q_INVOKABLE void interact();
 
     Q_INVOKABLE int getDef();
     Q_INVOKABLE int getAttack();

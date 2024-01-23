@@ -1,9 +1,6 @@
 #include "room.h"
-#include <iostream>
 #include "player.h"
-#include <thread>
-#include <mutex>
-#include <map>
+
 
 
 Room::Room(QObject *parent) : QObject{parent}
@@ -146,7 +143,6 @@ void Room::addEntrance(int posX,int posY)
 
 void Room::checkClosestItem(Player *player){
     int pocetItemu = m_items.size();
-    std::cout << pocetItemu << std::endl;
     std::vector<std::thread> m_threads;
     std::mutex lock;
     std::multimap<Items*, int>vzdalenostiItemu;
@@ -164,8 +160,30 @@ void Room::checkClosestItem(Player *player){
     for (auto &thread : m_threads) {
             thread.join();
     }
+    /*
+    std::cout << "\n";
     for (auto it = vzdalenostiItemu.begin(); it != vzdalenostiItemu.end(); ++it) {
-            std::cout << "Item: " << it->first << ", Distance: " << it->second << std::endl;
+            std::cout << "Item: " << it->first->getName().toStdString() << ", Distance: " << it->second << std::endl;
     }
-    std::cout << "CHECKPOINT 3" << std::endl;
+    */
+    if (!vzdalenostiItemu.empty()) {
+            auto minDistanceItem = std::min_element(vzdalenostiItemu.begin(), vzdalenostiItemu.end(),
+                                                    [](const auto& first, const auto& second) {
+                                                        return first.second < second.second;
+                                                    });
+
+            std::cout << "Item s nejmensi vzdalenosti: " << minDistanceItem->first->getName().toStdString()
+                      << ", Distance: " << minDistanceItem->second << std::endl;
+
+            m_closestItem = minDistanceItem->first;
+            if(minDistanceItem->second<100){
+                player->setInteractionStatus(true);
+            }else{
+                player->setInteractionStatus(false);
+            }
+    }
+}
+
+Items* Room::getClosestItem() const {
+    return m_closestItem;
 }

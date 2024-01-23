@@ -1,7 +1,6 @@
 #include "player.h"
 #include "room.h"
 
-
 Player::Player(QObject *parent) : QObject{parent}{
 }
 
@@ -161,4 +160,23 @@ void Player::dropWeapon(){
 
 void Player::setRoom(Room *newRoom){
     m_currentRoom = newRoom;
+}
+
+
+void Player::setInteractionStatus(bool status){
+    m_canInteract = status;
+}
+
+bool Player::getInteractionStatus() const {
+    return m_canInteract;
+}
+
+
+void Player::interact(){
+    if(m_canInteract){
+        if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
+            Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
+            m_inventory->pickGun(closestGun);
+        }
+    }
 }
