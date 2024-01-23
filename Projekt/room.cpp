@@ -1,5 +1,10 @@
 #include "room.h"
 #include <iostream>
+#include "player.h"
+#include <thread>
+#include <mutex>
+#include <map>
+
 
 Room::Room(QObject *parent) : QObject{parent}
 {
@@ -17,19 +22,10 @@ Q_INVOKABLE void Room::setItems()
         int number=generateRandomNumber(0,1);
         if (number == 1){
             m_items.push_back(new Armor("Common Armor",10,generateRandomNumber(50,550),generateRandomNumber(50,450)));
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
-            std::cout << m_items.at(m_items.size()-1)->getName().toStdString() << std::endl;
         } else{
             m_items.push_back(new Gun("Common Gun",20,generateRandomNumber(50,550),generateRandomNumber(50,450)));
         }
     }
-
     emit itemsCrafted();
 }
 
@@ -145,4 +141,31 @@ void Room::addEntrance(int posX,int posY)
 {
     std::array<int,2> prem={posX,posY};
     m_entrance.push_back(prem);
+}
+
+
+void Room::checkClosestItem(Player *player){
+    int pocetItemu = m_items.size();
+    std::cout << pocetItemu << std::endl;
+    std::vector<std::thread> m_threads;
+    std::mutex lock;
+    std::multimap<Items*, int>vzdalenostiItemu;
+    auto lambda = [&lock, &vzdalenostiItemu, &player](Items* items, DistanceManager* distanceManager){
+        lock.lock();
+        int playerPositionX = player->getXPosition();
+        int playerPositionY = player->getYPosition();
+        float distance = distanceManager->calculateVector(items->getPositionX(), items->getPositionY(), playerPositionX, playerPositionY);
+        vzdalenostiItemu.insert(std::pair<Items*, int>(items, distance));
+        lock.unlock();
+    };
+    for(int i = 0; i < pocetItemu; i++){
+            m_threads.push_back(std::thread(lambda, m_items.at(i), m_distanceManager));
+    }
+    for (auto &thread : m_threads) {
+            thread.join();
+    }
+    for (auto it = vzdalenostiItemu.begin(); it != vzdalenostiItemu.end(); ++it) {
+            std::cout << "Item: " << it->first << ", Distance: " << it->second << std::endl;
+    }
+    std::cout << "CHECKPOINT 3" << std::endl;
 }

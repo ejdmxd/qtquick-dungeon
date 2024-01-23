@@ -32,6 +32,7 @@ Map::Map(QObject *parent) : QObject{parent}
 
     }
     setRoom(std::array<int,2>{m_roomX,m_roomY});
+    player->setRoom(getRoom());
 }
 
 void Map::setRoom(std::array<int,2>whichRoom){
@@ -73,6 +74,8 @@ void Map::movingInMap() {
         canMove=false;
         emit moveChanged();
     }
+
+    player->setRoom(getRoom());
 
 
     // std::cout << "Miestonost x" << m_roomX << " Miestnost y" << m_roomY << std::endl;

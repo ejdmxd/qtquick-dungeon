@@ -11,6 +11,10 @@
 #include "armor.h"
 #include "enemydirector.h"
 #include "wall.h"
+#include "distancemanager.h"
+
+class Player;
+
 class Room:public QObject
 {
     Q_OBJECT
@@ -26,6 +30,8 @@ public:
     std::vector<Items *> m_items;
     std::vector<Enemy *> m_enemies;
     std::vector<std::array<int,2>> m_entrance;
+
+    DistanceManager* m_distanceManager;
 public:
     explicit Room(QObject * parent=nullptr);
     Q_INVOKABLE void setItems();
@@ -42,6 +48,7 @@ public:
     QVariant getWalls();
     bool isEntrance(int playerX,int playerY);
     void addEntrance(int posX,int posY);
+    void checkClosestItem(Player* player);
 
 
 signals:

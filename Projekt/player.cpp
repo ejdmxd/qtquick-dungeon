@@ -1,4 +1,5 @@
 #include "player.h"
+#include "room.h"
 
 
 Player::Player(QObject *parent) : QObject{parent}{
@@ -35,6 +36,7 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
     } else if (changeY < 0) {
         m_position->setYValue(-value);
     }
+    m_currentRoom->checkClosestItem(this);
     emit positionXChanged();
     emit positionYChanged();
 }
@@ -156,3 +158,7 @@ void Player::dropWeapon(){
     emit weaponChange();
 }
 
+
+void Player::setRoom(Room *newRoom){
+    m_currentRoom = newRoom;
+}

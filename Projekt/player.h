@@ -9,6 +9,7 @@
 #include "inventory.h"
 #include <QTimer>
 
+class Room;
 
 class Player : public QObject
 {
@@ -41,6 +42,7 @@ private:
     int m_health = 1000;
     int m_def;
     bool m_isAttacked = false;
+    Room* m_currentRoom;
 public:
     explicit Player(QObject *parent = nullptr);
     Player(int health, int def);
@@ -51,6 +53,8 @@ public:
     unsigned int getYPosition() const;
     Q_INVOKABLE Inventory* getInventory();
     //double getRotationAngle() const;
+
+    void setRoom(Room* newRoom);
 
     Q_INVOKABLE int getDef();
     Q_INVOKABLE int getAttack();
