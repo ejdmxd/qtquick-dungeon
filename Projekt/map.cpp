@@ -52,30 +52,45 @@ Player *Map::getPlayer()
 
 
 
-void Map::movingInMap() {
+bool Map::movingInMap(float moveX,float moveY, float distance) {
+
     int playerX = player->getXPosition();
     int playerY = player->getYPosition();
 
-    if (playerX >= 600 && m_roomX < 3 && m_room->isEntrance(0,playerY) ) {
-        m_roomX++;
-        player->movePlayer(1, 0, -580);
-        setRoom(std::array<int, 2>{m_roomY, m_roomX});
+    if (moveX > 0) {
+        playerX+=distance;
+    } else if (moveX < 0) {
+        playerX-=distance;
+    }
+    if (moveY > 0) {
+        playerY+=distance;
+    } else if (moveY < 0) {
+        playerY-=distance;
+    }
+    if ((playerX>=550 || playerY >=420 || playerX<=0 || playerY<=0 ||(playerX>=535 && playerY>=400)||(playerX>=530 && playerY>=2))&& (!m_room->isEntrance(0,playerY) || !m_room->isEntrance(playerX,0)))
+        return false;
+    else{
+        if (playerX >= 600 && m_roomX < 3 && m_room->isEntrance(0,playerY) ) {
+            m_roomX++;
+            player->movePlayer(1, 0, -580);
+            setRoom(std::array<int, 2>{m_roomY, m_roomX});
 
-    } else if (playerY >= 480 && m_roomY < 3 && m_room->isEntrance(playerX,0)) {
-        m_roomY++;
-        player->movePlayer(0,1,-460);
-        setRoom(std::array<int, 2>{m_roomY, m_roomX});
-    } else if (playerX <= 0 && m_roomX > 0 && m_room->isEntrance(0,playerY)) {
-        m_roomX--;
-        player->movePlayer(-1, 0, -580);
-        setRoom(std::array<int, 2>{m_roomY, m_roomX});
-    } else if (playerY <= 0 && m_roomY > 0 && m_room->isEntrance(playerX,0)) {
-        m_roomY--;
-        player->movePlayer(0, -1, -460);
-        setRoom(std::array<int, 2>{m_roomY, m_roomX});
-    }else{
-        canMove=false;
-        emit moveChanged();
+        } else if (playerY >= 480 && m_roomY < 3 && m_room->isEntrance(playerX,0)) {
+            m_roomY++;
+            player->movePlayer(0,1,-460);
+            setRoom(std::array<int, 2>{m_roomY, m_roomX});
+        } else if (playerX <= 0 && m_roomX > 0 && m_room->isEntrance(0,playerY)) {
+            m_roomX--;
+            player->movePlayer(-1, 0, -580);
+            setRoom(std::array<int, 2>{m_roomY, m_roomX});
+        } else if (playerY <= 0 && m_roomY > 0 && m_room->isEntrance(playerX,0)) {
+            m_roomY--;
+            player->movePlayer(0, -1, -460);
+            setRoom(std::array<int, 2>{m_roomY, m_roomX});
+        }else{
+            /*canMove=false;
+            emit moveChanged();*/
+        }
     }
 
     player->setRoom(getRoom());
@@ -83,6 +98,7 @@ void Map::movingInMap() {
 
     // std::cout << "Miestonost x" << m_roomX << " Miestnost y" << m_roomY << std::endl;
     emit roomChanged();
+    return true;
 }
 
 

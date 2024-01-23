@@ -26,7 +26,7 @@ public:
     Room * getRoom();
     Player * getPlayer();
     bool getMove();
-    Q_INVOKABLE void movingInMap();
+    Q_INVOKABLE bool movingInMap(float moveX,float moveY, float distance);
     int getPocetNepratel();
 
 signals:

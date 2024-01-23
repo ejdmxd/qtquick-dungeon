@@ -33,8 +33,8 @@ Image {
                     moveDistance = 10
                 }
 
-                map.player.movePlayer(moveX, moveY, moveDistance);
-                map.movingInMap();
+                if (map.movingInMap(moveX,moveY,moveDistance))
+                    map.player.movePlayer(moveX, moveY, moveDistance);
                 // console.log("y", map.player.positionY, " x", map.player.positionX);
            }
         }
