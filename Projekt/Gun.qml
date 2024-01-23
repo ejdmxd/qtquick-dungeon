@@ -13,14 +13,14 @@ Image {
     Image {
         id: gun
         source: "images/gun.png"
-        visible:map.room.items[itemIndex].name==="Gun"
+        visible:map.room.items[itemIndex].name==="Common Gun"
         width:60
         height:40
     }
     Image {
         id: armor
         source: "images/armor.png"
-        visible:map.room.items[itemIndex].name==="Armor"
+        visible:map.room.items[itemIndex].name==="Common Armor"
         width:60
         height:60
     }

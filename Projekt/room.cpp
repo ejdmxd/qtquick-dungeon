@@ -1,4 +1,5 @@
 #include "room.h"
+#include <iostream>
 
 Room::Room(QObject *parent) : QObject{parent}
 {
@@ -14,10 +15,19 @@ Q_INVOKABLE void Room::setItems()
     int prem=generateRandomNumber(0,3);
     for (int i=0;i<prem;i++){
         int number=generateRandomNumber(0,1);
-        if (number)
+        if (number == 1){
             m_items.push_back(new Armor("Common Armor",10,generateRandomNumber(50,550),generateRandomNumber(50,450)));
-        else
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << "NAEDSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD\n";
+            std::cout << m_items.at(m_items.size()-1)->getName().toStdString() << std::endl;
+        } else{
             m_items.push_back(new Gun("Common Gun",20,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+        }
     }
 
     emit itemsCrafted();
