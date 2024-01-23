@@ -15,6 +15,7 @@
 #include "enemydirector.h"
 #include "wall.h"
 #include "distancemanager.h"
+#include "nonplayablecharacter.h"
 
 class Player;
 
@@ -24,6 +25,7 @@ class Room:public QObject
     Q_PROPERTY(QVariant items READ getItems NOTIFY itemPicked)
     Q_PROPERTY(QVariant enemies READ getEnemies CONSTANT)
     Q_PROPERTY(QVariant walls READ getWalls CONSTANT)
+    Q_PROPERTY(NonPlayableCharacter* npc READ getNPC CONSTANT)
 
 public:
     unsigned int m_windowWidth;
@@ -36,6 +38,7 @@ public:
     std::vector<std::array<int,2>> m_entrance;
     Items* m_closestItem;
     DistanceManager* m_distanceManager;
+    NonPlayableCharacter* m_npc = NULL;
 public:
     explicit Room(QObject * parent=nullptr);
     Q_INVOKABLE void setItems();
@@ -57,6 +60,8 @@ public:
     void playerPickedItem(Items* itemToRemove);
     unsigned int getPocetNepratel() const;
     void clearRoom();
+    void setNPC(NonPlayableCharacter* npc);
+    NonPlayableCharacter* getNPC() const;
 
 signals:
     void itemsCrafted();

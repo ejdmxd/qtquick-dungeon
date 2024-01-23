@@ -14,6 +14,7 @@ public:
     void addTopEntrance(Room* room);
     void addBottomEntrance(Room* room);
     void clearRoom(Room* room);
+    void addNPC(Room* room, int positionX, int positionY);
 signals:
 
 };

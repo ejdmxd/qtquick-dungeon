@@ -10,13 +10,13 @@ Map::Map(QObject *parent) : QObject{parent}
     player->getInventory()->pickPotion(new Potion(200, 0,0));
     player->getInventory()->pickPotion(new Potion(200, 0,0));
 
-
     for(int row=0;row<=3;row++){
         for(int column=0;column<=3;column++){
             m_map[{row,column}]=new Room;
             Room* currentRoom = m_map[{row,column}];
             if(row == 0 && column == 0){
                 roomDirector->clearRoom(currentRoom);
+                roomDirector->addNPC(currentRoom, 250, 250);
             }
             m_pocetNepratel += currentRoom->getPocetNepratel();
             if (row > 0 && row < 4) {
@@ -92,4 +92,8 @@ Room * Map::getRoom(){
 
 bool Map::getMove(){
     return canMove;
+}
+
+int Map::getPocetNepratel(){
+    return m_pocetNepratel;
 }

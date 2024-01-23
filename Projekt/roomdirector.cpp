@@ -29,3 +29,7 @@ void RoomDirector::addTopEntrance(Room* room){
 void RoomDirector::clearRoom(Room *room){
     room->clearRoom();
 }
+
+void RoomDirector::addNPC(Room *room, int positionX, int positionY){
+    room->setNPC(new NonPlayableCharacter(positionX, positionY));
+}

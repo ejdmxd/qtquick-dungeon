@@ -205,3 +205,11 @@ void Room::clearRoom(){
     m_enemies.clear();
     m_pocetNepratel = 0;
 }
+
+void Room::setNPC(NonPlayableCharacter *npc){
+    m_npc = npc;
+}
+
+NonPlayableCharacter* Room::getNPC() const{
+    return m_npc;
+}

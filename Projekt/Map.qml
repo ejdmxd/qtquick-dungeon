@@ -36,4 +36,9 @@ Rectangle {
             enemyIndex: index
         }
     }
+    NPC{
+        visible: map.room.npc !== null
+        x:map.room.npc.npcx
+        y: map.room.npc.npcy
+    }
 }

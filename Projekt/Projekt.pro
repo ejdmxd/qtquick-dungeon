@@ -27,6 +27,7 @@ SOURCES += \
         player.cpp \
         position.cpp \
     potion.cpp \
+    quest.cpp \
     room.cpp \
     roomdirector.cpp \
     skeleton.cpp \
@@ -61,6 +62,7 @@ HEADERS += \
     player.h \
     position.h \
     potion.h \
+    quest.h \
     room.h \
     roomdirector.h \
     skeleton.h \

@@ -5,6 +5,7 @@
 #include "player.h"
 #include "roomdirector.h"
 #include <algorithm>
+
 class Map:public QObject
 {
     Q_OBJECT
@@ -26,6 +27,7 @@ public:
     Player * getPlayer();
     bool getMove();
     Q_INVOKABLE void movingInMap();
+    int getPocetNepratel();
 
 signals:
     void roomChanged();
