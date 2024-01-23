@@ -177,6 +177,13 @@ void Player::interact(){
         if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
             Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
             m_inventory->pickGun(closestGun);
+            emit weaponChange();
         }
+        if(m_currentRoom->getClosestItem()->getName()=="Common Armor"){
+            Armor* closestArmor = dynamic_cast<Armor*>(m_currentRoom->getClosestItem());
+            m_inventory->pickArmor(closestArmor);
+            emit armorChange();
+        }
+
     }
 }

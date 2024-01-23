@@ -11,9 +11,6 @@ void Inventory::pickGun(Gun* g){
     if(m_gun == nullptr){
         m_gun = g;
         emit gunChanged();
-        std::cout << "ZBRAN AKTUALIZOVANA" << std::endl;
-        std::cout << g->getName().toStdString() << std::endl;
-        std::cout << g->getDamage() << std::endl;
     }else{
         std::cout << "You already have a weapon" << std::endl;
     }
