@@ -40,6 +40,7 @@ Image {
         }
 
     Keys.onPressed: {
+      if(!endscreen.visible){
         if (!moving) {
             keysPressed.push(event.key);
             updateMovement();
@@ -97,6 +98,7 @@ Image {
             map.player.interact();
 
         }
+      }
     }
 
     Keys.onReleased: {
