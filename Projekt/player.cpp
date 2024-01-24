@@ -171,6 +171,7 @@ void Player::setRoom(Room *newRoom){
 
 void Player::setInteractionStatus(bool status){
     m_canInteract = status;
+    emit interactionChanged();
 }
 
 bool Player::getInteractionStatus() const {

@@ -1,5 +1,6 @@
 import QtQuick
 
+
 Rectangle {
     height:  100
     width: 650
@@ -48,10 +49,28 @@ Rectangle {
                 text: map.player.questInfo ? map.player.questInfo : "/"
                 anchors {
                     right: parent.right
-                    rightMargin: 120
+                    rightMargin: 150
                     top: parent.top
-                    topMargin: 30
+                    topMargin: 40
                 }
+            }
+
+            Rectangle {
+                    width: 50
+                    height: 50
+                    color: "darkblue"
+                    visible: map.player.interactionState
+                    anchors {
+                        right: parent.right
+                        rightMargin: 60
+                        top: parent.top
+                        topMargin: 20
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        text: "E"
+                        color: "white"
+                    }
             }
         }
 

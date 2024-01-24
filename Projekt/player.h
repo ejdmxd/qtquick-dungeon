@@ -33,6 +33,7 @@ class Player : public QObject
     Q_PROPERTY(int deff READ getDef CONSTANT)
     Q_PROPERTY(QString questInfo READ getQuestProgress NOTIFY refreshQuest)
     Q_PROPERTY(bool isQuestDone READ getQuestState NOTIFY questCompleted)
+    Q_PROPERTY(bool interactionState READ getInteractionStatus NOTIFY interactionChanged)
 
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
@@ -107,6 +108,7 @@ signals:
     void armorChange();
     void refreshQuest();
     void questCompleted();
+    void interactionChanged();
 };
 
 #endif // PLAYER_H
