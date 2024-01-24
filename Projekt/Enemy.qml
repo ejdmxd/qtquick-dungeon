@@ -25,11 +25,21 @@ Item{
 
 
         Image {
-            source: map.room.enemies[enemyIndex].enemyType === "skeleton" ? "images/skeletonright.png" : "images/zombie.png"
+            source: {
+                switch (map.room.enemies[enemyIndex].enemyType) {
+                    case "skeleton":
+                        return "images/skeletonright.png";
+                    case "zombie":
+                        return "images/zombie.png";
+                    case "mummy":
+                        return "images/mummy.png";
+                }
+            }
             visible: true
-            width:parent.width
-            height:parent.height
+            width: parent.width
+            height: parent.height
         }
+
 
         //reakce na emit playerAttacked()
 }

@@ -26,6 +26,7 @@ Item {
     }
 
 
+
     Keys.onPressed: {
         if (event.key === Qt.Key_Escape) {
             if (inMenu) {
@@ -43,6 +44,12 @@ Item {
                 inventory.visible = true;
             }
         }
+
+        if (event.key === Qt.Key_H) {
+            map.player.drinkPotion()
+            map.player.heal()
+        }
+
 
     }
 

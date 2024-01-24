@@ -22,6 +22,7 @@ SOURCES += \
     items.cpp \
             main.cpp \
     map.cpp \
+    mummy.cpp \
     nonplayablecharacter.cpp \
         player.cpp \
         position.cpp \
@@ -57,6 +58,7 @@ HEADERS += \
     inventory.h \
     items.h \
     map.h \
+    mummy.h \
     nonplayablecharacter.h \
     player.h \
     position.h \

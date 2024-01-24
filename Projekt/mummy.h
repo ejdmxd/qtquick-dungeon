@@ -1,11 +1,9 @@
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#ifndef MUMMY_H
+#define MUMMY_H
 
 #include "enemy.h"
-
 class Player;
-
-class Zombie : public Enemy
+class Mummy : public Enemy
 {
     Q_PROPERTY(int str READ getAttack NOTIFY strChanged)
     Q_PROPERTY(int health READ getHealth NOTIFY healthChanged)
@@ -16,7 +14,7 @@ protected:
 
 public:
 
-    Zombie(int str, int health, std::string type, int x, int y);
+    Mummy(int str, int health, std::string type, int x, int y);
     int getAttack();
     int getEnemyHP() final;
     void damageEnemy(int amount) final;
@@ -28,4 +26,4 @@ signals:
     void healthChanged();
 };
 
-#endif // ZOMBIE_H
+#endif // MUMMY_H
