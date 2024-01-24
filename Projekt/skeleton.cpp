@@ -19,6 +19,7 @@ void Skeleton::attackPlayer(Player* player) {
     player->takeDamage((getAttack()- player->getDef()));
 }
 
+//Kontrola zda je player v dostatecne blizkosti pro dostani dmg od skeletona
 bool Skeleton::isPlayerAttackable(Player* player)  {
     float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), player->getXPosition(),  player->getYPosition());
     if(distance < 70){
