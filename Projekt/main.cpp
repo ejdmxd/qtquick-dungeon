@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     QQmlContext* context = engine.rootContext();
 
     Map * map=new Map();
+
     context->setContextProperty("map", map);
 
 

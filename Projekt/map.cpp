@@ -111,3 +111,7 @@ bool Map::getMove(){
 int Map::getPocetNepratel(){
     return m_pocetNepratel;
 }
+
+void Map::handleEnemyDefeated(){
+    player->addKill();
+}

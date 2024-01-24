@@ -43,7 +43,7 @@ public:
     explicit Room(QObject * parent=nullptr);
     Q_INVOKABLE void setItems();
     Q_INVOKABLE void setEnemies();
-
+    Q_INVOKABLE void updateEnemy(int index,int value, Player* player);
     QVariant getItems();
     QVariant getEnemies();
 

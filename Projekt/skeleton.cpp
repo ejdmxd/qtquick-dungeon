@@ -10,8 +10,14 @@ int Skeleton::getAttack()  {
     return m_str;
 }
 
-int Skeleton::getHealth() const {
+int Skeleton::getEnemyHP() {
     return m_health;
+}
+
+void Skeleton::damageEnemy(int amount){
+
+    m_health = m_health - amount;
+
 }
 
 //Player dostane poskozeni skeletona - celkova obrana hrace(zakladni + armor)

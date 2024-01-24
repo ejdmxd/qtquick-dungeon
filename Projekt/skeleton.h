@@ -12,7 +12,8 @@ protected:
 public:
     Skeleton(int str, int health, std::string type, int x, int y);
     int getAttack();
-    int getHealth() const;
+    int getEnemyHP() final;
+    void damageEnemy(int amount) final;
     void attackPlayer(Player* player);
     bool isPlayerAttackable(Player* player);
 

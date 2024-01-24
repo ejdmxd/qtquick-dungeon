@@ -18,8 +18,7 @@ class Player : public QObject
     //Q_PROPERTY(QVariant position READ getPosition NOTIFY positionChanged)
     Q_PROPERTY(unsigned int  positionX READ getXPosition NOTIFY positionXChanged)
     Q_PROPERTY(unsigned int  positionY READ getYPosition NOTIFY positionYChanged)
-
-    Q_PROPERTY(Inventory* inventory READ getInventory)
+    Q_PROPERTY(Inventory* inventory READ getInventory CONSTANT)
     Q_PROPERTY(bool beingAttacked READ getIsAttacked NOTIFY isAttacked)
     Q_PROPERTY(int playersHealth READ getHealth NOTIFY isAttacked)
     Q_PROPERTY(int weaponDmg READ getWeaponDmg CONSTANT)
@@ -80,6 +79,7 @@ public:
     QString getQuestProgress();
     bool getQuestState() const;
 
+
     //Pokud hrac dostane poskozeni, chvili trva nez muze dostat dalsi
     void takeDamage(int amount);
     bool getIsAttacked() const;
@@ -88,6 +88,8 @@ public:
     // METODY PRO INVENTAR
     // GUN
     Q_INVOKABLE int getWeaponDmg();
+    void addKill();
+    int getKills();
     Q_INVOKABLE Gun* getWeapon();
     Q_INVOKABLE QString getWeaponName();
     Q_INVOKABLE void dropWeapon();

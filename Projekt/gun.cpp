@@ -7,7 +7,7 @@ Gun::Gun(QString weaponName,int damage, int xPosition,int yPosition):Items(xPosi
     m_name= weaponName;
 }
 
-int Gun::getDamage() const{
+Q_INVOKABLE int Gun::getDamage() const{
     return m_damage;
 }
 

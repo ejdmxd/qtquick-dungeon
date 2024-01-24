@@ -11,8 +11,12 @@ int Zombie::getAttack()  {
     return m_str;
 }
 
-int Zombie::getHealth() const {
+int Zombie::getEnemyHP(){
     return m_health;
+}
+
+void Zombie::damageEnemy(int amount){
+        m_health = m_health - amount;
 }
 
 //Player dostane poskozeni zombie - celkova obrana hrace(zakladni + armor)

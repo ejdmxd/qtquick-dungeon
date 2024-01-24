@@ -34,6 +34,8 @@ public:
     Q_INVOKABLE void findPlayer(float playerPosX, float playerPosY);
     virtual void attackPlayer(Player* player) = 0;
     Q_INVOKABLE virtual bool isPlayerAttackable(Player* player) = 0;
+    Q_INVOKABLE virtual int getEnemyHP() = 0;
+    Q_INVOKABLE virtual void damageEnemy(int amount) = 0;
 private:
     std::string m_enemyType;
     //Metoda kontrolujici vzdalenost hrace

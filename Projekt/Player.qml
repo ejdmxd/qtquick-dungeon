@@ -95,6 +95,7 @@ Image {
                 }
         if(event.key === Qt.Key_E){
             map.player.interact();
+
         }
     }
 
