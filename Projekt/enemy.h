@@ -23,18 +23,23 @@ protected:
     DistanceManager* m_distanceMgr = new DistanceManager;
 public:
     explicit Enemy(QObject *parent = nullptr);
+
     virtual int getAttack() = 0;
-    virtual void attackPlayer(Player* player) = 0;
-    Q_INVOKABLE virtual bool isPlayerAttackable(Player* player) = 0;
     int getEnemyPosX() const;
     int getEnemyPosY() const;
     QString getEnemyType() const;
     double getEnemyRotation() const;
+
+    //Metody pro interakci s hracem
     Q_INVOKABLE void findPlayer(float playerPosX, float playerPosY);
+    virtual void attackPlayer(Player* player) = 0;
+    Q_INVOKABLE virtual bool isPlayerAttackable(Player* player) = 0;
 private:
     std::string m_enemyType;
+    //Metoda kontrolujici vzdalenost hrace
     bool isPlayerNearby(float distance);
     void chasePlayer(float angle);
+    //Metody pro pohyb nepritele
     void moveEnemy(float x, float y = 0);
     void setEnemyRotation(double newRotation);
 signals:

@@ -27,7 +27,7 @@ class Room:public QObject
     Q_PROPERTY(QVariant walls READ getWalls CONSTANT)
     Q_PROPERTY(NonPlayableCharacter* npc READ getNPC CONSTANT)
 
-public:
+private:
     unsigned int m_windowWidth;
     unsigned int m_windowHeight;
     unsigned int m_pocetNepratel = 0;
@@ -43,26 +43,39 @@ public:
     explicit Room(QObject * parent=nullptr);
     Q_INVOKABLE void setItems();
     Q_INVOKABLE void setEnemies();
-    void setWidth(int nieco);
+
     QVariant getItems();
     QVariant getEnemies();
-    unsigned int getWidth();
+
+    //Metody upravujici mistnost
+    void setWidth(int nieco);
     void removeWall(int x, int y);
+    void addWall(int x, int y);
+    void setBorders();
+
     int generateRandomNumber(int range1, int range2);
     QVariant getMap();
-    void setBorders();
-    void addWall(int x, int y);
     QVariant getWalls();
+     unsigned int getWidth();
+
     bool isEntrance(int playerX,int playerY);
     void addEntrance(int posX,int posY);
+    //Pomoci vlaken se urci nejlbizsi predmet k hraci
     void checkClosestItem(Player* player);
+    void setClosestItem(std::multimap<Items*, int> vzdalenostiItemu, Player *player);
     Items* getClosestItem() const;
+    //Pokud hrac zvednul predmet, odstrani se z mistnosti
     void playerPickedItem(Items* itemToRemove);
+
+    //Kazda mistnost ma v sobe pocet, kolik vytvori nepratel
     unsigned int getPocetNepratel() const;
     void clearRoom();
+
+    //Metody pridavajici npc do mistnosti
     void setNPC(NonPlayableCharacter* npc);
     NonPlayableCharacter* getNPC() const;
     void npcInteraction(Player* player);
+    
 signals:
     void itemsCrafted();
     void itemPicked();

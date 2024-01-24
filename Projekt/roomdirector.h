@@ -4,6 +4,7 @@
 #include <QObject>
 #include "room.h"
 
+//Room director slouzi k uprave jednotlivych mistnosti
 class RoomDirector : public QObject
 {
     Q_OBJECT

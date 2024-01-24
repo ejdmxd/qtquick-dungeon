@@ -140,6 +140,26 @@ void Room::addEntrance(int posX,int posY)
 }
 
 
+void Room::setClosestItem(std::multimap<Items*, int> vzdalenostiItemu, Player *player)
+{
+    if (!vzdalenostiItemu.empty()) {
+            auto minDistanceItem = std::min_element(vzdalenostiItemu.begin(), vzdalenostiItemu.end(),
+                                                    [](const auto& first, const auto& second) {
+                                                        return first.second < second.second;
+                                                    });
+
+            std::cout << "Item s nejmensi vzdalenosti: " << minDistanceItem->first->getName().toStdString()
+                      << ", Distance: " << minDistanceItem->second << std::endl;
+
+            m_closestItem = minDistanceItem->first;
+            if(minDistanceItem->second<100){
+            player->setInteractionStatus(true);
+            }else{
+            player->setInteractionStatus(false);
+            }
+    }
+}
+
 void Room::checkClosestItem(Player *player){
     int pocetItemu = m_items.size();
     std::vector<std::thread> m_threads;
@@ -165,22 +185,7 @@ void Room::checkClosestItem(Player *player){
             std::cout << "Item: " << it->first->getName().toStdString() << ", Distance: " << it->second << std::endl;
     }
     */
-    if (!vzdalenostiItemu.empty()) {
-            auto minDistanceItem = std::min_element(vzdalenostiItemu.begin(), vzdalenostiItemu.end(),
-                                                    [](const auto& first, const auto& second) {
-                                                        return first.second < second.second;
-                                                    });
-
-            std::cout << "Item s nejmensi vzdalenosti: " << minDistanceItem->first->getName().toStdString()
-                      << ", Distance: " << minDistanceItem->second << std::endl;
-
-            m_closestItem = minDistanceItem->first;
-            if(minDistanceItem->second<100){
-                player->setInteractionStatus(true);
-            }else{
-                player->setInteractionStatus(false);
-            }
-    }
+    setClosestItem(vzdalenostiItemu, player);
 }
 
 

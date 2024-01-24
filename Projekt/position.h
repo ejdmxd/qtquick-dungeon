@@ -3,6 +3,7 @@
 
 #include <QObject>
 
+//Trida, ktera uklada jednotlive pozice objektu
 class Position : public QObject
 {
     Q_OBJECT

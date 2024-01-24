@@ -25,6 +25,7 @@ public:
     QuestState getState();
     void checkState(int killCount);
 
+    //Dokoncenim questu konci hra
     int getRequirement() const;
     bool gameOver() const;
 signals:

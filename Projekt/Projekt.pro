@@ -1,4 +1,3 @@
-
 QT += quick
 CONFIG += c++11
 
@@ -73,3 +72,6 @@ RESOURCES += \
     Qml.qrc
 
 DISTFILES +=
+
+
+

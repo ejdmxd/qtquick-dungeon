@@ -182,34 +182,10 @@ bool Player::getInteractionStatus() const {
 void Player::interact(){
     if(m_canInteract){
         if(m_currentRoom->getNPC()==NULL){
-
-
-        if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
-            Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
-            if(m_inventory->pickGun(closestGun)){
-                emit weaponChange();
-                m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
-            }
+            itemInteraction();
         }
-        if(m_currentRoom->getClosestItem()->getName()=="Common Armor"){
-            Armor* closestArmor = dynamic_cast<Armor*>(m_currentRoom->getClosestItem());
-            if(m_inventory->pickArmor(closestArmor)){
-                emit armorChange();
-                m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
-            }
-        }
-        }
-
         if(m_currentRoom->getNPC()!=NULL){
-           if(m_quest==NULL){
-                m_quest=m_currentRoom->getNPC()->giveQuest(this);
-            emit refreshQuest();
-            }else{
-                m_currentRoom->getNPC()->checkProgress(m_quest, m_killCount);
-                QTimer::singleShot(5000, [=]() {
-                 emit questCompleted();
-                });
-            }
+            npcInteraction();
         }
     }
 }
@@ -228,5 +204,35 @@ bool Player::getQuestState() const {
         return m_quest->gameOver();
     }else{
         return false;
+    }
+}
+
+void Player::npcInteraction(){
+    if(m_quest==NULL){
+        m_quest=m_currentRoom->getNPC()->giveQuest(this);
+        emit refreshQuest();
+    }else{
+        m_currentRoom->getNPC()->checkProgress(m_quest, m_killCount);
+        QTimer::singleShot(5000, [=]() {
+            emit questCompleted();
+        });
+    }
+}
+
+
+void Player::itemInteraction(){
+    if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
+        Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
+        if(m_inventory->pickGun(closestGun)){
+                emit weaponChange();
+                m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+        }
+    }
+    if(m_currentRoom->getClosestItem()->getName()=="Common Armor"){
+        Armor* closestArmor = dynamic_cast<Armor*>(m_currentRoom->getClosestItem());
+        if(m_inventory->pickArmor(closestArmor)){
+                emit armorChange();
+                m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+        }
     }
 }

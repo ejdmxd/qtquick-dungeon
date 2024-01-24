@@ -18,6 +18,7 @@ class Player : public QObject
     //Q_PROPERTY(QVariant position READ getPosition NOTIFY positionChanged)
     Q_PROPERTY(unsigned int  positionX READ getXPosition NOTIFY positionXChanged)
     Q_PROPERTY(unsigned int  positionY READ getYPosition NOTIFY positionYChanged)
+
     Q_PROPERTY(Inventory* inventory READ getInventory)
     Q_PROPERTY(bool beingAttacked READ getIsAttacked NOTIFY isAttacked)
     Q_PROPERTY(int playersHealth READ getHealth NOTIFY isAttacked)
@@ -31,6 +32,7 @@ class Player : public QObject
     Q_PROPERTY(bool potions READ potionsEmpty NOTIFY potionDrinked)
     Q_PROPERTY(int attack READ getAttack CONSTANT)
     Q_PROPERTY(int deff READ getDef CONSTANT)
+
     Q_PROPERTY(QString questInfo READ getQuestProgress NOTIFY refreshQuest)
     Q_PROPERTY(bool isQuestDone READ getQuestState NOTIFY questCompleted)
     Q_PROPERTY(bool interactionState READ getInteractionStatus NOTIFY interactionChanged)
@@ -45,9 +47,9 @@ private:
     int m_health = 1000;
     int m_def;
     bool m_isAttacked = false;
-    Room* m_currentRoom;
+    Room* m_currentRoom;  //Aktualni mistnost, ve ktere se hrac nachazi
     bool m_canInteract = false;
-    Quest* m_quest = NULL;
+    Quest* m_quest = NULL; //Hrac nema ze zacatku quest, dokud ho neprijme od npc
     int m_killCount = 0;
 
 public:
@@ -63,9 +65,12 @@ public:
 
     void setRoom(Room* newRoom);
 
+    //Pokud je hrac dostatecne blizko k nejakemu objektu, muze interagovat
     void setInteractionStatus(bool status);
     bool getInteractionStatus() const;
     Q_INVOKABLE void interact();
+    void npcInteraction();
+    void itemInteraction();
 
     Q_INVOKABLE int getDef();
     Q_INVOKABLE int getAttack();
@@ -73,11 +78,11 @@ public:
     Q_INVOKABLE void heal();
 
     QString getQuestProgress();
+    bool getQuestState() const;
 
-
+    //Pokud hrac dostane poskozeni, chvili trva nez muze dostat dalsi
     void takeDamage(int amount);
     bool getIsAttacked() const;
-    bool getQuestState() const;
     Q_INVOKABLE int getHealth() const;
 
     // METODY PRO INVENTAR
