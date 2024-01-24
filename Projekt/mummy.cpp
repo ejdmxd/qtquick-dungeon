@@ -11,8 +11,14 @@ int Mummy::getAttack()  {
     return m_str;
 }
 
-int Mummy::getHealth() const {
+int Mummy::getEnemyHP(){
     return m_health;
+}
+
+void Mummy::damageEnemy(int amount){
+
+    m_health = m_health - amount;
+
 }
 
 //Player dostane poskozeni mumie - celkova obrana hrace(zakladni + armor)

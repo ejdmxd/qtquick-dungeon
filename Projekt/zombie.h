@@ -15,7 +15,7 @@ protected:
     int m_health;
 
 public:
-    //zbytecne explicit Zombie(QObject *parent = nullptr);
+
     Zombie(int str, int health, std::string type, int x, int y);
     int getAttack();
     int getEnemyHP() final;
