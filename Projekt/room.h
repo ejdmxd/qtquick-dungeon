@@ -30,7 +30,7 @@ class Room:public QObject
 public:
     unsigned int m_windowWidth;
     unsigned int m_windowHeight;
-    unsigned int m_pocetNepratel;
+    unsigned int m_pocetNepratel = 0;
 
     std::vector<Wall *>m_walls;
     std::vector<Items *> m_items;

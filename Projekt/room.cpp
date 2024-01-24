@@ -31,7 +31,6 @@ Q_INVOKABLE void Room::setEnemies(){
     EnemyDirector* generujem = new EnemyDirector;
     for (int i=0;i<prem;i++){
         int typeOfEnemy = generateRandomNumber(1,2);
-        m_pocetNepratel++;
         switch(typeOfEnemy){
         case 1:
             m_enemies.push_back(generujem->createZombie(generateRandomNumber(1,600),generateRandomNumber(1,450)));
@@ -43,7 +42,7 @@ Q_INVOKABLE void Room::setEnemies(){
         }
 
     }
-
+    m_pocetNepratel = prem;
 }
 
 void Room::setWidth(int cislo)

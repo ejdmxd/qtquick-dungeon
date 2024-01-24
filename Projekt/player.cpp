@@ -202,9 +202,19 @@ void Player::interact(){
         if(m_currentRoom->getNPC()!=NULL){
            if(m_quest==NULL){
                 m_quest=m_currentRoom->getNPC()->giveQuest(this);
+            emit refreshQuest();
             }else{
                 m_currentRoom->getNPC()->checkProgress(m_quest, m_killCount);
             }
         }
     }
+}
+
+QString Player::getQuestProgress() {
+    if(m_quest!=NULL){
+        std::string progres = "Zabito monster: " + std::to_string(m_killCount) + " / " + std::to_string(m_quest->getRequirement());
+        QString novy = QString::fromStdString(progres);
+        return novy;
+    }
+    return "/";
 }

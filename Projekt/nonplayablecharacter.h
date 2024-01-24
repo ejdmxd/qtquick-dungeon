@@ -20,18 +20,16 @@ class NonPlayableCharacter : public QObject
     Position* m_position = new Position;
     QString m_dialog = "Zdravim, diky, ze jsi prisel na pomoc,\npotrebuji pomoc zneskodnit vsechny\nmonstra v dungeonu";
     bool m_isDialogVisible = false;
-    int m_enemiesNumber;
 public:
     explicit NonPlayableCharacter(QObject *parent = nullptr);
-    NonPlayableCharacter(int positionX, int positionY);
-    Quest* m_quest = new Quest;
+    NonPlayableCharacter(int positionX, int positionY, int enemiesNumber);
+    Quest* m_quest;
     void checkProgress(Quest* quest, int killCount);
     Quest* giveQuest(Player* player);
     int getNPCX() const;
     int getNPCY() const;
     QString getDialog() const;
     bool getDialogVisibility() const;
-    void setEnemiesNumber(int enemiesNumber);
 signals:
     void visibilityChanged();
     void dialogChanged();

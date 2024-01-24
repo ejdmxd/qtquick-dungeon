@@ -29,9 +29,9 @@ class Player : public QObject
     Q_PROPERTY(Armor* armor READ getArmor NOTIFY armorChange)
     Q_PROPERTY(int numberOfPotions READ getNumberOfPotions NOTIFY potionDrinked)
     Q_PROPERTY(bool potions READ potionsEmpty NOTIFY potionDrinked)
-    Q_PROPERTY(int attack READ getAttack CONSTANT);
-    Q_PROPERTY(int deff READ getDef CONSTANT);
-
+    Q_PROPERTY(int attack READ getAttack CONSTANT)
+    Q_PROPERTY(int deff READ getDef CONSTANT)
+    Q_PROPERTY(QString questInfo READ getQuestProgress NOTIFY refreshQuest)
 
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
@@ -70,6 +70,8 @@ public:
 
     Q_INVOKABLE void heal();
 
+    QString getQuestProgress();
+
 
     void takeDamage(int amount);
     bool getIsAttacked() const;
@@ -101,6 +103,7 @@ signals:
     void rotationAngleChanged();
     void weaponChange();
     void armorChange();
+    void refreshQuest();
 };
 
 #endif // PLAYER_H

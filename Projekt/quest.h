@@ -3,11 +3,13 @@
 
 #include <QObject>
 
-class Map;
+
 
 class Quest : public QObject
 {
     Q_OBJECT
+private:
+    int m_requirement;
 public:
     enum class QuestState {
         NotStarted,
@@ -18,8 +20,12 @@ public:
 
     explicit Quest(QObject *parent = nullptr);
 
+    Quest(int requirement);
+
     QuestState getState();
-    void checkState(Map* map, int killCount);
+    void checkState(int killCount);
+
+    int getRequirement() const;
 signals:
 
 };

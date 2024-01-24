@@ -1,5 +1,5 @@
 #include "quest.h"
-#include "map.h"
+#include <iostream>
 
 Quest::Quest(QObject *parent)
     : QObject{parent}
@@ -7,16 +7,29 @@ Quest::Quest(QObject *parent)
 
 }
 
-void Quest::checkState(Map* map, int killCount){
+Quest::Quest(int requirement){
+    m_requirement = requirement;
+    std::cout << m_requirement << std::endl;
+    std::cout << m_requirement << std::endl;
+    std::cout << m_requirement << std::endl;
+    std::cout << m_requirement << std::endl;
+
+}
+
+void Quest::checkState(int killCount){
     if(killCount == 0){
         m_state = QuestState::NotStarted;
-    }else if(killCount > 0 && killCount < map->getPocetNepratel()){
+    }else if(killCount > 0 && killCount < m_requirement){
         m_state = QuestState::InProgress;
-    }else if(killCount = map->getPocetNepratel()){
+    }else if(killCount >= m_requirement){
             m_state = QuestState::Completed;
         }
 }
 
 Quest::QuestState Quest::getState(){
     return m_state;
+}
+
+Quest::getRequirement() const {
+    return m_requirement;
 }
