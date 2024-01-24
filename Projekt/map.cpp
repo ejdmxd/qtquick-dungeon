@@ -95,8 +95,6 @@ bool Map::movingInMap(float moveX,float moveY, float distance) {
 
     player->setRoom(getRoom());
 
-
-    // std::cout << "Miestonost x" << m_roomX << " Miestnost y" << m_roomY << std::endl;
     emit roomChanged();
     return true;
 }

@@ -14,6 +14,7 @@ int Skeleton::getHealth() const {
     return m_health;
 }
 
+//Player dostane poskozeni skeletona - celkova obrana hrace(zakladni + armor)
 void Skeleton::attackPlayer(Player* player) {
     player->takeDamage((getAttack()- player->getDef()));
 }

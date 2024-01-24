@@ -49,7 +49,7 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
 void Player::takeDamage(int amount){
     m_isAttacked = true;
     emit isAttacked();
-    QTimer::singleShot(300, [this, amount]() { //Chvili trva nez hrac muze dostat damage znovu
+    QTimer::singleShot(400, [this, amount]() { //Chvili trva nez hrac muze dostat damage znovu
         m_health-= amount;
         m_isAttacked = false;
         emit isAttacked();
@@ -60,7 +60,7 @@ Inventory* Player::getInventory(){
 }
 
 
-
+// Celkovy DMG hrace zavisi i na pouzivane zbrani
 int Player::getAttack(){
     if(getInventory()->getGun() == nullptr){
         return m_attack;
@@ -69,6 +69,7 @@ int Player::getAttack(){
     }
 }
 
+// Celkovy DEFF hrace zavisi i na pouzivane zbroji
 int Player::getDef(){
     if(getInventory()->getArmor() == nullptr){
         return m_def;

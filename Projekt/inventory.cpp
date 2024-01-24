@@ -7,6 +7,8 @@ Inventory::Inventory(){
     m_gun = nullptr;
     m_armor = nullptr;
 }
+
+//METODY PRO SBIRANI ITEMU
 bool Inventory::pickGun(Gun* g){
     if(m_gun == nullptr){
         m_gun = g;
@@ -72,6 +74,7 @@ int Inventory::getNumberOfPotions()const
     return pocet;
 }
 
+//Maximalni pocet potionu je 3, pote se prestanou pridavat do inventare
 bool Inventory::pickPotion(Potion *p){
     if(getNumberOfPotions() < 3 ){
         m_potions.push_back(p);

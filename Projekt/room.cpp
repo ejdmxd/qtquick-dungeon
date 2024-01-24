@@ -183,12 +183,7 @@ void Room::checkClosestItem(Player *player){
     for (auto &thread : m_threads) {
             thread.join();
     }
-    /*
-    std::cout << "\n";
-    for (auto it = vzdalenostiItemu.begin(); it != vzdalenostiItemu.end(); ++it) {
-            std::cout << "Item: " << it->first->getName().toStdString() << ", Distance: " << it->second << std::endl;
-    }
-    */
+
     setClosestItem(vzdalenostiItemu, player);
 }
 
