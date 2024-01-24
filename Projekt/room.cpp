@@ -40,7 +40,7 @@ Q_INVOKABLE void Room::setEnemies(){
     int prem = generateRandomNumber(2,4);
     EnemyDirector* generujem = new EnemyDirector;
     for (int i=0;i<prem;i++){
-        int typeOfEnemy = generateRandomNumber(1,2);
+        int typeOfEnemy = generateRandomNumber(1,3);
         switch(typeOfEnemy){
         case 1:
             m_enemies.push_back(generujem->createZombie(generateRandomNumber(1,600),generateRandomNumber(1,450)));
@@ -48,6 +48,9 @@ Q_INVOKABLE void Room::setEnemies(){
 
         case 2:
             m_enemies.push_back(generujem->createSkeleton(generateRandomNumber(1,600),generateRandomNumber(1,450)));
+            break;
+        case 3:
+            m_enemies.push_back(generujem->createMummy(generateRandomNumber(1,600),generateRandomNumber(1,450)));
             break;
         }
 

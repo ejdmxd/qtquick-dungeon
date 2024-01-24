@@ -4,6 +4,7 @@
 #include <QObject>
 #include "zombie.h"
 #include "skeleton.h"
+#include "mummy.h"
 
 class EnemyDirector : public QObject
 {
@@ -12,6 +13,7 @@ public:
     explicit EnemyDirector(QObject *parent = nullptr);
     Zombie* createZombie(int positionX, int positionY);
     Skeleton* createSkeleton(int postionX, int postionY);
+    Mummy* createMummy(int postionX, int postionY);
 signals:
 
 };

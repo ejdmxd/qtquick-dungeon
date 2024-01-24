@@ -14,5 +14,10 @@ Skeleton* EnemyDirector::createSkeleton(int positionX, int positionY){
     return new Skeleton(150, 15, "skeleton",positionX, positionY);
 }
 
+Mummy* EnemyDirector::createMummy(int positionX, int positionY){
+    return new Mummy(250, 30, "mummy",positionX, positionY);
+}
+
+
 
 

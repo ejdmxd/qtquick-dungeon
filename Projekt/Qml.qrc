@@ -39,5 +39,7 @@
         <file>images/potionn.png</file>
         <file>images/rarearmor.png</file>
         <file>images/rareGun.png</file>
+        <file>mummy.qml</file>
+        <file>images/mummy.png</file>
     </qresource>
 </RCC>
