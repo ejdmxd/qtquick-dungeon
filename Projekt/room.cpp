@@ -41,16 +41,22 @@ void Room::enemyDropItem(int x, int y){
 }
 
 Q_INVOKABLE void Room::armorDropped(int x, int y,Armor* armor){
-    armor->position->setXValue(x);
-    armor->position->setYValue(y);
+    armor->position->newX(x);
+    armor->position->newY(y);
     m_items.push_back(armor);
+    emit itemsCrafted();
 }
 
 Q_INVOKABLE void Room::gunDropped(int x, int y,Gun* gun){
-    gun->position->setXValue(x);
-    gun->position->setYValue(y);
+    gun->position->newX(x);
+    gun->position->newY(y);
     m_items.push_back(gun);
+    emit itemsCrafted();
 }
+
+std::vector<Items*> Room::getItemVector(){
+    return m_items;
+};
 
 //Pridani nepratel do mistnosti
 Q_INVOKABLE void Room::setEnemies(){
@@ -84,6 +90,7 @@ Q_INVOKABLE void Room::updateEnemy(int index,int value, Player* player){
         enemyDropItem(m_enemies[index]->getEnemyPosX(),m_enemies[index]->getEnemyPosY());
         player->addKill();
         emit player->refreshQuest();
+        emit enemyKilled();
     }
 
 }
@@ -192,9 +199,9 @@ void Room::setClosestItem(std::multimap<Items*, int> vzdalenostiItemu, Player *p
 
             m_closestItem = minDistanceItem->first;
             if(minDistanceItem->second<100){
-            player->setInteractionStatus(true);
+                player->setInteractionStatus(true);
             }else{
-            player->setInteractionStatus(false);
+                player->setInteractionStatus(false);
             }
     }
 }
@@ -262,8 +269,9 @@ void Room::npcInteraction(Player *player){
     float distance = m_distanceManager->calculateVector(m_npc->getNPCX(), m_npc->getNPCY(), player->getXPosition(), player->getYPosition());
     if(distance<100){
             player->setInteractionStatus(true);
-    }else{
-            player->setInteractionStatus(false);
+    }
+    else if(m_items.empty()){
+        player->setInteractionStatus(false);
     }
 
 }

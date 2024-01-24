@@ -193,8 +193,9 @@ bool Player::getInteractionStatus() const {
 //Na zaklade typu mistnosti se urci dalsi interakce
 void Player::interact(){
     if(m_canInteract){
-        itemInteraction();
-
+        if(!m_currentRoom->getItemVector().empty()){
+            itemInteraction();
+        }
         if(m_currentRoom->getNPC()!=NULL){
             npcInteraction();
         }
