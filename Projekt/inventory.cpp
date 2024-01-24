@@ -45,6 +45,7 @@ void Inventory::dropArmor(){
         std::cout << "You dont have any Armor" << std::endl;
     }else{
         m_armor = nullptr;
+        emit armorChanged();
     }
 }
 

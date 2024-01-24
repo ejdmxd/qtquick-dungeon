@@ -164,11 +164,13 @@ void Player::heal(){
 
 void Player::dropArmor(){
     getInventory()->dropArmor();
+    emit deffChange();
     emit armorChange();
 }
 
 void Player::dropWeapon(){
     getInventory()->dropGun();
+    emit attackChange();
     emit weaponChange();
 }
 
@@ -191,9 +193,8 @@ bool Player::getInteractionStatus() const {
 //Na zaklade typu mistnosti se urci dalsi interakce
 void Player::interact(){
     if(m_canInteract){
-        if(m_currentRoom->getNPC()==NULL){
-            itemInteraction();
-        }
+        itemInteraction();
+
         if(m_currentRoom->getNPC()!=NULL){
             npcInteraction();
         }
@@ -233,18 +234,21 @@ void Player::npcInteraction(){
 
 //Hrac ruzne interaguje s itemy na zaklade jejich nazvu
 void Player::itemInteraction(){
-    if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
+    QString item_name = m_currentRoom->getClosestItem()->getName();
+    if(item_name=="Starting Weapon" || item_name=="Common Gun" || item_name=="Rare Gun"){
         Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
         if(m_inventory->pickGun(closestGun)){
-                emit weaponChange();
-                m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+            emit weaponChange();
+            m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+            emit attackChange();
         }
     }
-    if(m_currentRoom->getClosestItem()->getName()=="Common Armor"){
+    if(item_name=="Starting Armor" || item_name=="Common Armor" || item_name == "Rare Armor"){
         Armor* closestArmor = dynamic_cast<Armor*>(m_currentRoom->getClosestItem());
         if(m_inventory->pickArmor(closestArmor)){
                 emit armorChange();
                 m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+                emit deffChange();
         }
     }
     if(m_currentRoom->getClosestItem()->getName()=="Heal Potion"){
@@ -255,20 +259,6 @@ void Player::itemInteraction(){
         }
     }
 
-    if(m_currentRoom->getClosestItem()->getName()=="Rare Gun"){
-        Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
-        if(m_inventory->pickGun(closestGun)){
-            emit weaponChange();
-            m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
-        }
-    }
 
-    if(m_currentRoom->getClosestItem()->getName()=="Rare Armor"){
-        Armor* closestArmor = dynamic_cast<Armor*>(m_currentRoom->getClosestItem());
-        if(m_inventory->pickArmor(closestArmor)){
-            emit armorChange();
-            m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
-        }
-    }
 
 }

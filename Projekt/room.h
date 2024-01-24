@@ -42,6 +42,9 @@ private:
 public:
     explicit Room(QObject * parent=nullptr);
     Q_INVOKABLE void setItems();
+    void enemyDropItem(int x, int y);
+    Q_INVOKABLE void armorDropped(int x,int y, Armor* armor);
+    Q_INVOKABLE void gunDropped(int x,int y, Gun* gun);
     Q_INVOKABLE void setEnemies();
     Q_INVOKABLE void updateEnemy(int index,int value, Player* player);
     QVariant getItems();

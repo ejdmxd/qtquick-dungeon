@@ -14,3 +14,4 @@ void Armor::setDef(unsigned int newDef)
 int Armor::getDef(){
     return m_def;
 }
+

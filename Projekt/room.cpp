@@ -19,9 +19,7 @@ Q_INVOKABLE void Room::setItems()
         int number=generateRandomNumber(0,100);
         if (number >= 0 and number < 70){
             int itemsChance = generateRandomNumber(0,100);
-            if(itemsChance >= 0 and itemsChance < 30){
-                m_items.push_back(new Potion("Heal Potion",200,generateRandomNumber(50,550),generateRandomNumber(50,450)));
-            }else if(itemsChance >= 30 and itemsChance < 50){
+            if(itemsChance >= 30 and itemsChance < 50){
                 m_items.push_back(new Armor("Common Armor",40,generateRandomNumber(50,550),generateRandomNumber(50,450)));
             }else if(itemsChance >= 50 and itemsChance < 70){
                 m_items.push_back(new Gun("Common Gun",20,generateRandomNumber(50,550),generateRandomNumber(50,450)));
@@ -33,6 +31,25 @@ Q_INVOKABLE void Room::setItems()
         }
     }
     emit itemsCrafted();
+}
+
+void Room::enemyDropItem(int x, int y){
+    int number = generateRandomNumber(0,100);
+    if(number<=10 && number>=0){
+        m_items.push_back(new Potion("Heal Potion",200,x,y));
+    }
+}
+
+Q_INVOKABLE void Room::armorDropped(int x, int y,Armor* armor){
+    armor->position->setXValue(x);
+    armor->position->setYValue(y);
+    m_items.push_back(armor);
+}
+
+Q_INVOKABLE void Room::gunDropped(int x, int y,Gun* gun){
+    gun->position->setXValue(x);
+    gun->position->setYValue(y);
+    m_items.push_back(gun);
 }
 
 //Pridani nepratel do mistnosti
@@ -64,6 +81,7 @@ Q_INVOKABLE void Room::updateEnemy(int index,int value, Player* player){
     m_enemies[index]->damageEnemy(value);
     if(m_enemies[index]->getEnemyHP()<=0){
         m_enemies.erase(m_enemies.begin()+index);
+        enemyDropItem(m_enemies[index]->getEnemyPosX(),m_enemies[index]->getEnemyPosY());
         player->addKill();
         emit player->refreshQuest();
     }

@@ -88,8 +88,9 @@ Rectangle {
                     onClicked: {
                         // Zde přidej kód pro funkčnost DROP weapon
                         console.log("DROP");
-                         map.player.dropWeapon()
-                            map.player.forceLayout();
+                        map.room.gunDropped(map.player.positionX,map.player.positionY,map.player.gun);
+                        map.player.dropWeapon();
+                        map.player.forceLayout();
                     }
                 }
 
@@ -158,6 +159,7 @@ Rectangle {
                     onClicked: {
                         // Zde přidej kód pro funkčnost DROP armor
                         console.log("DROP");
+                        map.room.armorDropped(map.player.positionX,map.player.positionY,map.player.armor);
                         map.player.dropArmor()
                         map.player.forceLayout();
                     }

@@ -20,6 +20,8 @@ public:
 
     void setXValue(int newPosition);
     void setYValue(int newPosition);
+    void newX(int newPosition);
+    void newY(int newPosition);
     void setRotation(double newRotation);
 
 signals:

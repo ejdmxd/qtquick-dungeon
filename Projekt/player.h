@@ -29,8 +29,8 @@ class Player : public QObject
     Q_PROPERTY(Armor* armor READ getArmor NOTIFY armorChange)
     Q_PROPERTY(int numberOfPotions READ getNumberOfPotions NOTIFY potionDrinked)
     Q_PROPERTY(bool potions READ potionsEmpty NOTIFY potionDrinked)
-    Q_PROPERTY(int attack READ getAttack CONSTANT)
-    Q_PROPERTY(int deff READ getDef CONSTANT)
+    Q_PROPERTY(int attack READ getAttack NOTIFY attackChange)
+    Q_PROPERTY(int deff READ getDef NOTIFY deffChange)
 
     Q_PROPERTY(QString questInfo READ getQuestProgress NOTIFY refreshQuest)
     Q_PROPERTY(bool isQuestDone READ getQuestState NOTIFY questCompleted)
@@ -116,6 +116,8 @@ signals:
     void refreshQuest();
     void questCompleted();
     void interactionChanged();
+    void attackChange();
+    void deffChange();
 };
 
 #endif // PLAYER_H

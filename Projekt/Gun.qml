@@ -9,7 +9,20 @@ Image {
         text:map.room.items[itemIndex].name
         color:"white"
     }
-
+    Image {
+        id: startingGun
+        source: "images/slingshot.png"
+        visible:map.room.items[itemIndex].name==="Starting Weapon"
+        width:80
+        height:48
+    }
+    Image {
+        id: startingArmor
+        source: "images/startingArmor.png"
+        visible:map.room.items[itemIndex].name==="Starting Armor"
+        width:40
+        height:60
+    }
     Image {
         id: gun
         source: "images/gun.png"

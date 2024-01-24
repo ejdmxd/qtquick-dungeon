@@ -25,6 +25,14 @@ void Position::setYValue(int newPosition) {
     m_yValue += newPosition;
 }
 
+void Position::newX(int newPosition) {
+    m_xValue = newPosition;
+}
+
+void Position::newY(int newPosition) {
+    m_yValue = newPosition;
+}
+
 void Position::setRotation(double newRotation){
     m_rotation = newRotation;
 }

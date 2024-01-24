@@ -39,5 +39,7 @@
         <file>images/potionn.png</file>
         <file>images/rarearmor.png</file>
         <file>images/rareGun.png</file>
+        <file>images/slingshot.png</file>
+        <file>images/startingArmor.png</file>
     </qresource>
 </RCC>

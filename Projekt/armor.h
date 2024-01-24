@@ -9,6 +9,7 @@ public:
     Armor(QString armorName,int def,int xPosition, int yPosition);
     void setDef(unsigned int newDef);
     int getDef();
+
 };
 
 #endif // ARMOR_H
