@@ -33,4 +33,20 @@ Image {
         height:60
     }
 
+    Image {
+        id: rareArmor
+        source: "images/rarearmor.png"
+        visible:map.room.items[itemIndex].name==="Rare Armor"
+        width:60
+        height:60
+    }
+
+    Image {
+        id: rareGun
+        source: "images/rareGun.png"
+        visible:map.room.items[itemIndex].name==="Rare Gun"
+        width:80
+        height:48
+    }
+
 }
