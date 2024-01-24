@@ -9,10 +9,6 @@ Quest::Quest(QObject *parent)
 
 Quest::Quest(int requirement){
     m_requirement = requirement;
-    std::cout << m_requirement << std::endl;
-    std::cout << m_requirement << std::endl;
-    std::cout << m_requirement << std::endl;
-    std::cout << m_requirement << std::endl;
 
 }
 
@@ -31,7 +27,7 @@ Quest::QuestState Quest::getState(){
     return m_state;
 }
 
-Quest::getRequirement() const {
+int Quest::getRequirement() const {
     return m_requirement;
 }
 

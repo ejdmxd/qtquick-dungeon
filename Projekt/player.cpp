@@ -69,6 +69,14 @@ int Player::getAttack(){
     }
 }
 
+void Player::addKill(){
+    m_killCount++;
+}
+
+int Player::getKills(){
+    return m_killCount;
+}
+
 // Celkovy DEFF hrace zavisi i na pouzivane zbroji
 int Player::getDef(){
     if(getInventory()->getArmor() == nullptr){

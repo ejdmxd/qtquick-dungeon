@@ -4,7 +4,6 @@
 
 class Gun:public Items
 {
-
 private:
     int m_damage;
     unsigned int m_bullets;
@@ -12,7 +11,7 @@ public:
     Gun(QString weaponName, int damage, int xPosition, int yPosition);
     void setStrenght();
     unsigned int getBullets();
-    int getDamage() const;
+    Q_INVOKABLE int getDamage() const;
     void shotBullet();
 };
 

@@ -40,6 +40,7 @@ Image {
         }
 
     Keys.onPressed: {
+      if(!endscreen.visible){
         if (!moving) {
             keysPressed.push(event.key);
             updateMovement();
@@ -95,7 +96,9 @@ Image {
                 }
         if(event.key === Qt.Key_E){
             map.player.interact();
+
         }
+      }
     }
 
     Keys.onReleased: {

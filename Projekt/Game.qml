@@ -20,7 +20,9 @@ Item {
             id:weapon
             x:player.width*0.7
             y:player.height*0.6
+
         }
+
     }
 
 

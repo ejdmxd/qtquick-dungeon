@@ -32,6 +32,8 @@ public:
 signals:
     void roomChanged();
     void moveChanged();
+public slots:
+    void handleEnemyDefeated();
 };
 
 #endif // MAP_H
