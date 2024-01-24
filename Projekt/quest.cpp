@@ -33,3 +33,7 @@ Quest::QuestState Quest::getState(){
 Quest::getRequirement() const {
     return m_requirement;
 }
+
+bool Quest::gameOver() const {
+    return m_state == QuestState::Completed;
+}

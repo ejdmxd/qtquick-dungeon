@@ -32,6 +32,7 @@ class Player : public QObject
     Q_PROPERTY(int attack READ getAttack CONSTANT)
     Q_PROPERTY(int deff READ getDef CONSTANT)
     Q_PROPERTY(QString questInfo READ getQuestProgress NOTIFY refreshQuest)
+    Q_PROPERTY(bool isQuestDone READ getQuestState NOTIFY questCompleted)
 
     //Q_PROPERTY(double rotationAngle READ getRotationAngle NOTIFY rotationAngleChanged)
 
@@ -75,6 +76,7 @@ public:
 
     void takeDamage(int amount);
     bool getIsAttacked() const;
+    bool getQuestState() const;
     Q_INVOKABLE int getHealth() const;
 
     // METODY PRO INVENTAR
@@ -104,6 +106,7 @@ signals:
     void weaponChange();
     void armorChange();
     void refreshQuest();
+    void questCompleted();
 };
 
 #endif // PLAYER_H

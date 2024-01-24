@@ -205,6 +205,9 @@ void Player::interact(){
             emit refreshQuest();
             }else{
                 m_currentRoom->getNPC()->checkProgress(m_quest, m_killCount);
+                QTimer::singleShot(5000, [=]() {
+                 emit questCompleted();
+                });
             }
         }
     }
@@ -217,4 +220,12 @@ QString Player::getQuestProgress() {
         return novy;
     }
     return "/";
+}
+
+bool Player::getQuestState() const {
+    if(m_quest!=NULL){
+        return m_quest->gameOver();
+    }else{
+        return false;
+    }
 }

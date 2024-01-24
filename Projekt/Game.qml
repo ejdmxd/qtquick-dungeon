@@ -48,4 +48,8 @@ Item {
 
     }
 
+    EndScreen{
+        id: endscreen
+    }
+
 }

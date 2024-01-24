@@ -26,6 +26,7 @@ public:
     void checkState(int killCount);
 
     int getRequirement() const;
+    bool gameOver() const;
 signals:
 
 };

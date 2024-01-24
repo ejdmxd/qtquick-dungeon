@@ -9,7 +9,7 @@ Item {
 
         Text {
             id: textItem
-            text: map.room.npc.dialog
+            text: map.room.npc ? map.room.npc.dialog : ""
             anchors.centerIn: parent
         }
     }

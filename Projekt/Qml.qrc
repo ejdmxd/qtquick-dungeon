@@ -34,5 +34,6 @@
         <file>NPC.qml</file>
         <file>images/NPC.png</file>
         <file>Dialog.qml</file>
+        <file>EndScreen.qml</file>
     </qresource>
 </RCC>
