@@ -65,6 +65,7 @@ Q_INVOKABLE void Room::updateEnemy(int index,int value, Player* player){
     if(m_enemies[index]->getEnemyHP()<=0){
         m_enemies.erase(m_enemies.begin()+index);
         player->addKill();
+        emit player->refreshQuest();
     }
 
 }
