@@ -37,5 +37,7 @@
         <file>EndScreen.qml</file>
         <file>images/potion.png</file>
         <file>images/potionn.png</file>
+        <file>images/rarearmor.png</file>
+        <file>images/rareGun.png</file>
     </qresource>
 </RCC>

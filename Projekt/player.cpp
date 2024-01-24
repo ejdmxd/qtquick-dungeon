@@ -247,4 +247,20 @@ void Player::itemInteraction(){
         }
     }
 
+    if(m_currentRoom->getClosestItem()->getName()=="Rare Gun"){
+        Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
+        if(m_inventory->pickGun(closestGun)){
+            emit weaponChange();
+            m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+        }
+    }
+
+    if(m_currentRoom->getClosestItem()->getName()=="Rare Armor"){
+        Armor* closestArmor = dynamic_cast<Armor*>(m_currentRoom->getClosestItem());
+        if(m_inventory->pickArmor(closestArmor)){
+            emit armorChange();
+            m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+        }
+    }
+
 }

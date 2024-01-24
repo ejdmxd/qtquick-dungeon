@@ -11,17 +11,25 @@ Room::Room(QObject *parent) : QObject{parent}
     setEnemies();
 }
 
-//Pridani predmetu do mistnosti
+//Pridani predmetu do mistnosti, PRvni ja sance na 70 % se ze něco spawne, následně jsou šance 30 na potion, 20 na commor armor a gun, 10 procent na rare armor a gun
 Q_INVOKABLE void Room::setItems()
 {
     int prem=generateRandomNumber(0,3);
     for (int i=0;i<prem;i++){
-        int number=generateRandomNumber(0,1);
-        if (number == 1){
-            m_items.push_back(new Armor("Common Armor",70,generateRandomNumber(50,550),generateRandomNumber(50,450)));
-        } else{
-            m_items.push_back(new Gun("Common Gun",20,generateRandomNumber(50,550),generateRandomNumber(50,450)));
-            m_items.push_back(new Potion("Heal Potion",200,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+        int number=generateRandomNumber(0,100);
+        if (number >= 0 and number < 70){
+            int itemsChance = generateRandomNumber(0,100);
+            if(itemsChance >= 0 and itemsChance < 30){
+                m_items.push_back(new Potion("Heal Potion",200,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            }else if(itemsChance >= 30 and itemsChance < 50){
+                m_items.push_back(new Armor("Common Armor",40,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            }else if(itemsChance >= 50 and itemsChance < 70){
+                m_items.push_back(new Gun("Common Gun",20,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            }else if(itemsChance >= 70 and itemsChance < 80){
+                m_items.push_back(new Gun("Rare Gun",50,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            }else if(itemsChance >= 80 and itemsChance < 90){
+                m_items.push_back(new Gun("Rare Armor",80,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            }
         }
     }
     emit itemsCrafted();
