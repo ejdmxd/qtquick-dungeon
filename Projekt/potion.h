@@ -8,7 +8,7 @@ class Potion : public Items
 {
     int m_bonusHealth;
 public:
-    Potion(int bonusHealth, int xPosition, int yPosition);
+    Potion(QString name, int bonusHealth, int xPosition, int yPosition);
     int getBonusHealth() const;
     void setBonusHealth(int newBonusHealth);
 };

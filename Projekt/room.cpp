@@ -18,9 +18,10 @@ Q_INVOKABLE void Room::setItems()
     for (int i=0;i<prem;i++){
         int number=generateRandomNumber(0,1);
         if (number == 1){
-            m_items.push_back(new Armor("Common Armor",10,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            m_items.push_back(new Armor("Common Armor",70,generateRandomNumber(50,550),generateRandomNumber(50,450)));
         } else{
             m_items.push_back(new Gun("Common Gun",20,generateRandomNumber(50,550),generateRandomNumber(50,450)));
+            m_items.push_back(new Potion("Heal Potion",200,generateRandomNumber(50,550),generateRandomNumber(50,450)));
         }
     }
     emit itemsCrafted();

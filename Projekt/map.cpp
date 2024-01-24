@@ -3,12 +3,11 @@
 Map::Map(QObject *parent) : QObject{parent}
 {
     RoomDirector* roomDirector = new RoomDirector;
-    player=new Player(1000, 5);
-    player->getInventory()->pickGun(new Gun("Starting weapon",10,0,0));
-    player->getInventory()->pickArmor(new Armor("Common armor",15,0,0));
-    player->getInventory()->pickPotion(new Potion(200, 0,0));
-    player->getInventory()->pickPotion(new Potion(200, 0,0));
-    player->getInventory()->pickPotion(new Potion(200, 0,0));
+    player=new Player(1000, 10);
+    player->getInventory()->pickGun(new Gun("Starting Weapon",10,0,0));
+    player->getInventory()->pickArmor(new Armor("Starting Armor",40,0,0));
+    player->getInventory()->pickPotion(new Potion("Heal Potion",250, 0,0));
+    player->getInventory()->pickPotion(new Potion("Heal Potion",250, 0,0));
 
     for(int row=0;row<=3;row++){
         for(int column=0;column<=3;column++){

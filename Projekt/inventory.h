@@ -34,7 +34,7 @@ public:
     Gun* getGun() const;
     Armor* getArmor() const;
 
-    void pickPotion(Potion* p);
+    bool pickPotion(Potion* p);
     int getNumberOfPotions() const;
     void drinkPotion();
 

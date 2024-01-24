@@ -15,7 +15,7 @@ int Skeleton::getHealth() const {
 }
 
 void Skeleton::attackPlayer(Player* player) {
-    player->takeDamage(150);
+    player->takeDamage((getAttack()- player->getDef()));
 }
 
 bool Skeleton::isPlayerAttackable(Player* player)  {

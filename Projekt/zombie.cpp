@@ -23,7 +23,8 @@ int Zombie::getHealth() const {
 
 void Zombie::attackPlayer(Player* player) {
     //todo pridat hrace do metody jako parametr a setnout mu hp na -= getAttack()
-    player->takeDamage(150);
+    player->takeDamage((getAttack()- player->getDef()));
+
 }
 
 

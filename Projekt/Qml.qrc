@@ -35,5 +35,7 @@
         <file>images/NPC.png</file>
         <file>Dialog.qml</file>
         <file>EndScreen.qml</file>
+        <file>images/potion.png</file>
+        <file>images/potionn.png</file>
     </qresource>
 </RCC>

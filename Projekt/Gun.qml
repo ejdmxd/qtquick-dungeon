@@ -25,4 +25,12 @@ Image {
         height:60
     }
 
+    Image {
+        id: potion
+        source: "images/potionn.png"
+        visible:map.room.items[itemIndex].name==="Heal Potion"
+        width:60
+        height:60
+    }
+
 }

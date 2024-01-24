@@ -1,6 +1,7 @@
 #include "potion.h"
 
-Potion::Potion(int bonusHealth, int xPosition, int yPosition) : Items(xPosition, yPosition) {
+Potion::Potion(QString name,int bonusHealth, int xPosition, int yPosition) : Items(xPosition, yPosition) {
+    m_name = name;
     m_bonusHealth = bonusHealth;
 }
 

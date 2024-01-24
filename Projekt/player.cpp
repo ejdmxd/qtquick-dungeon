@@ -6,7 +6,7 @@ Player::Player(QObject *parent) : QObject{parent}{
 }
 
 Player::Player(int health, int def){
-    m_attack = 5;
+    m_attack = 20;
     m_health = health;
     m_def = def;
     m_inventory = new Inventory();
@@ -130,7 +130,7 @@ bool Player::potionsEmpty(){
 
 void Player::heal(){
     int maxHealth = 1000;
-    int healingAmount = 200;
+    int healingAmount = 250;
 
     // Získání aktuálního zdraví hráče
     int currentHealth = getHealth();
@@ -238,4 +238,12 @@ void Player::itemInteraction(){
                 m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
         }
     }
+    if(m_currentRoom->getClosestItem()->getName()=="Heal Potion"){
+        Potion* closestPotion = dynamic_cast<Potion*>(m_currentRoom->getClosestItem());
+        if(m_inventory->pickPotion(closestPotion)){
+            emit potionDrinked();
+            m_currentRoom->playerPickedItem(m_currentRoom->getClosestItem());
+        }
+    }
+
 }

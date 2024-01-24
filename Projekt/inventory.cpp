@@ -72,9 +72,10 @@ int Inventory::getNumberOfPotions()const
     return pocet;
 }
 
-void Inventory::pickPotion(Potion *p){
+bool Inventory::pickPotion(Potion *p){
     if(getNumberOfPotions() < 3 ){
         m_potions.push_back(p);
+        return true;
     }
 }
 
