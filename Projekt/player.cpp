@@ -195,8 +195,7 @@ void Player::interact(){
     if(m_canInteract){
         if(!m_currentRoom->getItemVector().empty()){
             itemInteraction();
-        }
-        if(m_currentRoom->getNPC()!=NULL){
+        }else if(m_currentRoom->getNPC()!=NULL){
             npcInteraction();
         }
     }
