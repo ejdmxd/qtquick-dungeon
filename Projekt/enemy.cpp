@@ -28,6 +28,7 @@ double Enemy::getEnemyRotation() const {
     return m_enemyPos->getRotation();
 }
 
+//Nepritel urcuje smer a vzdalenost, kde se nachazi hrac, vse pomoci tridy roomDirector
 void Enemy::findPlayer(float playerPosX, float playerPosY) {
     float distance = m_distanceMgr->calculateVector(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
     float angle_rad  = m_distanceMgr->calculateRadials(getEnemyPosX(), getEnemyPosY(), playerPosX, playerPosY);
@@ -48,6 +49,7 @@ bool Enemy::isPlayerNearby(float distance){
     }
 }
 
+//Na zaklade vypocitaneho uhlu se urci smer, kudy se vyda nepritel
 void Enemy::chasePlayer(float angle){
     if(angle > -10 && angle < 10 ){
         moveEnemy(-10);

@@ -14,6 +14,7 @@ Map::Map(QObject *parent) : QObject{parent}
         for(int column=0;column<=3;column++){
             m_map[{row,column}]=new Room;
             Room* currentRoom = m_map[{row,column}];
+            //prvni mistnost se vyklidi a prida se do nej pozdeji NPC
             if(row == 0 && column == 0){
                 roomDirector->clearRoom(currentRoom);
             }

@@ -13,6 +13,8 @@ NonPlayableCharacter::NonPlayableCharacter(int positionX, int positionY, int ene
     m_quest = new Quest(enemiesNumber);
 }
 
+
+//Hrac predava quest NPC, ktere pak kontroluje jestli je spleneny, pokud je splneny hra se ukonci
 void NonPlayableCharacter::checkProgress(Quest* quest, int killCount){
     quest->checkState(killCount);
     if(quest->getState()==Quest::QuestState::NotStarted){
@@ -31,6 +33,7 @@ void NonPlayableCharacter::checkProgress(Quest* quest, int killCount){
     });
 }
 
+//Pri prvni interakci s hracem mu preda ukol
 Quest* NonPlayableCharacter::giveQuest(Player *player){
     m_isDialogVisible = true;
     emit visibilityChanged();

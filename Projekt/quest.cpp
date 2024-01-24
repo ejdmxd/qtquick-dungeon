@@ -16,6 +16,7 @@ Quest::Quest(int requirement){
 
 }
 
+//Podle poctu zabitych nepratel se urcuje postup ukolem
 void Quest::checkState(int killCount){
     if(killCount == 0){
         m_state = QuestState::NotStarted;
@@ -34,6 +35,7 @@ Quest::getRequirement() const {
     return m_requirement;
 }
 
+//Kdyz npc potvrdi, ze quest je dokoncen, hra skonci
 bool Quest::gameOver() const {
     return m_state == QuestState::Completed;
 }

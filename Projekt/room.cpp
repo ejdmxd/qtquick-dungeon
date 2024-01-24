@@ -2,7 +2,7 @@
 #include "player.h"
 
 
-
+//Pri vytvoreni mistnosti se pridaji predmety, ohranici se a pridaji se nepratele
 Room::Room(QObject *parent) : QObject{parent}
 {
     setWidth(640);
@@ -11,7 +11,7 @@ Room::Room(QObject *parent) : QObject{parent}
     setEnemies();
 }
 
-
+//Pridani predmetu do mistnosti
 Q_INVOKABLE void Room::setItems()
 {
     int prem=generateRandomNumber(0,3);
@@ -26,6 +26,7 @@ Q_INVOKABLE void Room::setItems()
     emit itemsCrafted();
 }
 
+//Pridani nepratel do mistnosti
 Q_INVOKABLE void Room::setEnemies(){
     int prem = generateRandomNumber(2,4);
     EnemyDirector* generujem = new EnemyDirector;
@@ -65,6 +66,7 @@ unsigned int Room::getWidth(){
     return m_windowWidth;
 }
 
+//
 void Room::removeWall(int x, int y) {
     for (auto it = m_walls.begin(); it != m_walls.end(); ++it) {
         if ((*it)->getPositionX() == x && (*it)->getPositionY() == y) {
@@ -139,7 +141,7 @@ void Room::addEntrance(int posX,int posY)
     m_entrance.push_back(prem);
 }
 
-
+//Na zaklade predane mapy se vzdalenostmi, se urci nejblizsi item k hraci, pokud je dostatecne blizko muze s nim interagovat
 void Room::setClosestItem(std::multimap<Items*, int> vzdalenostiItemu, Player *player)
 {
     if (!vzdalenostiItemu.empty()) {
@@ -160,6 +162,7 @@ void Room::setClosestItem(std::multimap<Items*, int> vzdalenostiItemu, Player *p
     }
 }
 
+//Zde se urci vzdalensot kazdeho predmetu
 void Room::checkClosestItem(Player *player){
     int pocetItemu = m_items.size();
     std::vector<std::thread> m_threads;
@@ -194,6 +197,7 @@ Items* Room::getClosestItem() const {
     return m_closestItem;
 }
 
+//Pokud hrac prida item do inventare odstrani se z mistnosti
 void Room::playerPickedItem(Items* itemToRemove) {
     auto it = std::find(m_items.begin(), m_items.end(), itemToRemove);
     if (it != m_items.end()) {
@@ -221,6 +225,7 @@ NonPlayableCharacter* Room::getNPC() const{
 }
 
 
+//Pokud je hrac dostatecne blizko k npc, tak s nim muze interagovat
 void Room::npcInteraction(Player *player){
     float distance = m_distanceManager->calculateVector(m_npc->getNPCX(), m_npc->getNPCY(), player->getXPosition(), player->getYPosition());
     if(distance<100){

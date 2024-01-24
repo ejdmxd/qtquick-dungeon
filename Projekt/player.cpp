@@ -49,7 +49,7 @@ void Player::movePlayer(int changeX, int changeY, unsigned int value) {
 void Player::takeDamage(int amount){
     m_isAttacked = true;
     emit isAttacked();
-    QTimer::singleShot(300, [this, amount]() {
+    QTimer::singleShot(300, [this, amount]() { //Chvili trva nez hrac muze dostat damage znovu
         m_health-= amount;
         m_isAttacked = false;
         emit isAttacked();
@@ -163,7 +163,7 @@ void Player::dropWeapon(){
     emit weaponChange();
 }
 
-
+//Pri prochazeni mapou se meni mistnost, ve ktere se nachazi
 void Player::setRoom(Room *newRoom){
     m_currentRoom = newRoom;
 }
@@ -174,11 +174,12 @@ void Player::setInteractionStatus(bool status){
     emit interactionChanged();
 }
 
+//Pokud je hrac dostatecne blizko k nekteremu objektu, muze s nim interagovat
 bool Player::getInteractionStatus() const {
     return m_canInteract;
 }
 
-
+//Na zaklade typu mistnosti se urci dalsi interakce
 void Player::interact(){
     if(m_canInteract){
         if(m_currentRoom->getNPC()==NULL){
@@ -190,6 +191,7 @@ void Player::interact(){
     }
 }
 
+//Ve statistikach se hraci vypisuje postup ukolem
 QString Player::getQuestProgress() {
     if(m_quest!=NULL){
         std::string progres = "Zabito monster: " + std::to_string(m_killCount) + " / " + std::to_string(m_quest->getRequirement());
@@ -207,6 +209,7 @@ bool Player::getQuestState() const {
     }
 }
 
+//Pokud poprve interaguje s npc, npc mu preda quest, jinak mu predava quest pro kontrolu postupu
 void Player::npcInteraction(){
     if(m_quest==NULL){
         m_quest=m_currentRoom->getNPC()->giveQuest(this);
@@ -219,7 +222,7 @@ void Player::npcInteraction(){
     }
 }
 
-
+//Hrac ruzne interaguje s itemy na zaklade jejich nazvu
 void Player::itemInteraction(){
     if(m_currentRoom->getClosestItem()->getName()=="Common Gun"){
         Gun* closestGun = dynamic_cast<Gun*>(m_currentRoom->getClosestItem());
