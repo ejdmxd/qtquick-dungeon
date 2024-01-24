@@ -15,7 +15,7 @@ Skeleton* EnemyDirector::createSkeleton(int positionX, int positionY){
 }
 
 Mummy* EnemyDirector::createMummy(int positionX, int positionY){
-    return new Mummy(250, 30, "mummy",positionX, positionY);
+    return new Mummy(250, 60, "mummy",positionX, positionY);
 }
 
 
