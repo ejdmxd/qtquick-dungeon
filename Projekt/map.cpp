@@ -34,6 +34,7 @@ Map::Map(QObject *parent) : QObject{parent}
 
     }
     setRoom(std::array<int,2>{m_roomX,m_roomY});
+    roomDirector->addBoss(m_map[{3,3}],300,300);
     roomDirector->addNPC(m_map[{0, 0}], 250, 250, m_pocetNepratel);
     player->setRoom(getRoom());
 }

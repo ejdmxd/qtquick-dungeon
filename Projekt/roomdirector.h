@@ -16,6 +16,7 @@ public:
     void addBottomEntrance(Room* room);
     void clearRoom(Room* room);
     void addNPC(Room* room, int positionX, int positionY, int enemiesNumber);
+    void addBoss(Room* room, int positionX, int positionY);
 signals:
 
 };

@@ -33,3 +33,8 @@ void RoomDirector::clearRoom(Room *room){
 void RoomDirector::addNPC(Room *room, int positionX, int positionY, int enemiesNumber){
     room->setNPC(new NonPlayableCharacter(positionX, positionY, enemiesNumber));
 }
+
+void RoomDirector::addBoss(Room *room, int positionX, int positionY)
+{
+    room->setBoss(new Boss(400,300,"boss",positionX,positionY));
+}

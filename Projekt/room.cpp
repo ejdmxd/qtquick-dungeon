@@ -278,3 +278,8 @@ void Room::npcInteraction(Player *player){
     }
 
 }
+
+void Room::setBoss(Boss* boss){
+    m_enemies.push_back(boss);
+    m_pocetNepratel++;
+}

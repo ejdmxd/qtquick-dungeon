@@ -43,5 +43,7 @@
         <file>images/mummy.png</file>
         <file>images/slingshot.png</file>
         <file>images/startingArmor.png</file>
+        <file>images/bos.png</file>
+        <file>Boss.qml</file>
     </qresource>
 </RCC>

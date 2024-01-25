@@ -43,7 +43,7 @@ void Enemy::findPlayer(float playerPosX, float playerPosY) {
 
 
 bool Enemy::isPlayerNearby(float distance){
-    if(distance < 250){
+    if(distance < 350){
         return true;
     }else{
         return false;

@@ -16,6 +16,7 @@
 #include "wall.h"
 #include "distancemanager.h"
 #include "nonplayablecharacter.h"
+#include "boss.h"
 
 class Player;
 
@@ -75,6 +76,8 @@ public:
     //Kazda mistnost ma v sobe pocet, kolik vytvori nepratel
     unsigned int getPocetNepratel() const;
     void clearRoom();
+
+    void setBoss(Boss* b);
 
     //Metody pridavajici npc do mistnosti
     void setNPC(NonPlayableCharacter* npc);
