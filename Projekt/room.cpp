@@ -216,10 +216,10 @@ void Room::checkClosestItem(Player *player){
     std::mutex lock;
     std::multimap<Items*, int>vzdalenostiItemu;
     auto lambda = [&lock, &vzdalenostiItemu, &player](Items* items, DistanceManager* distanceManager){
-        lock.lock();
         int playerPositionX = player->getXPosition();
         int playerPositionY = player->getYPosition();
         float distance = distanceManager->calculateVector(items->getPositionX(), items->getPositionY(), playerPositionX, playerPositionY);
+        lock.lock();
         vzdalenostiItemu.insert(std::pair<Items*, int>(items, distance));
         lock.unlock();
     };

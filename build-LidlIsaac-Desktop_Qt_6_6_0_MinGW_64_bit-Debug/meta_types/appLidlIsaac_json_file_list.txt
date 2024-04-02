@@ -1,2 +1,0 @@
-C:/Users/adik1/C++/pcp/build-LidlIsaac-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/appLidlIsaac_autogen/include/../EWIEGA46WW/moc_player.cpp.json
-C:/Users/adik1/C++/pcp/build-LidlIsaac-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/appLidlIsaac_autogen/include/../EWIEGA46WW/moc_position.cpp.json

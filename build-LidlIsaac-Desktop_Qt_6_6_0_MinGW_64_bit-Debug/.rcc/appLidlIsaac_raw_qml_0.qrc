@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="/LidlIsaac/">
-    <file alias="Main.qml">C:/Users/adik1/C++/pcp/LidlIsaac/Main.qml</file>
-    <file alias="Player.qml">C:/Users/adik1/C++/pcp/LidlIsaac/Player.qml</file>
-  </qresource>
-</RCC>
-
